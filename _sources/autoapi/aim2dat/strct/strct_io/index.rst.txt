@@ -1,0 +1,29 @@
+:py:mod:`aim2dat.strct.strct_io`
+================================
+
+.. py:module:: aim2dat.strct.strct_io
+
+.. autoapi-nested-parse::
+
+   Module to handle internal functions to read and write structures.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.strct.strct_io.get_structure_from_file
+
+
+
+.. py:function:: get_structure_from_file(file_path: str, file_format: str, kwargs: dict = {}) -> Union[dict, list]
+
+   Get function to read structure file.
+
+

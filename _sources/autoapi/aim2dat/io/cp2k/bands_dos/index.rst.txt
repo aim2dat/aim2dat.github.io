@@ -1,0 +1,43 @@
+:py:mod:`aim2dat.io.cp2k.bands_dos`
+===================================
+
+.. py:module:: aim2dat.io.cp2k.bands_dos
+
+.. autoapi-nested-parse::
+
+   Functions to read band structure and pDOS files of CP2K.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.io.cp2k.bands_dos.read_atom_proj_density_of_states
+   aim2dat.io.cp2k.bands_dos.read_band_structure
+
+
+
+.. py:function:: read_atom_proj_density_of_states(folder_path: str) -> dict
+
+   Read the atom projected density of states from CP2K.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder of the pdos files.
+
+   :returns: **pdos** (*dict*) -- Dictionary containing the projected density of states for each kind.
+
+
+.. py:function:: read_band_structure(file_name: str) -> dict
+
+   Read band structure file from CP2K.
+
+   :Parameters: **file_name** (*str*) -- Path of the output-file of CP2K containing the band structure.
+
+   :returns: **band_structure** (*dict*) -- Dictionary containing the k-path and the eigenvalues as well as the occupations.
+
+

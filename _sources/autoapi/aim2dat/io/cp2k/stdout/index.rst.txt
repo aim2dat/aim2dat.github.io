@@ -1,0 +1,35 @@
+:py:mod:`aim2dat.io.cp2k.stdout`
+================================
+
+.. py:module:: aim2dat.io.cp2k.stdout
+
+.. autoapi-nested-parse::
+
+   Functions to read the standard output file of CP2K.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.io.cp2k.stdout.read_stdout
+
+
+
+.. py:function:: read_stdout(file_name: str, parser_type: str = 'standard') -> dict
+
+   Read standard output file of CP2K.
+
+   :Parameters: * **file_name** (*str*) -- Path to the output file.
+                * **parser_type** (*str*) -- Defines the quantities that are being parsed. Supported options are ``'standard'``,
+                  ``'partial_charges'`` and ``'trajectory'``.
+
+   :returns: *dict* -- Dictionary containing the parsed values.
+
+

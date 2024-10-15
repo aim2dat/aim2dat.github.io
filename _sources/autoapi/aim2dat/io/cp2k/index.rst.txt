@@ -1,0 +1,90 @@
+:py:mod:`aim2dat.io.cp2k`
+=========================
+
+.. py:module:: aim2dat.io.cp2k
+
+.. autoapi-nested-parse::
+
+   Modules to read output and write input files for the CP2K code.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bands_dos/index.rst
+   restart/index.rst
+   stdout/index.rst
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.io.cp2k.read_atom_proj_density_of_states
+   aim2dat.io.cp2k.read_band_structure
+   aim2dat.io.cp2k.read_optimized_structure
+   aim2dat.io.cp2k.read_restart_structure
+   aim2dat.io.cp2k.read_stdout
+
+
+
+.. py:function:: read_atom_proj_density_of_states(folder_path: str) -> dict
+
+   Read the atom projected density of states from CP2K.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder of the pdos files.
+
+   :returns: **pdos** (*dict*) -- Dictionary containing the projected density of states for each kind.
+
+
+.. py:function:: read_band_structure(file_name: str) -> dict
+
+   Read band structure file from CP2K.
+
+   :Parameters: **file_name** (*str*) -- Path of the output-file of CP2K containing the band structure.
+
+   :returns: **band_structure** (*dict*) -- Dictionary containing the k-path and the eigenvalues as well as the occupations.
+
+
+.. py:function:: read_optimized_structure(folder_path: str) -> Union[dict, List[dict]]
+
+   Read optimized structures from 'restart'-files.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder containing the CP2K ouput-files.
+
+   :returns: *dict or list* -- Dictionary containing the structural information. In case of a farming job a list of
+             dictionaries is returned. In case several calculations have been run in the same folder a
+             nested dictionary is returned.
+
+
+.. py:function:: read_restart_structure(folder_path: str) -> Union[dict, List[dict]]
+
+   Read structures from 'restart'-files.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder containing the CP2K ouput-files.
+
+   :returns: *dict or list* -- Dictionary or list of dictionaries containing the structural information. In case of a
+             farming job or several calculations have been run in the same folder, a list of
+             dictionaries is returned.
+
+
+.. py:function:: read_stdout(file_name: str, parser_type: str = 'standard') -> dict
+
+   Read standard output file of CP2K.
+
+   :Parameters: * **file_name** (*str*) -- Path to the output file.
+                * **parser_type** (*str*) -- Defines the quantities that are being parsed. Supported options are ``'standard'``,
+                  ``'partial_charges'`` and ``'trajectory'``.
+
+   :returns: *dict* -- Dictionary containing the parsed values.
+
+

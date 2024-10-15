@@ -1,0 +1,29 @@
+:py:mod:`aim2dat.io.zeo`
+========================
+
+.. py:module:: aim2dat.io.zeo
+
+.. autoapi-nested-parse::
+
+   Input operations for zeo++.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.io.zeo.write_to_file
+
+
+
+.. py:function:: write_to_file(struct_dict, file_path)
+
+   Write structure to file.
+
+

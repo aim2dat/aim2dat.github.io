@@ -1,0 +1,38 @@
+:py:mod:`aim2dat.io.cif`
+========================
+
+.. py:module:: aim2dat.io.cif
+
+.. autoapi-nested-parse::
+
+   Read and write cif files.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.io.cif.read_file
+
+
+
+.. py:function:: read_file(file_name, extract_structures=False, strct_check_chem_formula=True, strct_get_sym_op_from_sg=True)
+
+   Read cif file.
+
+   :Parameters: * **file_name** (*str*) -- Path to the cif file.
+                * **extract_structures** (*bool (optional)*) -- Whether to extract alls crystal structures and add them to the output dictionary with the
+                  key ``'structures'``.
+                * **strct_check_chem_formula** (*bool (optional)*) -- Check the chemical formula given by field matches with the structure.
+                * **strct_get_sym_op_from_sg** (*bool (optional)*) -- Add symmetry operations based on the space group to add symmetry equivalent sites to the
+                  structures.
+
+   :returns: *dict* -- Output dictionary.
+
+

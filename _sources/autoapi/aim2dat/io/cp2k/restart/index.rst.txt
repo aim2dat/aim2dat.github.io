@@ -1,0 +1,47 @@
+:py:mod:`aim2dat.io.cp2k.restart`
+=================================
+
+.. py:module:: aim2dat.io.cp2k.restart
+
+.. autoapi-nested-parse::
+
+   Functions to read the restart file of CP2K.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.io.cp2k.restart.read_optimized_structure
+   aim2dat.io.cp2k.restart.read_restart_structure
+
+
+
+.. py:function:: read_optimized_structure(folder_path: str) -> Union[dict, List[dict]]
+
+   Read optimized structures from 'restart'-files.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder containing the CP2K ouput-files.
+
+   :returns: *dict or list* -- Dictionary containing the structural information. In case of a farming job a list of
+             dictionaries is returned. In case several calculations have been run in the same folder a
+             nested dictionary is returned.
+
+
+.. py:function:: read_restart_structure(folder_path: str) -> Union[dict, List[dict]]
+
+   Read structures from 'restart'-files.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder containing the CP2K ouput-files.
+
+   :returns: *dict or list* -- Dictionary or list of dictionaries containing the structural information. In case of a
+             farming job or several calculations have been run in the same folder, a list of
+             dictionaries is returned.
+
+

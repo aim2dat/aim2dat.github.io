@@ -1,0 +1,42 @@
+:py:mod:`aim2dat.io.utils`
+==========================
+
+.. py:module:: aim2dat.io.utils
+
+.. autoapi-nested-parse::
+
+   Utils for read and write functions.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.io.utils.custom_open
+   aim2dat.io.utils.read_multiple
+   aim2dat.io.utils.read_structure
+
+
+
+.. py:function:: custom_open(file, mode='r', **kwargs)
+
+   Open files by distinguishing custom file classes (such as AiiDA's SingleFileData) with an
+   open function.
+
+
+.. py:function:: read_multiple(pattern, is_read_strct_method=False, preset_kwargs={})
+
+   Add support for a list of multiple files or folder paths (decorator).
+
+
+.. py:function:: read_structure(pattern, preset_kwargs={})
+
+   Decorate functions that parse structure(s).
+
+
