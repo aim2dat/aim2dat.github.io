@@ -1,0 +1,22 @@
+:py:mod:`aim2dat.utils.data.electronegativity`
+==============================================
+
+.. py:module:: aim2dat.utils.data.electronegativity
+
+.. autoapi-nested-parse::
+
+   Data sets of electronegativity.
+
+
+
+Module Contents
+---------------
+
+.. py:data:: allen
+
+   
+
+.. py:data:: pauling
+
+   
+

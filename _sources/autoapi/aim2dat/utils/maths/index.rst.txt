@@ -24,6 +24,7 @@ Functions
    aim2dat.utils.maths.calc_polygon_area
    aim2dat.utils.maths.calc_reflection_matrix
    aim2dat.utils.maths.calc_solid_angle
+   aim2dat.utils.maths.create_lin_ind_vector
    aim2dat.utils.maths.gaussian_function
 
 
@@ -90,6 +91,18 @@ Functions
                 * **points** (*list*) -- Nested list of points.
 
    :returns: **solid_angle** (*float*) -- Solid angle of the polyhedron.
+
+
+.. py:function:: create_lin_ind_vector(vector)
+
+   Create linearly independent vector with reference to the input vector.
+   The method adds one to the first element of the vector which is zero.
+   In case all elements are non-zero, one is added to the first element of
+   the vector.
+
+   :Parameters: **vector** (*list, tuple or np.array*) -- Input vector
+
+   :returns: *np.array* -- Linearly independent vector.
 
 
 .. py:function:: gaussian_function(x, mu, sigma)

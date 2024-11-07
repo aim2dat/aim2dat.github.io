@@ -28,15 +28,6 @@ Functions
 
 
 
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   aim2dat.utils.element_properties.element_groups
-   aim2dat.utils.element_properties.element_groups
-
-
 .. py:function:: get_atomic_mass(element)
 
    Return atomic mass of the element from the atomic number, element symbol or name.
@@ -110,13 +101,4 @@ Attributes
 
    :returns: **elements** (*set*) -- Set of element symbols..
 
-
-.. py:data:: element_groups
-   :value: []
-
-   
-
-.. py:data:: element_groups
-
-   
 

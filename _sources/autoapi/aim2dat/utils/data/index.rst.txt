@@ -1,0 +1,21 @@
+:py:mod:`aim2dat.utils.data`
+============================
+
+.. py:module:: aim2dat.utils.data
+
+.. autoapi-nested-parse::
+
+   Data sets.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   atomic_radii/index.rst
+   electronegativity/index.rst
+
+

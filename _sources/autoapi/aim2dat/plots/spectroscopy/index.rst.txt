@@ -64,6 +64,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.spectroscopy.SpectrumPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.spectroscopy.SpectrumPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.spectroscopy.SpectrumPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.spectroscopy.SpectrumPlot.custom_linewidths>`
@@ -223,6 +225,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 

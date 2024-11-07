@@ -1,0 +1,22 @@
+:py:mod:`aim2dat.utils.data.atomic_radii`
+=========================================
+
+.. py:module:: aim2dat.utils.data.atomic_radii
+
+.. autoapi-nested-parse::
+
+   Data sets of atomic radii.
+
+
+
+Module Contents
+---------------
+
+.. py:data:: chen_manz
+
+   
+
+.. py:data:: vdw_charry_tkatchenko
+
+   
+

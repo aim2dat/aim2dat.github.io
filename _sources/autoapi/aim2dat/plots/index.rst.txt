@@ -73,6 +73,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.BandStructureDOSPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.BandStructureDOSPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.BandStructureDOSPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.BandStructureDOSPlot.custom_linewidths>`
@@ -238,6 +240,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -830,6 +838,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.BandStructurePlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.BandStructurePlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.BandStructurePlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.BandStructurePlot.custom_linewidths>`
@@ -973,6 +983,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -1463,6 +1479,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.DOSPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.DOSPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.DOSPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.DOSPlot.custom_linewidths>`
@@ -1604,6 +1622,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -2037,6 +2061,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.PartialChargesPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.PartialChargesPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.PartialChargesPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.PartialChargesPlot.custom_linewidths>`
@@ -2164,6 +2190,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -2527,6 +2559,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.PartialRDFPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.PartialRDFPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.PartialRDFPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.PartialRDFPlot.custom_linewidths>`
@@ -2650,6 +2684,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -2989,6 +3029,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.PhasePlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.PhasePlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.PhasePlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.PhasePlot.custom_linewidths>`
@@ -3122,6 +3164,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -3502,6 +3550,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.PlanarFieldPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.PlanarFieldPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.PlanarFieldPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.PlanarFieldPlot.custom_linewidths>`
@@ -3635,6 +3685,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -3992,6 +4048,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.SimplePlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.SimplePlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.SimplePlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.SimplePlot.custom_linewidths>`
@@ -4088,7 +4146,7 @@ Functions
         - Whether the axis labels and other axis properties are auto-generated.
       * - :py:obj:`create_default_gridspec <aim2dat.plots.SimplePlot.create_default_gridspec>`\ (nrows, ncols, nplots, heights, widths, center_last_row)
         - Create default grid for multiple plots.
-      * - :py:obj:`import_bar_data_set <aim2dat.plots.SimplePlot.import_bar_data_set>`\ (data_label, x_values, y_values, heights, plot_label, color, alpha, bottom, width, align)
+      * - :py:obj:`import_bar_data_set <aim2dat.plots.SimplePlot.import_bar_data_set>`\ (data_label, x_values, y_values, heights, plot_label, color, hatch, alpha, bottom, width, align)
         - Import data set for a bar plot.
       * - :py:obj:`import_scatter_data_set <aim2dat.plots.SimplePlot.import_scatter_data_set>`\ (data_label, x_values, y_values, y_values_2, plot_label, color, face_color, alpha, line_style, line_width, marker, marker_face_color, marker_edge_width, use_fill, use_fill_between)
         - Import data set for a scatter plot.
@@ -4121,6 +4179,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -4422,7 +4486,7 @@ Functions
                    * **center_last_row** (*bool (optional)*) -- Center the plots of the last row.
 
 
-   .. py:method:: import_bar_data_set(data_label, x_values, y_values, heights, plot_label=None, color=None, alpha=None, bottom=0.0, width=0.8, align='center')
+   .. py:method:: import_bar_data_set(data_label, x_values, y_values, heights, plot_label=None, color=None, hatch=None, alpha=None, bottom=0.0, width=0.8, align='center')
 
       Import data set for a bar plot.
 
@@ -4432,6 +4496,7 @@ Functions
                    * **heights** (*list*) -- List of bar heights.
                    * **plot_label** (*str (optional)*) -- Label of the data set shown in the legend.
                    * **color** (*str (optional)*) -- Color of the data set.
+                   * **hatch** (*str (optional)*) -- Hatch of the data set.
                    * **alpha** (*float (optional)*) -- Transparency of the data set.
                    * **bottom** (*float*) -- Position of the bottom of the bars.
                    * **width** (*float*) -- Width of the bars.
@@ -4522,6 +4587,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.SpectrumPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.SpectrumPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.SpectrumPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.SpectrumPlot.custom_linewidths>`
@@ -4681,6 +4748,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -5097,6 +5170,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.SurfacePlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.SurfacePlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.SurfacePlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.SurfacePlot.custom_linewidths>`
@@ -5242,6 +5317,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 

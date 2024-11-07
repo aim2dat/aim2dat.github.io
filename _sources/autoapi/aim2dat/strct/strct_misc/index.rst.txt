@@ -36,7 +36,7 @@ Functions
    Calculate dihedral angle between four atomic positions.
 
 
-.. py:function:: calculate_distance(structure, site_index1, site_index2, backfold_positions, use_supercell, r_max)
+.. py:function:: calculate_distance(structure, site_index1, site_index2, backfold_positions, use_supercell=False, r_max=0.0, return_pos=False)
 
    Calculate distance.
 

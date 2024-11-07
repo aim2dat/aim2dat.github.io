@@ -68,6 +68,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.band_structure_dos.BandStructureDOSPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.band_structure_dos.BandStructureDOSPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.band_structure_dos.BandStructureDOSPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.band_structure_dos.BandStructureDOSPlot.custom_linewidths>`
@@ -233,6 +235,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -825,6 +833,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.band_structure_dos.BandStructurePlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.band_structure_dos.BandStructurePlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.band_structure_dos.BandStructurePlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.band_structure_dos.BandStructurePlot.custom_linewidths>`
@@ -968,6 +978,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -1458,6 +1474,8 @@ Functions
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.band_structure_dos.DOSPlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.band_structure_dos.DOSPlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.band_structure_dos.DOSPlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.band_structure_dos.DOSPlot.custom_linewidths>`
@@ -1599,6 +1617,12 @@ Functions
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 

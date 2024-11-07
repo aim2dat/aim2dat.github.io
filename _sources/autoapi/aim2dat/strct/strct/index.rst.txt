@@ -110,7 +110,7 @@ Attributes
         - Calculate coordination environment of each atomic site.
       * - :py:obj:`calculate_dihedral_angle <aim2dat.strct.strct.Structure.calculate_dihedral_angle>`\ (site_index1, site_index2, site_index3, site_index4, backfold_positions)
         - Calculate dihedral angle between four atoms.
-      * - :py:obj:`calculate_distance <aim2dat.strct.strct.Structure.calculate_distance>`\ (site_index1, site_index2, backfold_positions, use_supercell, r_max)
+      * - :py:obj:`calculate_distance <aim2dat.strct.strct.Structure.calculate_distance>`\ (site_index1, site_index2, backfold_positions, use_supercell, r_max, return_pos)
         - Calculate distance between two atoms.
       * - :py:obj:`calculate_ffingerprint <aim2dat.strct.strct.Structure.calculate_ffingerprint>`\ (r_max, delta_bin, sigma, use_legacy_smearing, distinguish_kinds)
         - Calculate f-fingerprint function for each element-pair and atomic site.
@@ -352,7 +352,7 @@ Attributes
       :returns: *float* -- Dihedral angle.
 
 
-   .. py:method:: calculate_distance(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, backfold_positions: bool = True, use_supercell: bool = False, r_max: float = 7.5) -> Union[float, list]
+   .. py:method:: calculate_distance(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, backfold_positions: bool = True, use_supercell: bool = False, r_max: float = 7.5, return_pos: bool = False) -> Union[float, list]
 
       Calculate distance between two atoms.
 
@@ -362,9 +362,14 @@ Attributes
                    * **use_supercell** (*bool*) -- User supercell to calculate all distances between the two atomic sites up to the
                      radius ``r_max``.
                    * **r_max** (*float*) -- Cut-off value for the maximum distance between two atoms in angstrom.
+                   * **return_pos** (*bool*) -- Whether to return the positions. Useful if ``use_supercell`` is set to ``True`` or when
+                     trying to determine the closest periodic image.
 
-      :returns: *float* -- Distance between the two atoms or a list of distances (if ``use_super_cell`` is
-                set to ``True``).
+      :returns: *float or None* -- Distance between the two atoms or a list of distances (if ``use_super_cell`` is
+                set to ``True``). If multiple indices are provided, a dictionary with the index pairs
+                as keys is returned. If ``return_pos`` is set to ``True``, the positions are
+                returned as well. In case ``use_super_cell`` is set to ``True`` and the distance
+                between the two sites exceeds ``r_max``, ``None`` is returned.
 
 
    .. py:method:: calculate_ffingerprint(r_max: float = 20.0, delta_bin: float = 0.005, sigma: float = 0.05, use_legacy_smearing: bool = False, distinguish_kinds: bool = False) -> Tuple[dict, dict]

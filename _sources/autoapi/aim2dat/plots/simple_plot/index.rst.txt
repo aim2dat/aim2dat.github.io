@@ -45,6 +45,8 @@ Classes
         - Alpha value(s) controlling the opacity of plot elements.
       * - :py:obj:`custom_colors <aim2dat.plots.simple_plot.SimplePlot.custom_colors>`
         - Colors used in the plot.
+      * - :py:obj:`custom_hatch <aim2dat.plots.simple_plot.SimplePlot.custom_hatch>`
+        - Hatch value(s) controlling the hatch of plot elements.
       * - :py:obj:`custom_linestyles <aim2dat.plots.simple_plot.SimplePlot.custom_linestyles>`
         - Line styles used in the plot (This feature is not supported by all plot
       * - :py:obj:`custom_linewidths <aim2dat.plots.simple_plot.SimplePlot.custom_linewidths>`
@@ -141,7 +143,7 @@ Classes
         - Whether the axis labels and other axis properties are auto-generated.
       * - :py:obj:`create_default_gridspec <aim2dat.plots.simple_plot.SimplePlot.create_default_gridspec>`\ (nrows, ncols, nplots, heights, widths, center_last_row)
         - Create default grid for multiple plots.
-      * - :py:obj:`import_bar_data_set <aim2dat.plots.simple_plot.SimplePlot.import_bar_data_set>`\ (data_label, x_values, y_values, heights, plot_label, color, alpha, bottom, width, align)
+      * - :py:obj:`import_bar_data_set <aim2dat.plots.simple_plot.SimplePlot.import_bar_data_set>`\ (data_label, x_values, y_values, heights, plot_label, color, hatch, alpha, bottom, width, align)
         - Import data set for a bar plot.
       * - :py:obj:`import_scatter_data_set <aim2dat.plots.simple_plot.SimplePlot.import_scatter_data_set>`\ (data_label, x_values, y_values, y_values_2, plot_label, color, face_color, alpha, line_style, line_width, marker, marker_face_color, marker_edge_width, use_fill, use_fill_between)
         - Import data set for a scatter plot.
@@ -174,6 +176,12 @@ Classes
       Colors used in the plot.
 
       :type: list or tuple
+
+   .. py:property:: custom_hatch
+
+      Hatch value(s) controlling the hatch of plot elements.
+
+      :type: float, list or tuple
 
    .. py:property:: custom_linestyles
 
@@ -475,7 +483,7 @@ Classes
                    * **center_last_row** (*bool (optional)*) -- Center the plots of the last row.
 
 
-   .. py:method:: import_bar_data_set(data_label, x_values, y_values, heights, plot_label=None, color=None, alpha=None, bottom=0.0, width=0.8, align='center')
+   .. py:method:: import_bar_data_set(data_label, x_values, y_values, heights, plot_label=None, color=None, hatch=None, alpha=None, bottom=0.0, width=0.8, align='center')
 
       Import data set for a bar plot.
 
@@ -485,6 +493,7 @@ Classes
                    * **heights** (*list*) -- List of bar heights.
                    * **plot_label** (*str (optional)*) -- Label of the data set shown in the legend.
                    * **color** (*str (optional)*) -- Color of the data set.
+                   * **hatch** (*str (optional)*) -- Hatch of the data set.
                    * **alpha** (*float (optional)*) -- Transparency of the data set.
                    * **bottom** (*float*) -- Position of the bottom of the bars.
                    * **width** (*float*) -- Width of the bars.
