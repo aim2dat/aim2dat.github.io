@@ -39,9 +39,9 @@ Attributes
    Delete atoms.
 
 
-.. py:function:: scale_unit_cell(structure: aim2dat.strct.strct.Structure, scaling_factor: float, change_label: bool) -> aim2dat.strct.strct.Structure
+.. py:function:: scale_unit_cell(structure, scaling_factors: Union[float, List[float]] = None, pressure: float = None, bulk_modulus: float = None, change_label: bool = True) -> aim2dat.strct.strct.Structure
 
-   Scale unit cell of the structure.
+   Scale the unit cell of a structure.
 
 
 .. py:function:: substitute_elements(structure: aim2dat.strct.strct.Structure, elements: List[Tuple[Union[str, int]]], radius_type: Union[str, None], remove_kind: bool, change_label: bool) -> Tuple[aim2dat.strct.strct.Structure, str]

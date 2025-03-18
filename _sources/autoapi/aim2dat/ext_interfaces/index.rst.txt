@@ -21,9 +21,10 @@ Submodules
    ase_atoms/index.rst
    ase_surface/index.rst
    dscribe/index.rst
-   graphs/index.rst
+   graphviz/index.rst
    hdf5/index.rst
    import_opt_dependencies/index.rst
+   mofxdb/index.rst
    mp/index.rst
    mp_openapi/index.rst
    optimade/index.rst

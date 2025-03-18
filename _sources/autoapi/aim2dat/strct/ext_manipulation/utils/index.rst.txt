@@ -1,0 +1,51 @@
+:orphan:
+
+:py:mod:`aim2dat.strct.ext_manipulation.utils`
+==============================================
+
+.. py:module:: aim2dat.strct.ext_manipulation.utils
+
+.. autoapi-nested-parse::
+
+   Module to check interatomic distances.
+
+
+
+Module Contents
+---------------
+
+
+.. py:exception:: DistanceThresholdError
+
+
+   Bases: :py:obj:`ValueError`
+
+   Error in case distances between atom sites are too short or too long.
+
+   
+   .. py:class:: args
+
+
+
+
+
+   .. rubric:: Overview
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`with_traceback <aim2dat.strct.ext_manipulation.utils.DistanceThresholdError.with_traceback>`\ ()
+        - Exception.with_traceback(tb) --
+
+
+
+
+   .. py:method:: with_traceback()
+
+      Exception.with_traceback(tb) --
+      set self.__traceback__ to tb and return self.
+
+
+

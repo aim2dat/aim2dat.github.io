@@ -9,17 +9,6 @@
 
 
 
-Submodules
-----------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   bands_dos/index.rst
-   restart/index.rst
-   stdout/index.rst
-
-
 Package Contents
 ----------------
 

@@ -1,3 +1,5 @@
+:orphan:
+
 :py:mod:`aim2dat.io.cp2k.bands_dos`
 ===================================
 

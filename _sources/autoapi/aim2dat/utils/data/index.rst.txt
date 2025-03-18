@@ -1,3 +1,5 @@
+:orphan:
+
 :py:mod:`aim2dat.utils.data`
 ============================
 

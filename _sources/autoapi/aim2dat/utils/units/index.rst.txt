@@ -5,7 +5,13 @@
 
 .. autoapi-nested-parse::
 
-   Module containing units and unit conversions.
+   Module containing units and unit conversions. ``'eV'`` and ``'angstrom'`` are set to ``1.0``
+   and the unit of time is ``ansgrom/sqrt(u/eV)`` per default in the ``Quantity`` classes.
+   However, other units can be set as base:
+
+   >>> length = Length(base_unit="m")
+   >>> length.m
+   1.0
 
 
 
@@ -17,9 +23,12 @@ Classes
 
 .. autoapisummary::
 
+   aim2dat.utils.units.Constants
    aim2dat.utils.units.Energy
+   aim2dat.utils.units.Force
    aim2dat.utils.units.Frequency
    aim2dat.utils.units.Length
+   aim2dat.utils.units.Pressure
    aim2dat.utils.units.UnitConverter
    aim2dat.utils.units.Wavevector
 
@@ -31,19 +40,74 @@ Attributes
 
 .. autoapisummary::
 
+   aim2dat.utils.units.constants
    aim2dat.utils.units.energy
+   aim2dat.utils.units.force
    aim2dat.utils.units.frequency
    aim2dat.utils.units.length
+   aim2dat.utils.units.pressure
    aim2dat.utils.units.wavevector
 
 
 
-.. py:class:: Energy
+.. py:class:: Constants(constants: Union[str, dict] = 'CODATA_2022')
+
+
+   Class to access fundamental constants.
+
+
+   .. rubric:: Overview
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.utils.units.Constants.get_unit>`\ (name)
+        - Get unit of constant.
+      * - :py:obj:`get_value <aim2dat.utils.units.Constants.get_value>`\ (name)
+        - Get value of constant.
+      * - :py:obj:`get_value_unit <aim2dat.utils.units.Constants.get_value_unit>`\ (name)
+        - Get value and unit of constant.
+
+
+
+
+   .. py:method:: get_unit(name: str) -> str
+
+      Get unit of constant.
+
+      :Parameters: **name** (*str*) -- Name of constant.
+
+      :returns: *str* -- Unit of the constant.
+
+
+   .. py:method:: get_value(name: str) -> float
+
+      Get value of constant.
+
+      :Parameters: **name** (*str*) -- Name of the constant.
+
+      :returns: *float* -- Value of the constant.
+
+
+   .. py:method:: get_value_unit(name: str) -> Tuple[float, str]
+
+      Get value and unit of constant.
+
+      :Parameters: **name** (*str*) -- Name of constant.
+
+      :returns: *tuple* -- Tuple containing value and unit of constant.
+
+
+
+
+.. py:class:: Energy(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
    Bases: :py:obj:`_BaseQuantity`
 
-   Energy units based on the ase library. eV is set to ``1.0``.
+   Energy units.
 
 
    .. rubric:: Overview
@@ -66,27 +130,72 @@ Attributes
 
 
    .. py:property:: available_units
+      :type: List[str]
 
       List of all available units.
 
 
-   .. py:method:: get_unit(unit)
+   .. py:method:: get_unit(unit: str) -> float
 
       Return the value of the unit.
 
       :Parameters: **unit** (*str*) -- Physical unit.
 
-      :returns: **value** (*float*) -- Value of the unit.
+      :returns: *float* -- Value of the unit.
 
 
 
 
-.. py:class:: Frequency
+.. py:class:: Force(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
    Bases: :py:obj:`_BaseQuantity`
 
-   Frequency units based on the ase library.
+   Force units.
+
+
+   .. rubric:: Overview
+
+   .. list-table:: Properties
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`available_units <aim2dat.utils.units.Force.available_units>`
+        - List of all available units.
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.utils.units.Force.get_unit>`\ (unit)
+        - Return the value of the unit.
+
+
+
+   .. py:property:: available_units
+      :type: List[str]
+
+      List of all available units.
+
+
+   .. py:method:: get_unit(unit: str) -> float
+
+      Return the value of the unit.
+
+      :Parameters: **unit** (*str*) -- Physical unit.
+
+      :returns: *float* -- Value of the unit.
+
+
+
+
+.. py:class:: Frequency(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
+
+
+   Bases: :py:obj:`_BaseQuantity`
+
+   Frequency units.
 
 
    .. rubric:: Overview
@@ -109,27 +218,28 @@ Attributes
 
 
    .. py:property:: available_units
+      :type: List[str]
 
       List of all available units.
 
 
-   .. py:method:: get_unit(unit)
+   .. py:method:: get_unit(unit: str) -> float
 
       Return the value of the unit.
 
       :Parameters: **unit** (*str*) -- Physical unit.
 
-      :returns: **value** (*float*) -- Value of the unit.
+      :returns: *float* -- Value of the unit.
 
 
 
 
-.. py:class:: Length
+.. py:class:: Length(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
    Bases: :py:obj:`_BaseQuantity`
 
-   Length units based on the ase library. Angstrom is set to ``1.0``.
+   Length units.
 
 
    .. rubric:: Overview
@@ -152,17 +262,62 @@ Attributes
 
 
    .. py:property:: available_units
+      :type: List[str]
 
       List of all available units.
 
 
-   .. py:method:: get_unit(unit)
+   .. py:method:: get_unit(unit: str) -> float
 
       Return the value of the unit.
 
       :Parameters: **unit** (*str*) -- Physical unit.
 
-      :returns: **value** (*float*) -- Value of the unit.
+      :returns: *float* -- Value of the unit.
+
+
+
+
+.. py:class:: Pressure(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
+
+
+   Bases: :py:obj:`_BaseQuantity`
+
+   Pressure units.
+
+
+   .. rubric:: Overview
+
+   .. list-table:: Properties
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`available_units <aim2dat.utils.units.Pressure.available_units>`
+        - List of all available units.
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.utils.units.Pressure.get_unit>`\ (unit)
+        - Return the value of the unit.
+
+
+
+   .. py:property:: available_units
+      :type: List[str]
+
+      List of all available units.
+
+
+   .. py:method:: get_unit(unit: str) -> float
+
+      Return the value of the unit.
+
+      :Parameters: **unit** (*str*) -- Physical unit.
+
+      :returns: *float* -- Value of the unit.
 
 
 
@@ -196,7 +351,7 @@ Attributes
 
 
 
-   .. py:method:: convert_units(value, unit_1, unit_2)
+   .. py:method:: convert_units(value: Union[int, float], unit_1: str, unit_2: str) -> float
       :classmethod:
 
       Convert one unit into another.
@@ -210,12 +365,12 @@ Attributes
 
 
 
-.. py:class:: Wavevector
+.. py:class:: Wavevector(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
    Bases: :py:obj:`_BaseQuantity`
 
-   Wavevector units based on the ase library. Angstrom-1 is set to ``1.0``.
+   Wavevector units.
 
 
    .. rubric:: Overview
@@ -238,21 +393,30 @@ Attributes
 
 
    .. py:property:: available_units
+      :type: List[str]
 
       List of all available units.
 
 
-   .. py:method:: get_unit(unit)
+   .. py:method:: get_unit(unit: str) -> float
 
       Return the value of the unit.
 
       :Parameters: **unit** (*str*) -- Physical unit.
 
-      :returns: **value** (*float*) -- Value of the unit.
+      :returns: *float* -- Value of the unit.
 
 
+
+.. py:data:: constants
+
+   
 
 .. py:data:: energy
+
+   
+
+.. py:data:: force
 
    
 
@@ -261,6 +425,10 @@ Attributes
    
 
 .. py:data:: length
+
+   
+
+.. py:data:: pressure
 
    
 

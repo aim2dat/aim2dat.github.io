@@ -61,6 +61,8 @@ Classes
         - Append structure via the database-id.
       * - :py:obj:`generate_random_crystals <aim2dat.strct.structure_importer.StructureImporter.generate_random_crystals>`\ (formulas, excl_space_groups, tol_tuples, molecular, dimensions, bin_size, max_atoms, max_structures, max_structures_per_cs, max_structures_per_sg, volume_factor)
         - Generate random crystals using the PyXtaL library.
+      * - :py:obj:`import_from_mofxdb <aim2dat.strct.structure_importer.StructureImporter.import_from_mofxdb>`\ (name, mofid, mofkey, vf_range, lcd_range, pld_range, sa_m2g_range, sa_m2cm3_range, adsorbates, database, store_uptake, query_limit)
+        - Import structures from the MOFX database using the fetch function.
       * - :py:obj:`import_from_mp <aim2dat.strct.structure_importer.StructureImporter.import_from_mp>`\ (formulas, api_key, compatible_only, conv_unit_cell, property_data, structure_type, use_openapi)
         - Import structures from the crystal database Materials Project using the pymatgen interface.
       * - :py:obj:`import_from_optimade <aim2dat.strct.structure_importer.StructureImporter.import_from_optimade>`\ (formulas, database_id, api_version, optimade_url, timeout)
@@ -146,6 +148,26 @@ Classes
                    * **max_structures_per_sg** (*int (optional)*) -- Maximum number of structures that are generated per space group. The default value is
                      ``5``.
                    * **volume_factor** (*float (optional)*) -- Volume factor used to generate the crystal. The default value is ``1.0``.
+
+
+   .. py:method:: import_from_mofxdb(name: str = None, mofid: str = None, mofkey: str = None, vf_range: tuple = (None, None), lcd_range: tuple = (None, None), pld_range: tuple = (None, None), sa_m2g_range: tuple = (None, None), sa_m2cm3_range: tuple = (None, None), adsorbates: Union[str, List[str]] = None, database: str = None, store_uptake: bool = False, query_limit: int = 1000) -> aim2dat.strct.StructureCollection
+
+      Import structures from the MOFX database using the fetch function.
+      If no parameters are set, the whole dabatabse will be imported.
+
+      :Parameters: * **name** (*str (optional)*) -- Name of the MOF in the corresponding DB.
+                   * **mofid** (*str (optional)*) -- The unique ID for the MOF.
+                   * **mofkey** (*str (optional)*) -- A specific key, often used for subcategorization or indexing.
+                   * **vf_range** (*tuple (optional)*) -- Minimum and maximum values for the void fraction (VF).
+                   * **lcd_range** (*tuple (optional)*) -- Minimum and maximum values for the largest cavity diameter (LCD).
+                   * **pld_range** (*tuple (optional)*) -- Minimum and maximum values for the pore limiting diameter (PLD).
+                   * **sa_m2g_range** (*tuple (optional)*) -- Minimum and maximum values for the surface area (SA) per gram (m^3/g^3).
+                   * **sa_m2cm3_range** (*tuple (optional)*) -- Minimum and maximum values for the surface area (SA) in square meters (m^2/cm^3).
+                   * **adsorbates** (*str or list of str (optional)*) -- The adsorbates included for heat and isotherm analysis.  E.g. ``'Hydrogen'``.
+                     If not defined, all adsorbates studied are considered.
+                   * **database** (*str (optional)*) -- The database from which MOF information is retrieved. E.g. ``'CoREMOF 2019'``.
+                   * **store_uptake** (*bool (optional)*) -- If ``True``, uptake data is stored in ``extras``.
+                   * **query_limit** (*int (optional)*) -- The maximum number of results to retrieve for the query.
 
 
    .. py:method:: import_from_mp(formulas: Union[str, List[str]], api_key: str, compatible_only: bool = True, conv_unit_cell: bool = False, property_data: list = [], structure_type: str = 'initial', use_openapi: bool = False) -> aim2dat.strct.StructureCollection

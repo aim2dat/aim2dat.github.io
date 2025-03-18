@@ -31,7 +31,7 @@ Functions
    .. rubric:: Notes
 
    This function is depreciated and will be removed soon. Please use
-   ``aim2dat.strct.ext_manipulation.add_structure`` instead.
+   ``aim2dat.strct.ext_manipulation.add_structure_coord`` instead.
 
    :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure to which the guest structure is added.
                 * **wrap** (*bool (optional)*) -- Wrap atomic positions back into the unit cell.

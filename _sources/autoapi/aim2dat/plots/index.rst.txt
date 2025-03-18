@@ -4148,7 +4148,7 @@ Functions
         - Create default grid for multiple plots.
       * - :py:obj:`import_bar_data_set <aim2dat.plots.SimplePlot.import_bar_data_set>`\ (data_label, x_values, y_values, heights, plot_label, color, hatch, alpha, bottom, width, align)
         - Import data set for a bar plot.
-      * - :py:obj:`import_scatter_data_set <aim2dat.plots.SimplePlot.import_scatter_data_set>`\ (data_label, x_values, y_values, y_values_2, plot_label, color, face_color, alpha, line_style, line_width, marker, marker_face_color, marker_edge_width, use_fill, use_fill_between)
+      * - :py:obj:`import_scatter_data_set <aim2dat.plots.SimplePlot.import_scatter_data_set>`\ (data_label, x_values, y_values, y_values_2, plot_label, color, face_color, alpha, line_style, line_width, marker, marker_face_color, marker_edge_width, use_fill, use_fill_between, legend_group)
         - Import data set for a scatter plot.
       * - :py:obj:`plot <aim2dat.plots.SimplePlot.plot>`\ (data_labels, plot_title, plot_name, subplot_assignment)
         - Plot the data sets.
@@ -4503,7 +4503,7 @@ Functions
                    * **align** (*str*) -- Alignment of the bar.
 
 
-   .. py:method:: import_scatter_data_set(data_label, x_values, y_values, y_values_2=None, plot_label=None, color=None, face_color=None, alpha=None, line_style=None, line_width=None, marker=None, marker_face_color=None, marker_edge_width=None, use_fill=False, use_fill_between=False)
+   .. py:method:: import_scatter_data_set(data_label, x_values, y_values, y_values_2=None, plot_label=None, color=None, face_color=None, alpha=None, line_style=None, line_width=None, marker=None, marker_face_color=None, marker_edge_width=None, use_fill=False, use_fill_between=False, legend_group=None)
 
       Import data set for a scatter plot.
 
@@ -4522,6 +4522,7 @@ Functions
                    * **marker_edge_width** (*int (optional)*) -- Marker size.
                    * **use_fill** (*bool (optional)*) -- Whether to fill the area between the x-axis and the data points.
                    * **use_fill_between** (*bool (optional)*) -- Whether to fill the area between the deta sets.
+                   * **legend_group** (*str (optional)*) -- Label to group data sets by color.
 
 
    .. py:method:: plot(data_labels, plot_title=None, plot_name='plot.png', subplot_assignment=None)

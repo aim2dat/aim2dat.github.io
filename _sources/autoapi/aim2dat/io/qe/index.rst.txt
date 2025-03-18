@@ -22,6 +22,7 @@ Functions
    aim2dat.io.qe.read_band_structure
    aim2dat.io.qe.read_input_structure
    aim2dat.io.qe.read_total_density_of_states
+   aim2dat.io.qe.read_xml
 
 
 
@@ -61,5 +62,19 @@ Functions
    :Parameters: **file_name** (*str*) -- Path of the output-file of Quantum ESPRESSO containing the total density of states.
 
    :returns: **pdos** (*dict*) -- Dictionary containing the projected density of states for each atom.
+
+
+.. py:function:: read_xml(file_name: str, extract_structures: bool = False, strct_type: str = None, strct_include: list = None)
+
+   Read xml output file.
+
+   :Parameters: * **file_name** (*str*) -- Path of the xml-file of Quantum ESPRESSO.
+                * **extract_structures** (*bool*) -- Whether to extract alls crystal structures and add them to the output dictionary with the
+                  key ``'structures'``.
+                * **strct_type** (*str*) -- Type of extracted structure(s). Supported options are ``'input'``, ``'output'`` or
+                  ``'steps'``.
+                * **strct_include** (*list*) -- List of dictionary keys that are included in the structure attributes.
+
+   :returns: *dict* -- Output dictionary.
 
 

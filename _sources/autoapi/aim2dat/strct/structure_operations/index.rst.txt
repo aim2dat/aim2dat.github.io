@@ -55,12 +55,8 @@ Functions
       :header-rows: 0
       :widths: auto
 
-      * - :py:obj:`analysis_methods <aim2dat.strct.structure_operations.StructureOperations.analysis_methods>`
-        - `class` Return calculation methods.
       * - :py:obj:`chunksize <aim2dat.strct.structure_operations.StructureOperations.chunksize>`
         - Number of tasks handed to each process at once.
-      * - :py:obj:`manipulation_methods <aim2dat.strct.structure_operations.StructureOperations.manipulation_methods>`
-        - `class` Return manipulation methods.
       * - :py:obj:`n_procs <aim2dat.strct.structure_operations.StructureOperations.n_procs>`
         - Number of parallel processes.
       * - :py:obj:`output_format <aim2dat.strct.structure_operations.StructureOperations.output_format>`
@@ -77,6 +73,8 @@ Functions
       :header-rows: 0
       :widths: auto
 
+      * - :py:obj:`analysis_methods <aim2dat.strct.structure_operations.StructureOperations.analysis_methods>`\ ()
+        - list: Return calculation methods. This property is depreciated and will be removed soon.
       * - :py:obj:`calculate_angle <aim2dat.strct.structure_operations.StructureOperations.calculate_angle>`\ (site_index1, site_index2, site_index3, backfold_positions)
         - Calculate angle between three atoms.
       * - :py:obj:`calculate_coordination <aim2dat.strct.structure_operations.StructureOperations.calculate_coordination>`\ (r_max, method, min_dist_delta, n_nearest_neighbours, radius_type, atomic_radius_delta, econ_tolerance, econ_conv_threshold, voronoi_weight_type, voronoi_weight_threshold, okeeffe_weight_threshold)
@@ -91,7 +89,7 @@ Functions
         - Calculate the formation energies and stabilities of all structures.
       * - :py:obj:`calculate_voronoi_tessellation <aim2dat.strct.structure_operations.StructureOperations.calculate_voronoi_tessellation>`\ (r_max)
         - Calculate voronoi polyhedron for each atomic site.
-      * - :py:obj:`compare_sites_via_coordination <aim2dat.strct.structure_operations.StructureOperations.compare_sites_via_coordination>`\ (key1, key2, site_index1, site_index2, r_max, cn_method, min_dist_delta, n_nearest_neighbours, econ_tolerance, econ_conv_threshold, voronoi_weight_type, voronoi_weight_threshold, okeeffe_weight_threshold, distinguish_kinds, threshold)
+      * - :py:obj:`compare_sites_via_coordination <aim2dat.strct.structure_operations.StructureOperations.compare_sites_via_coordination>`\ (key1, key2, site_index1, site_index2, distinguish_kinds, threshold, \*\*cn_kwargs)
         - Compare two atomic sites based on their coordination and the distances to their neighbour
       * - :py:obj:`compare_sites_via_ffingerprint <aim2dat.strct.structure_operations.StructureOperations.compare_sites_via_ffingerprint>`\ (key1, key2, site_index1, site_index2, r_max, delta_bin, sigma, use_weights, use_legacy_smearing, distinguish_kinds)
         - Calculate similarity of two atom sites.
@@ -115,28 +113,26 @@ Functions
         - Find duplicate structures comparing directly the lattice parameters and positions of the
       * - :py:obj:`find_duplicates_via_ffingerprint <aim2dat.strct.structure_operations.StructureOperations.find_duplicates_via_ffingerprint>`\ (confined, remove_structures, threshold, r_max, delta_bin, sigma, use_weights, use_legacy_smearing, distinguish_kinds)
         - Find duplicate structures using the FFingerprint method.
-      * - :py:obj:`find_eq_sites_via_coordination <aim2dat.strct.structure_operations.StructureOperations.find_eq_sites_via_coordination>`\ (key, r_max, cn_method, min_dist_delta, n_nearest_neighbours, econ_tolerance, econ_conv_threshold, voronoi_weight_type, voronoi_weight_threshold, okeeffe_weight_threshold, distinguish_kinds, threshold)
+      * - :py:obj:`find_eq_sites_via_coordination <aim2dat.strct.structure_operations.StructureOperations.find_eq_sites_via_coordination>`\ (key, distinguish_kinds, threshold, \*\*cn_kwargs)
         - Find equivalent sites by comparing the coordination of each site and its distance to the
       * - :py:obj:`find_eq_sites_via_ffingerprint <aim2dat.strct.structure_operations.StructureOperations.find_eq_sites_via_ffingerprint>`\ (key, r_max, delta_bin, sigma, use_weights, use_legacy_smearing, distinguish_kinds, threshold)
         - Find equivalent sites by comparing the F-Fingerprint of each site.
+      * - :py:obj:`list_analysis_methods <aim2dat.strct.structure_operations.StructureOperations.list_analysis_methods>`\ ()
+        - `class` Get a list with the function names of all available analysis methods.
+      * - :py:obj:`list_manipulation_methods <aim2dat.strct.structure_operations.StructureOperations.list_manipulation_methods>`\ ()
+        - `class` Get a list with the function names of all available manipulation methods.
+      * - :py:obj:`manipulation_methods <aim2dat.strct.structure_operations.StructureOperations.manipulation_methods>`\ ()
+        - list: Return manipulation methods. This property is depreciated and will be removed soon.
       * - :py:obj:`perform_analysis <aim2dat.strct.structure_operations.StructureOperations.perform_analysis>`\ (method, kwargs)
         - Perform structure analaysis using an external method.
       * - :py:obj:`perform_manipulation <aim2dat.strct.structure_operations.StructureOperations.perform_manipulation>`\ (method, kwargs)
         - Perform structure manipulation using an external method.
-      * - :py:obj:`scale_unit_cell <aim2dat.strct.structure_operations.StructureOperations.scale_unit_cell>`\ (scaling_factor, change_label)
-        - Scale unit cell of the structure.
+      * - :py:obj:`scale_unit_cell <aim2dat.strct.structure_operations.StructureOperations.scale_unit_cell>`\ (scaling_factors, pressure, bulk_modulus, change_label)
+        - Scale the unit cell of the structure, supporting isotropic and anisotropic strain,
       * - :py:obj:`substitute_elements <aim2dat.strct.structure_operations.StructureOperations.substitute_elements>`\ (elements, radius_type, remove_kind, change_label)
         - Substitute all atoms of one or several elements.
 
 
-
-   .. py:property:: analysis_methods
-      :type: list
-      :classmethod:
-
-      Return calculation methods.
-
-      :type: list
 
    .. py:property:: chunksize
       :type: int
@@ -144,14 +140,6 @@ Functions
       Number of tasks handed to each process at once.
 
       :type: int
-
-   .. py:property:: manipulation_methods
-      :type: list
-      :classmethod:
-
-      Return manipulation methods.
-
-      :type: list
 
    .. py:property:: n_procs
       :type: int
@@ -186,25 +174,31 @@ Functions
       :type: bool
 
 
-   .. py:method:: calculate_angle(site_index1: int = 0, site_index2: int = 1, site_index3: int = 2, backfold_positions: bool = True) -> float
+   .. py:method:: analysis_methods() -> list
+
+      list: Return calculation methods. This property is depreciated and will be removed soon.
+
+
+   .. py:method:: calculate_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, backfold_positions: bool = True) -> float
 
       Calculate angle between three atoms.
 
-      :Parameters: * **site_index1** (*int*) -- Index of the site.
-                   * **site_index2** (*int*) -- Index of the site.
-                   * **site_index3** (*int*) -- Index of the site.
+      :Parameters: * **site_index1** (*int, list or None*) -- Index of the site.
+                   * **site_index2** (*int, list or None*) -- Index of the site.
+                   * **site_index3** (*int, list or None*) -- Index of the site.
                    * **backfold_positions** (*bool*) -- Whether to backfold the atomic sites and return the smallest distance.
 
-      :returns: *float* -- Angle calculated via the vectors from atom 2 to atom 1 and atom 3.
+      :returns: *float or dict* -- Angle calculated via the vectors from atom 2 to atom 1 and atom 3. If one of the
+                indices is a list, a dictionary with all index pairs as keys and angles as values is
+                returned.
 
 
-   .. py:method:: calculate_coordination(r_max: float = 10.0, method: str = 'minimum_distance', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, radius_type: str = 'chen_manz', atomic_radius_delta: float = 0.0, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5) -> dict
+   .. py:method:: calculate_coordination(r_max: float = 10.0, method: str = 'atomic_radius', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, radius_type: str = 'chen_manz', atomic_radius_delta: float = 0.0, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5) -> dict
 
       Calculate coordination environment of each atomic site.
 
       :Parameters: * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
-                   * **method** (*str (optional)*) -- Method used to calculate the coordination environment. The default value is
-                     ``'minimum_distance'``.
+                   * **method** (*str (optional)*) -- Method used to calculate the coordination environment.
                    * **min_dist_delta** (*float (optional)*) -- Tolerance parameter that defines the relative distance from the nearest neighbour atom
                      for the ``'minimum_distance'`` method.
                    * **n_nearest_neighbours** (*int (optional)*) -- Number of neighbours that are considered coordinated for the ``'n_neighbours'``
@@ -230,25 +224,26 @@ Functions
       :returns: *dict* -- Dictionary containing the coordination information of the structure.
 
 
-   .. py:method:: calculate_dihedral_angle(site_index1: int = 0, site_index2: int = 1, site_index3: int = 2, site_index4: int = 3, backfold_positions: bool = True) -> float
+   .. py:method:: calculate_dihedral_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, site_index4: Union[int, List[int]] = 3, backfold_positions: bool = True) -> float
 
       Calculate dihedral angle between four atoms.
 
-      :Parameters: * **site_index1** (*int*) -- Index of the site.
-                   * **site_index2** (*int*) -- Index of the site.
-                   * **site_index3** (*int*) -- Index of the site.
-                   * **site_index4** (*int*) -- Index of the site.
+      :Parameters: * **site_index1** (*int, list or None*) -- Index of the site.
+                   * **site_index2** (*int, list or None*) -- Index of the site.
+                   * **site_index3** (*int, list or None*) -- Index of the site.
+                   * **site_index4** (*int, list or None*) -- Index of the site.
                    * **backfold_positions** (*bool*) -- Whether to backfold the atomic sites and return the smallest distance.
 
-      :returns: *float* -- Dihedral angle.
+      :returns: *float or dict* -- Dihedral angle. If one of the indices is a list, a dictionary with all
+                index pairs as keys and angles as values is returned.
 
 
    .. py:method:: calculate_distance(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, backfold_positions: bool = True, use_supercell: bool = False, r_max: float = 7.5, return_pos: bool = False) -> Union[float, list]
 
       Calculate distance between two atoms.
 
-      :Parameters: * **site_index1** (*int*) -- Index of the site.
-                   * **site_index2** (*int*) -- Index of the site.
+      :Parameters: * **site_index1** (*int, list or None*) -- Index of the site.
+                   * **site_index2** (*int, list or None*) -- Index of the site.
                    * **backfold_positions** (*bool*) -- Whether to backfold the atomic sites and return the smallest distance.
                    * **use_supercell** (*bool*) -- User supercell to calculate all distances between the two atomic sites up to the
                      radius ``r_max``.
@@ -256,11 +251,11 @@ Functions
                    * **return_pos** (*bool*) -- Whether to return the positions. Useful if ``use_supercell`` is set to ``True`` or when
                      trying to determine the closest periodic image.
 
-      :returns: *float or None* -- Distance between the two atoms or a list of distances (if ``use_super_cell`` is
-                set to ``True``). If multiple indices are provided, a dictionary with the index pairs
-                as keys is returned. If ``return_pos`` is set to ``True``, the positions are
-                returned as well. In case ``use_super_cell`` is set to ``True`` and the distance
-                between the two sites exceeds ``r_max``, ``None`` is returned.
+      :returns: *float, dict or None* -- Distance between the two atoms or a list of distances (if ``use_super_cell`` is
+                set to ``True``). If one of the indices is a list, a dictionary with all index pairs
+                as keys and distances as values is returned. If ``return_pos`` is set to ``True``, the
+                positions are returned as well. In case ``use_super_cell`` is set to ``True`` and the
+                distance between the two sites exceeds ``r_max``, ``None`` is returned.
 
 
    .. py:method:: calculate_ffingerprint(r_max: float = 20.0, delta_bin: float = 0.005, sigma: float = 0.05, use_legacy_smearing: bool = False, distinguish_kinds: bool = False) -> Tuple[dict, dict]
@@ -304,7 +299,7 @@ Functions
       :returns: *list* -- List of voronoi details for each atomic site.
 
 
-   .. py:method:: compare_sites_via_coordination(key1: Union[str, int], key2: Union[str, int], site_index1: int, site_index2: int, r_max: float = 10.0, cn_method: str = 'minimum_distance', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5, distinguish_kinds: bool = False, threshold: float = 0.01)
+   .. py:method:: compare_sites_via_coordination(key1: Union[str, int], key2: Union[str, int], site_index1: int, site_index2: int, distinguish_kinds: bool = False, threshold: float = 0.01, **cn_kwargs)
 
       Compare two atomic sites based on their coordination and the distances to their neighbour
       atoms.
@@ -313,23 +308,10 @@ Functions
                    * **key2** (*str or int*) -- Index or label of the second structure.
                    * **site_index1** (*int*) -- Index of the site.
                    * **site_index2** (*int*) -- Index of the site.
-                   * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
-                   * **cn_method** (*str (optional)*) -- Method used to calculate the coordination environment.
-                   * **min_dist_delta** (*float (optional)*) -- Tolerance parameter that defines the relative distance from the nearest neighbour atom
-                     for the ``'minimum_distance'`` method.
-                   * **n_nearest_neighbours** (*int (optional)*) -- Number of neighbours that are considered coordinated for the ``'n_neighbours'``
-                     method.
-                   * **econ_tolerance** (*float (optional)*) -- Tolerance parameter for the econ method.
-                   * **econ_conv_threshold** (*float (optional)*) -- Convergence threshold for the econ method.
-                   * **voronoi_weight_type** (*str (optional)*) -- Weight type of the Voronoi facets. Supported options are ``'covalent_atomic_radius'``,
-                     ``'area'`` and ``'solid_angle'``. The prefix ``'rel_'`` specifies that the relative
-                     weights with respect to the maximum value of the polyhedron are calculated.
-                   * **voronoi_weight_threshold** (*float (optional)*) -- Weight threshold to consider a neighbouring atom coordinated.
-                   * **okeeffe_weight_threshold** (*float (optional)*) -- Threshold parameter to distinguish indirect and direct neighbour atoms for the
-                     ``'okeeffe'``.
                    * **distinguish_kinds** (*bool (optional)*) -- Whether different kinds should be distinguished e.g. Ni0 and Ni1 would be considered as
                      different elements if ``True``.
                    * **threshold** (*float (optional)*) -- Threshold to consider two sites equivalent.
+                   * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
 
       :returns: *bool* -- Whether the two sites are equivalent or not.
 
@@ -493,25 +475,16 @@ Functions
       :returns: *list* -- List of tuples containing the indices of the found duplicate pairs.
 
 
-   .. py:method:: find_eq_sites_via_coordination(key: Union[str, int], r_max: float = 10.0, cn_method: str = 'minimum_distance', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5, distinguish_kinds: bool = False, threshold: float = 0.01)
+   .. py:method:: find_eq_sites_via_coordination(key: Union[str, int], distinguish_kinds: bool = False, threshold: float = 0.01, **cn_kwargs)
 
       Find equivalent sites by comparing the coordination of each site and its distance to the
       neighbour atoms.
 
       :Parameters: * **key** (*str or int*) -- Index or label of the structure.
-                   * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
-                   * **cn_method** (*str (optional)*) -- Method used to calculate the coordination environment.
-                   * **min_dist_delta** (*float (optional)*) -- Tolerance parameter that defines the relative distance from the nearest neighbour atom
-                     for the ``'minimum_distance'`` method.
-                   * **n_nearest_neighbours** (*int (optional)*) -- Number of neighbours that are considered coordinated for the ``'n_neighbours'``
-                     method.
-                   * **econ_tolerance** (*float (optional)*) -- Tolerance parameter for the econ method.
-                   * **econ_conv_threshold** (*float (optional)*) -- Convergence threshold for the econ method.
-                   * **okeeffe_weight_threshold** (*float (optional)*) -- Threshold parameter to distinguish indirect and direct neighbour atoms for the
-                     ``'okeeffe'``.
                    * **distinguish_kinds** (*bool (optional)*) -- Whether different kinds should be distinguished e.g. Ni0 and Ni1 would be considered as
                      different elements if ``True``.
                    * **threshold** (*float (optional)*) -- Threshold to consider two sites equivalent.
+                   * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
 
       :returns: *dict* -- Dictionary grouping equivalent sites.
 
@@ -531,6 +504,27 @@ Functions
                    * **threshold** (*float (optional)*) -- Threshold to consider two sites equivalent.
 
       :returns: *dict* -- Dictionary grouping equivalent sites.
+
+
+   .. py:method:: list_analysis_methods() -> list
+      :classmethod:
+
+      Get a list with the function names of all available analysis methods.
+
+      :returns: *list* -- Return a list of all available analysis methods.
+
+
+   .. py:method:: list_manipulation_methods() -> list
+      :classmethod:
+
+      Get a list with the function names of all available manipulation methods.
+
+      :returns: *list* -- Return a list of all available manipulation methods.
+
+
+   .. py:method:: manipulation_methods() -> list
+
+      list: Return manipulation methods. This property is depreciated and will be removed soon.
 
 
    .. py:method:: perform_analysis(method: collections.abc.Callable, kwargs: dict = {})
@@ -554,13 +548,37 @@ Functions
                 * *aim2dat.strct.StructureCollection* -- Manipulated structure(s).
 
 
-   .. py:method:: scale_unit_cell(scaling_factor: float = 1.0, change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
+   .. py:method:: scale_unit_cell(scaling_factors: Union[float, List[float]] = None, pressure: float = None, bulk_modulus: float = None, change_label: bool = True) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
 
-      Scale unit cell of the structure.
+      Scale the unit cell of the structure, supporting isotropic and anisotropic strain,
+      and pressure-based strain.
 
-      :Parameters: **scaling_factor** (*float*) -- Scaling factor.
+      :Parameters: * **scaling_factors** (*float, list of floats, or arry-like, optional*) -- Scaling factor(s) to scale the unit cell.
+                     - If a single float, isotropic scaling is applied.
+                     - If a list of 3 floats or a 1D array, anisotropic scaling is
+                       applied along the principal axes.
+                     - If a 3x3 nested list or a 2D array, it defines a full
+                       transformation matrix.
+                     Scaling factors are interpreted as 1 + strain. For example:
+                     - A 1% strain corresponds to a scaling factor of 1.01.
+                     - A -2% strain (compression) corresponds to a scaling factor of 0.98.
+                   * **pressure** (*float, optional*) -- Hydrostatic pressure to apply. Requires `bulk_modulus` to calculate scaling.
+                   * **bulk_modulus** (*float, optional*) -- Bulk modulus of the material. Required if `pressure` is provided. Ensure the units
+                     of `bulk_modulus` and `pressure` are consistent.
+                   * **change_label** (*bool, optional*) -- If True, appends a suffix to the structure's label to reflect
+                     the scaling applied. Defaults to True
 
-      :returns: *aim2dat.strct.Structure* -- Structure with scaled unit cell.
+      :returns: *Structure or StructureCollection* -- The scaled structure or a collection of scaled structures.
+
+      :raises ValueError: If required parameters are missing or invalid, such as when `pressure` is given
+          without `bulk_modulus`, or invalid `scaling_factors` inputs.
+
+      .. rubric:: Notes
+
+      - The `pressure` and `bulk_modulus` inputs are mutually exclusive with direct
+      `scaling_factors` input.
+      - Scaling factors directly modify the unit cell dimensions and are applied such that
+        fractional atomic positions remain unchanged.
 
 
    .. py:method:: substitute_elements(elements: Union[List[Tuple[str]], List[Tuple[int]]] = [], radius_type: Union[str, None] = 'covalent', remove_kind: bool = False, change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]

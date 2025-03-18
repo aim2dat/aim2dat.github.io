@@ -13,7 +13,7 @@
     
     
       
-        <title>aim2dat.ext_interfaces.graphs - aim2dat  documentation</title>
+        <title>Adding and Rotating Molecules in Crystals - aim2dat  documentation</title>
       
     
     
@@ -28,11 +28,12 @@
     
       
     
-        <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_immaterial_theme.c145f3631d897b861.min.css?v=b0f86f06" />
-        <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
-        <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-        <link rel="stylesheet" type="text/css" href="../../../../_static/contentui.css" />
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.c145f3631d897b861.min.css?v=b0f86f06" />
+        <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+        <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+        <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
+        <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#Loading-Framework-and-Molecule" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -72,7 +78,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../index.html" title="aim2dat  documentation" class="md-header__button md-logo" aria-label="aim2dat  documentation" data-md-component="logo">
+    <a href="../index.html" title="aim2dat  documentation" class="md-header__button md-logo" aria-label="aim2dat  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -90,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              aim2dat.ext_interfaces.graphs
+              Adding and Rotating Molecules in Crystals
             
           </span>
         </div>
@@ -181,7 +187,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../../installation.html" class="md-tabs__link">
+    <a href="../installation.html" class="md-tabs__link">
       <span class="md-ellipsis">Installation</span>
     </a>
   </li>
@@ -193,7 +199,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../../user_guide.html" class="md-tabs__link">
+    <a href="../user_guide.html" class="md-tabs__link">
       <span class="md-ellipsis">User Guide</span>
     </a>
   </li>
@@ -202,10 +208,12 @@
         
   
   
+    
+  
 
 
   <li class="md-tabs__item">
-    <a href="../../../../examples.html" class="md-tabs__link">
+    <a href="../examples.html" class="md-tabs__link md-tabs__link--active">
       <span class="md-ellipsis">Examples</span>
     </a>
   </li>
@@ -217,7 +225,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../index.html" class="md-tabs__link">
+    <a href="../autoapi/aim2dat/index.html" class="md-tabs__link">
       <span class="md-ellipsis">Python API</span>
     </a>
   </li>
@@ -229,7 +237,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../../api-aiida_processes.html" class="md-tabs__link">
+    <a href="../api-aiida_processes.html" class="md-tabs__link">
       <span class="md-ellipsis">Aii<wbr>DA Processes</span>
     </a>
   </li>
@@ -241,7 +249,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../../changelog.html" class="md-tabs__link">
+    <a href="../changelog.html" class="md-tabs__link">
       <span class="md-ellipsis">Changelog</span>
     </a>
   </li>
@@ -276,7 +284,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../index.html" title="aim2dat  documentation" class="md-nav__button md-logo" aria-label="aim2dat  documentation" data-md-component="logo">
+    <a href="../index.html" title="aim2dat  documentation" class="md-nav__button md-logo" aria-label="aim2dat  documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -340,7 +348,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../installation.html"><span title="/installation.rst (reference label)" class="md-ellipsis">Overview and Package Dependencies</span></a>
+          <a href="../installation.html"><span title="/installation.rst (reference label)" class="md-ellipsis">Overview and Package Dependencies</span></a>
           
             <label for="__nav_1_1">
               <span class="md-nav__icon md-icon"></span>
@@ -362,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../inst_windows.html" class="md-nav__link">
+      <a href="../inst_windows.html" class="md-nav__link">
         <span title="/inst_windows.rst (reference label)" class="md-ellipsis">Windows operating systems</span>
       </a>
     </li>
@@ -377,7 +385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../inst_linux.html" class="md-nav__link">
+      <a href="../inst_linux.html" class="md-nav__link">
         <span title="/inst_linux.rst (reference label)" class="md-ellipsis">Linux operating systems</span>
       </a>
     </li>
@@ -434,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../user_guide.html" class="md-nav__link">
+      <a href="../user_guide.html" class="md-nav__link">
         <span title="/user_guide.rst (reference label)" class="md-ellipsis">Overview</span>
       </a>
     </li>
@@ -457,7 +465,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../stra-overview.html"><span title="/stra-overview.rst (reference label)" class="md-ellipsis">Structural Analysis</span></a>
+          <a href="../stram-overview.html"><span title="/stram-overview.rst (reference label)" class="md-ellipsis">Structural Analysis &amp; Manipulation</span></a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -465,10 +473,10 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Structural Analysis" data-md-level="2">
+      <nav class="md-nav" aria-label="Structural Analysis &amp; Manipulation" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
-          <span title="/stra-overview.rst (reference label)" class="md-ellipsis">Structural Analysis</span>
+          <span title="/stram-overview.rst (reference label)" class="md-ellipsis">Structural Analysis &amp; Manipulation</span>
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -479,8 +487,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../stra-structure.html" class="md-nav__link">
-        <span title="/stra-structure.ipynb (reference label)" class="md-ellipsis">Representation of molecules and crystals</span>
+      <a href="../stram-structure.html" class="md-nav__link">
+        <span title="/stram-structure.ipynb (reference label)" class="md-ellipsis">Representation of molecules and crystals</span>
       </a>
     </li>
   
@@ -494,8 +502,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../stra-multiple_structures.html" class="md-nav__link">
-        <span title="/stra-multiple_structures.ipynb (reference label)" class="md-ellipsis">Handling multiple structures at once</span>
+      <a href="../stram-multiple_structures.html" class="md-nav__link">
+        <span title="/stram-multiple_structures.ipynb (reference label)" class="md-ellipsis">Handling multiple structures at once</span>
       </a>
     </li>
   
@@ -509,8 +517,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../stra-structure_importer.html" class="md-nav__link">
-        <span title="/stra-structure_importer.ipynb (reference label)" class="md-ellipsis">Interfaces to online databases and random crystal generation</span>
+      <a href="../stram-analysis.html" class="md-nav__link">
+        <span title="/stram-analysis.ipynb (reference label)" class="md-ellipsis">Analysis methods</span>
       </a>
     </li>
   
@@ -524,8 +532,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../stra-surfaces.html" class="md-nav__link">
-        <span title="/stra-surfaces.ipynb (reference label)" class="md-ellipsis">Creating surfaces from bulk crystals</span>
+      <a href="../stram-structure_importer.html" class="md-nav__link">
+        <span title="/stram-structure_importer.ipynb (reference label)" class="md-ellipsis">Interfaces to online databases and random crystal generation</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stram-surfaces.html" class="md-nav__link">
+        <span title="/stram-surfaces.ipynb (reference label)" class="md-ellipsis">Creating surfaces from bulk crystals</span>
       </a>
     </li>
   
@@ -555,7 +578,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../htw-overview.html"><span title="/htw-overview.rst (reference label)" class="md-ellipsis">High-<wbr>throughput Workflows</span></a>
+          <a href="../htw-overview.html"><span title="/htw-overview.rst (reference label)" class="md-ellipsis">High-<wbr>throughput Workflows</span></a>
           
             <label for="__nav_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -577,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../htw-workflow_builders.html" class="md-nav__link">
+      <a href="../htw-workflow_builders.html" class="md-nav__link">
         <span title="/htw-workflow_builders.ipynb (reference label)" class="md-ellipsis">Handling complex workflows using the workflow builders</span>
       </a>
     </li>
@@ -592,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../htw-cp2k_calculations.html" class="md-nav__link">
+      <a href="../htw-cp2k_calculations.html" class="md-nav__link">
         <span title="/htw-cp2k_calculations.ipynb (reference label)" class="md-ellipsis">Running high-<wbr>throughput calculations using CP2K</span>
       </a>
     </li>
@@ -623,7 +646,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../plots-overview.html"><span title="/plots-overview.rst (reference label)" class="md-ellipsis">Plots</span></a>
+          <a href="../plots-overview.html"><span title="/plots-overview.rst (reference label)" class="md-ellipsis">Plots</span></a>
           
             <label for="__nav_2_4">
               <span class="md-nav__icon md-icon"></span>
@@ -645,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../plots-simple_plot.html" class="md-nav__link">
+      <a href="../plots-simple_plot.html" class="md-nav__link">
         <span title="/plots-simple_plot.ipynb (reference label)" class="md-ellipsis">Plotting with the Simple<wbr>Plot class</span>
       </a>
     </li>
@@ -660,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../plots-properties_and_functions.html" class="md-nav__link">
+      <a href="../plots-properties_and_functions.html" class="md-nav__link">
         <span title="/plots-properties_and_functions.ipynb (reference label)" class="md-ellipsis">Common features</span>
       </a>
     </li>
@@ -675,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../plots-subplots.html" class="md-nav__link">
+      <a href="../plots-subplots.html" class="md-nav__link">
         <span title="/plots-subplots.ipynb (reference label)" class="md-ellipsis">Subplots and grids</span>
       </a>
     </li>
@@ -698,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fa-overview.html" class="md-nav__link">
+      <a href="../fa-overview.html" class="md-nav__link">
         <span title="/fa-overview.ipynb (reference label)" class="md-ellipsis">Function Analysis</span>
       </a>
     </li>
@@ -721,7 +744,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../ml-overview.html"><span title="/ml-overview.ipynb (reference label)" class="md-ellipsis">Machine Learning</span></a>
+          <a href="../ml-overview.html"><span title="/ml-overview.ipynb (reference label)" class="md-ellipsis">Machine Learning</span></a>
           
             <label for="__nav_2_6">
               <span class="md-nav__icon md-icon"></span>
@@ -743,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ml-scikit_learn.html" class="md-nav__link">
+      <a href="../ml-scikit_learn.html" class="md-nav__link">
         <span title="/ml-scikit_learn.rst (reference label)" class="md-ellipsis">Scikit-<wbr>learn integration</span>
       </a>
     </li>
@@ -772,12 +795,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -797,18 +822,20 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
       
       
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../examples.html"><span title="/examples.rst (reference label)" class="md-ellipsis">Example List</span></a>
+          <a href="../examples.html"><span title="/examples.rst (reference label)" class="md-ellipsis">Example List</span></a>
           
             <label for="__nav_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -830,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/fct-discretization.html" class="md-nav__link">
+      <a href="fct-discretization.html" class="md-nav__link">
         <span title="/examples/fct-discretization.ipynb (reference label)" class="md-ellipsis">Creating a discretized grid to analyse functions</span>
       </a>
     </li>
@@ -845,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/fct-fingerprint_comparison.html" class="md-nav__link">
+      <a href="fct-fingerprint_comparison.html" class="md-nav__link">
         <span title="/examples/fct-fingerprint_comparison.ipynb (reference label)" class="md-ellipsis">Comparing two functions on a discretized grid</span>
       </a>
     </li>
@@ -860,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-band_structure_and_pdos_cp2k.html" class="md-nav__link">
+      <a href="plots-band_structure_and_pdos_cp2k.html" class="md-nav__link">
         <span title="/examples/plots-band_structure_and_pdos_cp2k.ipynb (reference label)" class="md-ellipsis">Plotting the band structure and projected density of states <wbr>(p<wbr>DOS) from CP2K output-<wbr>files</span>
       </a>
     </li>
@@ -875,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-band_structure_and_pdos_fhi-aims.html" class="md-nav__link">
+      <a href="plots-band_structure_and_pdos_fhi-aims.html" class="md-nav__link">
         <span title="/examples/plots-band_structure_and_pdos_fhi-aims.ipynb (reference label)" class="md-ellipsis">Plotting the band structure and projected density of states <wbr>(p<wbr>DOS) from FHI-<wbr>aims output files</span>
       </a>
     </li>
@@ -890,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-band_structure_and_pdos_phonopy.html" class="md-nav__link">
+      <a href="plots-band_structure_and_pdos_phonopy.html" class="md-nav__link">
         <span title="/examples/plots-band_structure_and_pdos_phonopy.ipynb (reference label)" class="md-ellipsis">Plotting the band structure, projected density of states <wbr>(p<wbr>DOS) and thermal properties from phonopy output-<wbr>files</span>
       </a>
     </li>
@@ -905,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-band_structure_and_pdos_qe.html" class="md-nav__link">
+      <a href="plots-band_structure_and_pdos_qe.html" class="md-nav__link">
         <span title="/examples/plots-band_structure_and_pdos_qe.ipynb (reference label)" class="md-ellipsis">Plotting the band structure and projected density of states <wbr>(p<wbr>DOS) from Quantum ESPRESSO output-<wbr>files</span>
       </a>
     </li>
@@ -920,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-band_structure_materials_project.html" class="md-nav__link">
+      <a href="plots-band_structure_materials_project.html" class="md-nav__link">
         <span title="/examples/plots-band_structure_materials_project.ipynb (reference label)" class="md-ellipsis">Plotting the band structure and projected density of states <wbr>(p<wbr>DOS) from Materials Project</span>
       </a>
     </li>
@@ -935,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-partial_charges_critic2.html" class="md-nav__link">
+      <a href="plots-partial_charges_critic2.html" class="md-nav__link">
         <span title="/examples/plots-partial_charges_critic2.ipynb (reference label)" class="md-ellipsis">Plotting atomic partial charges from Critic2 output-<wbr>files</span>
       </a>
     </li>
@@ -950,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-planar_fields_critic2.html" class="md-nav__link">
+      <a href="plots-planar_fields_critic2.html" class="md-nav__link">
         <span title="/examples/plots-planar_fields_critic2.ipynb (reference label)" class="md-ellipsis">Plotting planar fields from Critic2 output files</span>
       </a>
     </li>
@@ -965,7 +992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-simple_plot.html" class="md-nav__link">
+      <a href="plots-simple_plot.html" class="md-nav__link">
         <span title="/examples/plots-simple_plot.ipynb (reference label)" class="md-ellipsis">Using the Simple<wbr>Plot class as a flexible plotting framework</span>
       </a>
     </li>
@@ -980,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/plots-spectroscopy.html" class="md-nav__link">
+      <a href="plots-spectroscopy.html" class="md-nav__link">
         <span title="/examples/plots-spectroscopy.ipynb (reference label)" class="md-ellipsis">How to use the plots package to plot a x-<wbr>ray absorption spectrum</span>
       </a>
     </li>
@@ -995,9 +1022,83 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/strct-coordination_number_analysis.html" class="md-nav__link">
+      <a href="strct-coordination_number_analysis.html" class="md-nav__link">
         <span title="/examples/strct-coordination_number_analysis.ipynb (reference label)" class="md-ellipsis">Calculating the coordination numbers for different atomic sites</span>
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span title="/examples/strct-manipulation.ipynb (reference label)" class="md-ellipsis">Adding and Rotating Molecules in Crystals</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        <span title="/examples/strct-manipulation.ipynb (reference label)" class="md-ellipsis">Adding and Rotating Molecules in Crystals</span>
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#Loading-Framework-and-Molecule" class="md-nav__link">
+    <span title="/examples/strct-manipulation.ipynb#loading-framework-and-molecule (reference label)" class="md-ellipsis">Loading Framework and Molecule</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Example-1:-Adding-a-Molecule-into-the-Framework" class="md-nav__link">
+    <span title="/examples/strct-manipulation.ipynb#example-1:-adding-a-molecule-into-the-framework (reference label)" class="md-ellipsis">Example 1:<wbr> Adding a Molecule into the Framework</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Example-2:-Rotate-a-Molecule-in-a-structure" class="md-nav__link">
+    <span title="/examples/strct-manipulation.ipynb#example-2:-rotate-a-molecule-in-a-structure (reference label)" class="md-ellipsis">Example 2:<wbr> Rotate a Molecule in a structure</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Example-3:-Rotating-a-Substructure-in-a-Crystal" class="md-nav__link">
+    <span title="/examples/strct-manipulation.ipynb#example-3:-rotating-a-substructure-in-a-crystal (reference label)" class="md-ellipsis">Example 3:<wbr> Rotating a Substructure in a Crystal</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1010,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/strct-odb_interfaces.html" class="md-nav__link">
+      <a href="strct-odb_interfaces.html" class="md-nav__link">
         <span title="/examples/strct-odb_interfaces.ipynb (reference label)" class="md-ellipsis">Querying the structure pool for the Cs-<wbr>Te binary system</span>
       </a>
     </li>
@@ -1025,8 +1126,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/strct-partial_rdf.html" class="md-nav__link">
+      <a href="strct-partial_rdf.html" class="md-nav__link">
         <span title="/examples/strct-partial_rdf.ipynb (reference label)" class="md-ellipsis">Calculating the F-<wbr>Fingerprint to compare crystal structures</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="strct-pressure_and_strain.html" class="md-nav__link">
+        <span title="/examples/strct-pressure_and_strain.ipynb (reference label)" class="md-ellipsis">Pressure and Strain Transformations in the Crystal</span>
       </a>
     </li>
   
@@ -1090,7 +1206,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../index.html"><span title="/autoapi/aim2dat/index.rst (reference label)" class="md-ellipsis">aim2dat</span></a>
+          <a href="../autoapi/aim2dat/index.html"><span title="/autoapi/aim2dat/index.rst (reference label)" class="md-ellipsis">aim2dat</span></a>
           
             <label for="__nav_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1120,7 +1236,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../index.html#subpackages"><span title="/autoapi/aim2dat/index.rst#subpackages (reference label)" class="md-ellipsis">Subpackages</span></a>
+          <a href="../autoapi/aim2dat/index.html#subpackages"><span title="/autoapi/aim2dat/index.rst#subpackages (reference label)" class="md-ellipsis">Subpackages</span></a>
           
             <label for="__nav_4_1_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1150,7 +1266,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../aiida_data/index.html"><span title="/autoapi/aim2dat/aiida_data/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>aiida_<wbr>data</span></a>
+          <a href="../autoapi/aim2dat/aiida_data/index.html"><span title="/autoapi/aim2dat/aiida_data/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>aiida_<wbr>data</span></a>
           
             <label for="__nav_4_1_1_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1180,7 +1296,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../aiida_data/index.html#submodules"><span title="/autoapi/aim2dat/aiida_data/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
+          <a href="../autoapi/aim2dat/aiida_data/index.html#submodules"><span title="/autoapi/aim2dat/aiida_data/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_1_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1202,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aiida_data/gaussian_cube_data/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/aiida_data/gaussian_cube_data/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/aiida_data/gaussian_cube_data/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>aiida_<wbr>data.<wbr>gaussian_<wbr>cube_<wbr>data</span>
       </a>
     </li>
@@ -1217,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aiida_data/surface_data/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/aiida_data/surface_data/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/aiida_data/surface_data/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>aiida_<wbr>data.<wbr>surface_<wbr>data</span>
       </a>
     </li>
@@ -1256,7 +1372,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../aiida_workflows/index.html"><span title="/autoapi/aim2dat/aiida_workflows/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>aiida_<wbr>workflows</span></a>
+          <a href="../autoapi/aim2dat/aiida_workflows/index.html"><span title="/autoapi/aim2dat/aiida_workflows/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>aiida_<wbr>workflows</span></a>
           
             <label for="__nav_4_1_1_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1286,7 +1402,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../aiida_workflows/index.html#submodules"><span title="/autoapi/aim2dat/aiida_workflows/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
+          <a href="../autoapi/aim2dat/aiida_workflows/index.html#submodules"><span title="/autoapi/aim2dat/aiida_workflows/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_2_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1308,7 +1424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aiida_workflows/utils/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/aiida_workflows/utils/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/aiida_workflows/utils/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>aiida_<wbr>workflows.<wbr>utils</span>
       </a>
     </li>
@@ -1323,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aiida_workflows/workflow_builder/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/aiida_workflows/workflow_builder/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/aiida_workflows/workflow_builder/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>aiida_<wbr>workflows.<wbr>workflow_<wbr>builder</span>
       </a>
     </li>
@@ -1362,7 +1478,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../fct/index.html"><span title="/autoapi/aim2dat/fct/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>fct</span></a>
+          <a href="../autoapi/aim2dat/fct/index.html"><span title="/autoapi/aim2dat/fct/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>fct</span></a>
           
             <label for="__nav_4_1_1_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1392,7 +1508,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../fct/index.html#submodules"><span title="/autoapi/aim2dat/fct/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
+          <a href="../autoapi/aim2dat/fct/index.html#submodules"><span title="/autoapi/aim2dat/fct/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1414,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fct/discretization/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/fct/discretization/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/fct/discretization/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>fct.<wbr>discretization</span>
       </a>
     </li>
@@ -1429,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fct/fingerprint/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/fct/fingerprint/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/fct/fingerprint/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>fct.<wbr>fingerprint</span>
       </a>
     </li>
@@ -1444,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fct/function_comparison/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/fct/function_comparison/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/fct/function_comparison/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>fct.<wbr>function_<wbr>comparison</span>
       </a>
     </li>
@@ -1459,7 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fct/hull/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/fct/hull/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/fct/hull/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>fct.<wbr>hull</span>
       </a>
     </li>
@@ -1474,7 +1590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fct/smearing/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/fct/smearing/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/fct/smearing/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>fct.<wbr>smearing</span>
       </a>
     </li>
@@ -1513,7 +1629,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../io/index.html"><span title="/autoapi/aim2dat/io/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io</span></a>
+          <a href="../autoapi/aim2dat/io/index.html"><span title="/autoapi/aim2dat/io/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io</span></a>
           
             <label for="__nav_4_1_1_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1543,7 +1659,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../io/index.html#subpackages"><span title="/autoapi/aim2dat/io/index.rst#subpackages (reference label)" class="md-ellipsis">Subpackages</span></a>
+          <a href="../autoapi/aim2dat/io/index.html#subpackages"><span title="/autoapi/aim2dat/io/index.rst#subpackages (reference label)" class="md-ellipsis">Subpackages</span></a>
           
             <label for="__nav_4_1_1_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1563,118 +1679,12 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_1_4_1_1" type="checkbox" id="__nav_4_1_1_4_1_1" >
-      
-      
-      
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../io/cp2k/index.html"><span title="/autoapi/aim2dat/io/cp2k/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>cp2k</span></a>
-          
-            <label for="__nav_4_1_1_4_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="aim2dat.io.cp2k" data-md-level="6">
-        <label class="md-nav__title" for="__nav_4_1_1_4_1_1">
-          <span class="md-nav__icon md-icon"></span>
-          <span title="/autoapi/aim2dat/io/cp2k/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>cp2k</span>
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_1_4_1_1_1" type="checkbox" id="__nav_4_1_1_4_1_1_1" >
-      
-      
-      
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../io/cp2k/index.html#submodules"><span title="/autoapi/aim2dat/io/cp2k/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
-          
-            <label for="__nav_4_1_1_4_1_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Submodules" data-md-level="7">
-        <label class="md-nav__title" for="__nav_4_1_1_4_1_1_1">
-          <span class="md-nav__icon md-icon"></span>
-          <span title="/autoapi/aim2dat/io/cp2k/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span>
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
   
     <li class="md-nav__item">
-      <a href="../../io/cp2k/bands_dos/index.html" class="md-nav__link">
-        <span title="/autoapi/aim2dat/io/cp2k/bands_dos/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>cp2k.<wbr>bands_<wbr>dos</span>
+      <a href="../autoapi/aim2dat/io/cp2k/index.html" class="md-nav__link">
+        <span title="/autoapi/aim2dat/io/cp2k/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>cp2k</span>
       </a>
     </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../io/cp2k/restart/index.html" class="md-nav__link">
-        <span title="/autoapi/aim2dat/io/cp2k/restart/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>cp2k.<wbr>restart</span>
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../io/cp2k/stdout/index.html" class="md-nav__link">
-        <span title="/autoapi/aim2dat/io/cp2k/stdout/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>cp2k.<wbr>stdout</span>
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
   
 
             
@@ -1702,7 +1712,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../io/index.html#submodules"><span title="/autoapi/aim2dat/io/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
+          <a href="../autoapi/aim2dat/io/index.html#submodules"><span title="/autoapi/aim2dat/io/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1724,7 +1734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/cif/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/cif/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/cif/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>cif</span>
       </a>
     </li>
@@ -1739,7 +1749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/critic2/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/critic2/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/critic2/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>critic2</span>
       </a>
     </li>
@@ -1754,7 +1764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/fhi_aims/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/fhi_aims/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/fhi_aims/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>fhi_<wbr>aims</span>
       </a>
     </li>
@@ -1769,7 +1779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/phonopy/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/phonopy/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/phonopy/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>phonopy</span>
       </a>
     </li>
@@ -1784,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/qe/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/qe/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/qe/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>qe</span>
       </a>
     </li>
@@ -1799,7 +1809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/utils/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/utils/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/utils/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>utils</span>
       </a>
     </li>
@@ -1814,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/xmgrace/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/xmgrace/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/xmgrace/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>xmgrace</span>
       </a>
     </li>
@@ -1829,7 +1839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/yaml/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/yaml/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/yaml/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>yaml</span>
       </a>
     </li>
@@ -1844,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/zeo/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/io/zeo/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/io/zeo/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>io.<wbr>zeo</span>
       </a>
     </li>
@@ -1883,7 +1893,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../ml/index.html"><span title="/autoapi/aim2dat/ml/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>ml</span></a>
+          <a href="../autoapi/aim2dat/ml/index.html"><span title="/autoapi/aim2dat/ml/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>ml</span></a>
           
             <label for="__nav_4_1_1_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1913,7 +1923,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../ml/index.html#submodules"><span title="/autoapi/aim2dat/ml/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
+          <a href="../autoapi/aim2dat/ml/index.html#submodules"><span title="/autoapi/aim2dat/ml/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_5_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1935,7 +1945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ml/cell_grid_search/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/ml/cell_grid_search/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/ml/cell_grid_search/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>ml.<wbr>cell_<wbr>grid_<wbr>search</span>
       </a>
     </li>
@@ -1950,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ml/kernels/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/ml/kernels/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/ml/kernels/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>ml.<wbr>kernels</span>
       </a>
     </li>
@@ -1965,7 +1975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ml/metrics/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/ml/metrics/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/ml/metrics/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>ml.<wbr>metrics</span>
       </a>
     </li>
@@ -1980,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ml/transformers/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/ml/transformers/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/ml/transformers/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>ml.<wbr>transformers</span>
       </a>
     </li>
@@ -1995,7 +2005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ml/utils/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/ml/utils/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/ml/utils/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>ml.<wbr>utils</span>
       </a>
     </li>
@@ -2026,7 +2036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plots/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/plots/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/plots/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>plots</span>
       </a>
     </li>
@@ -2049,7 +2059,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../strct/index.html"><span title="/autoapi/aim2dat/strct/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct</span></a>
+          <a href="../autoapi/aim2dat/strct/index.html"><span title="/autoapi/aim2dat/strct/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct</span></a>
           
             <label for="__nav_4_1_1_7">
               <span class="md-nav__icon md-icon"></span>
@@ -2079,7 +2089,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../strct/index.html#subpackages"><span title="/autoapi/aim2dat/strct/index.rst#subpackages (reference label)" class="md-ellipsis">Subpackages</span></a>
+          <a href="../autoapi/aim2dat/strct/index.html#subpackages"><span title="/autoapi/aim2dat/strct/index.rst#subpackages (reference label)" class="md-ellipsis">Subpackages</span></a>
           
             <label for="__nav_4_1_1_7_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2109,7 +2119,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../strct/ext_analysis/index.html"><span title="/autoapi/aim2dat/strct/ext_analysis/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct.<wbr>ext_<wbr>analysis</span></a>
+          <a href="../autoapi/aim2dat/strct/ext_analysis/index.html"><span title="/autoapi/aim2dat/strct/ext_analysis/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct.<wbr>ext_<wbr>analysis</span></a>
           
             <label for="__nav_4_1_1_7_1_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2139,7 +2149,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../strct/ext_analysis/index.html#submodules"><span title="/autoapi/aim2dat/strct/ext_analysis/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
+          <a href="../autoapi/aim2dat/strct/ext_analysis/index.html#submodules"><span title="/autoapi/aim2dat/strct/ext_analysis/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_7_1_1_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2161,7 +2171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../strct/ext_analysis/decorator/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/strct/ext_analysis/decorator/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/strct/ext_analysis/decorator/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct.<wbr>ext_<wbr>analysis.<wbr>decorator</span>
       </a>
     </li>
@@ -2200,7 +2210,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../strct/ext_manipulation/index.html"><span title="/autoapi/aim2dat/strct/ext_manipulation/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct.<wbr>ext_<wbr>manipulation</span></a>
+          <a href="../autoapi/aim2dat/strct/ext_manipulation/index.html"><span title="/autoapi/aim2dat/strct/ext_manipulation/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct.<wbr>ext_<wbr>manipulation</span></a>
           
             <label for="__nav_4_1_1_7_1_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2230,7 +2240,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../strct/ext_manipulation/index.html#submodules"><span title="/autoapi/aim2dat/strct/ext_manipulation/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
+          <a href="../autoapi/aim2dat/strct/ext_manipulation/index.html#submodules"><span title="/autoapi/aim2dat/strct/ext_manipulation/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_7_1_2_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2252,22 +2262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../strct/ext_manipulation/add_structure/index.html" class="md-nav__link">
-        <span title="/autoapi/aim2dat/strct/ext_manipulation/add_structure/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct.<wbr>ext_<wbr>manipulation.<wbr>add_<wbr>structure</span>
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../strct/ext_manipulation/decorator/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/strct/ext_manipulation/decorator/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/strct/ext_manipulation/decorator/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct.<wbr>ext_<wbr>manipulation.<wbr>decorator</span>
       </a>
     </li>
@@ -2314,7 +2309,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../strct/index.html#submodules"><span title="/autoapi/aim2dat/strct/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
+          <a href="../autoapi/aim2dat/strct/index.html#submodules"><span title="/autoapi/aim2dat/strct/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_7_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2336,7 +2331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../strct/strct_io/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/strct/strct_io/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/strct/strct_io/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>strct.<wbr>strct_<wbr>io</span>
       </a>
     </li>
@@ -2375,7 +2370,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../utils/index.html"><span title="/autoapi/aim2dat/utils/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils</span></a>
+          <a href="../autoapi/aim2dat/utils/index.html"><span title="/autoapi/aim2dat/utils/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils</span></a>
           
             <label for="__nav_4_1_1_8">
               <span class="md-nav__icon md-icon"></span>
@@ -2405,7 +2400,7 @@
       
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../utils/index.html#subpackages"><span title="/autoapi/aim2dat/utils/index.rst#subpackages (reference label)" class="md-ellipsis">Subpackages</span></a>
+          <a href="../autoapi/aim2dat/utils/index.html#submodules"><span title="/autoapi/aim2dat/utils/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
           
             <label for="__nav_4_1_1_8_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2413,152 +2408,8 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Subpackages" data-md-level="5">
-        <label class="md-nav__title" for="__nav_4_1_1_8_1">
-          <span class="md-nav__icon md-icon"></span>
-          <span title="/autoapi/aim2dat/utils/index.rst#subpackages (reference label)" class="md-ellipsis">Subpackages</span>
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_1_8_1_1" type="checkbox" id="__nav_4_1_1_8_1_1" >
-      
-      
-      
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../utils/data/index.html"><span title="/autoapi/aim2dat/utils/data/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>data</span></a>
-          
-            <label for="__nav_4_1_1_8_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="aim2dat.utils.data" data-md-level="6">
-        <label class="md-nav__title" for="__nav_4_1_1_8_1_1">
-          <span class="md-nav__icon md-icon"></span>
-          <span title="/autoapi/aim2dat/utils/data/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>data</span>
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_1_8_1_1_1" type="checkbox" id="__nav_4_1_1_8_1_1_1" >
-      
-      
-      
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../utils/data/index.html#submodules"><span title="/autoapi/aim2dat/utils/data/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
-          
-            <label for="__nav_4_1_1_8_1_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Submodules" data-md-level="7">
-        <label class="md-nav__title" for="__nav_4_1_1_8_1_1_1">
-          <span class="md-nav__icon md-icon"></span>
-          <span title="/autoapi/aim2dat/utils/data/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span>
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../utils/data/atomic_radii/index.html" class="md-nav__link">
-        <span title="/autoapi/aim2dat/utils/data/atomic_radii/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>data.<wbr>atomic_<wbr>radii</span>
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../utils/data/electronegativity/index.html" class="md-nav__link">
-        <span title="/autoapi/aim2dat/utils/data/electronegativity/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>data.<wbr>electronegativity</span>
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_1_8_2" type="checkbox" id="__nav_4_1_1_8_2" >
-      
-      
-      
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../utils/index.html#submodules"><span title="/autoapi/aim2dat/utils/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span></a>
-          
-            <label for="__nav_4_1_1_8_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
       <nav class="md-nav" aria-label="Submodules" data-md-level="5">
-        <label class="md-nav__title" for="__nav_4_1_1_8_2">
+        <label class="md-nav__title" for="__nav_4_1_1_8_1">
           <span class="md-nav__icon md-icon"></span>
           <span title="/autoapi/aim2dat/utils/index.rst#submodules (reference label)" class="md-ellipsis">Submodules</span>
         </label>
@@ -2571,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/chem_formula/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/utils/chem_formula/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/utils/chem_formula/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>chem_<wbr>formula</span>
       </a>
     </li>
@@ -2586,7 +2437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/dict_tools/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/utils/dict_tools/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/utils/dict_tools/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>dict_<wbr>tools</span>
       </a>
     </li>
@@ -2601,7 +2452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/element_properties/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/utils/element_properties/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/utils/element_properties/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>element_<wbr>properties</span>
       </a>
     </li>
@@ -2616,7 +2467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/maths/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/utils/maths/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/utils/maths/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>maths</span>
       </a>
     </li>
@@ -2631,7 +2482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/space_groups/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/utils/space_groups/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/utils/space_groups/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>space_<wbr>groups</span>
       </a>
     </li>
@@ -2646,7 +2497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/units/index.html" class="md-nav__link">
+      <a href="../autoapi/aim2dat/utils/units/index.html" class="md-nav__link">
         <span title="/autoapi/aim2dat/utils/units/index.rst (reference label)" class="md-ellipsis">aim2dat.<wbr>utils.<wbr>units</span>
       </a>
     </li>
@@ -2727,7 +2578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../api-aiida_processes.html" class="md-nav__link">
+      <a href="../api-aiida_processes.html" class="md-nav__link">
         <span title="/api-aiida_processes.rst (reference label)" class="md-ellipsis">Aii<wbr>DA Processes</span>
       </a>
     </li>
@@ -2776,7 +2627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../changelog.html" class="md-nav__link">
+      <a href="../changelog.html" class="md-nav__link">
         <span title="/changelog.rst (reference label)" class="md-ellipsis">Changelog</span>
       </a>
     </li>
@@ -2808,6 +2659,42 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#Loading-Framework-and-Molecule" class="md-nav__link">
+    <span title="/examples/strct-manipulation.ipynb#loading-framework-and-molecule (reference label)" class="md-ellipsis">Loading Framework and Molecule</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Example-1:-Adding-a-Molecule-into-the-Framework" class="md-nav__link">
+    <span title="/examples/strct-manipulation.ipynb#example-1:-adding-a-molecule-into-the-framework (reference label)" class="md-ellipsis">Example 1:<wbr> Adding a Molecule into the Framework</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Example-2:-Rotate-a-Molecule-in-a-structure" class="md-nav__link">
+    <span title="/examples/strct-manipulation.ipynb#example-2:-rotate-a-molecule-in-a-structure (reference label)" class="md-ellipsis">Example 2:<wbr> Rotate a Molecule in a structure</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Example-3:-Rotating-a-Substructure-in-a-Crystal" class="md-nav__link">
+    <span title="/examples/strct-manipulation.ipynb#example-3:-rotating-a-substructure-in-a-crystal (reference label)" class="md-ellipsis">Example 3:<wbr> Rotating a Substructure in a Crystal</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2820,8 +2707,232 @@
                   
 
 
-<h1 id="module-aim2dat.ext_interfaces.graphs"><span id="aim2dat-ext-interfaces-graphs"></span><a class="reference internal" href="#module-aim2dat.ext_interfaces.graphs" title="aim2dat.ext_interfaces.graphs (Python module)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aim2dat.ext_interfaces.graphs</span></code></a><a class="headerlink" href="#module-aim2dat.ext_interfaces.graphs" title="Link to this heading">¶</a></h1>
-<p>Interface to networkx and graphviz to create graphs based on the coordination.</p>
+<h1 id="Adding-and-Rotating-Molecules-in-Crystals">Adding and Rotating Molecules in Crystals<a class="headerlink" href="#Adding-and-Rotating-Molecules-in-Crystals" title="Link to this heading">¶</a></h1>
+<p>This notebook demonstrates how to use the <code class="docutils literal notranslate"><span class="pre">add_structure_position</span></code> and <code class="docutils literal notranslate"><span class="pre">rotate_structure</span></code> functions to add a molecule at a certain position and rotates it around a certain point. Additionally, a whole sub structure will be rotated around a given vector.</p>
+<h2 id="Loading-Framework-and-Molecule">Loading Framework and Molecule<a class="headerlink" href="#Loading-Framework-and-Molecule" title="Link to this heading">¶</a></h2>
+<p>To begin, we load the <strong>perovskite framework</strong> and the <strong>molecule</strong> from <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> files using the <code class="docutils literal notranslate"><span class="pre">Structure</span></code> class from <code class="docutils literal notranslate"><span class="pre">aim2dat</span></code>.</p>
+<ul class="simple">
+<li><p>Load the <strong>framework</strong> “PBI3” from <code class="docutils literal notranslate"><span class="pre">PBI3.xyz</span></code> via <code class="docutils literal notranslate"><span class="pre">from_file</span></code> with the <code class="docutils literal notranslate"><span class="pre">Structure</span></code> class.</p></li>
+<li><p>Load the <strong>molecule</strong> “CN2H5” from <code class="docutils literal notranslate"><span class="pre">CN2H5.xyz</span></code> via <code class="docutils literal notranslate"><span class="pre">from_file</span></code> with the <code class="docutils literal notranslate"><span class="pre">Structure</span></code> class.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[1]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aim2dat.strct</span> <span class="kn">import</span> <span class="n">Structure</span>
+
+<span class="n">framework</span> <span class="o">=</span> <span class="n">Structure</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;files/strc/PBI3.xyz&quot;</span><span class="p">)</span>
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">Structure</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;files/strc/CN2H5.xyz&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="Example-1:-Adding-a-Molecule-into-the-Framework">Example 1: Adding a Molecule into the Framework<a class="headerlink" href="#Example-1:-Adding-a-Molecule-into-the-Framework" title="Link to this heading">¶</a></h2>
+<p>In this example, we <strong>insert a molecule</strong> into the structure at a specified position. The molecule is placed in the framework while preserving its structure. The coordinates provided for the insertion correspond to the center of the framework.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[2]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aim2dat.strct.ext_manipulation</span> <span class="kn">import</span> <span class="n">add_structure_position</span>
+
+<span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.176188</span><span class="p">,</span> <span class="mf">3.244215</span><span class="p">,</span> <span class="mf">3.25149</span><span class="p">]</span> <span class="c1"># Chosen center of the framework (in Å)</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">add_structure_position</span><span class="p">(</span><span class="n">framework</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">molecule</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<p>Below is a visualization of the framework with the newly added molecule. We apply a <strong>45-degree rotation</strong> for better clarity.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[3]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ase.visualize.plot</span> <span class="kn">import</span> <span class="n">plot_atoms</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">to_ase_atoms</span><span class="p">(),</span> <span class="n">ax</span><span class="p">,</span> <span class="n">radii</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;45x,45y,0z&#39;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[3]:
+</code></pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Axes: &gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_strct-manipulation_6_1.png" src="../_images/examples_strct-manipulation_6_1.png" />
+</div>
+</div>
+<h2 id="Example-2:-Rotate-a-Molecule-in-a-structure">Example 2: Rotate a Molecule in a structure<a class="headerlink" href="#Example-2:-Rotate-a-Molecule-in-a-structure" title="Link to this heading">¶</a></h2>
+<p>In this case, we demonstrate to rotate the new added molecule around its center <strong>by 90 degrees along the x-axis</strong>. The default rotation center is located at the midpoint of the atomic positions within the chosen molecule but can be modified. We need to specify the indices of the atoms we want to rotate.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[4]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aim2dat.strct.ext_manipulation</span> <span class="kn">import</span> <span class="n">rotate_structure</span>
+
+<span class="c1"># Define rotation parameters</span>
+<span class="n">selected_atoms</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>  <span class="c1"># Indices of the molecule to rotate</span>
+<span class="n">rotation_angles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Rotation of 90 degrees around the x-axis</span>
+
+<span class="c1"># Apply rotation</span>
+<span class="n">rot_struct</span> <span class="o">=</span> <span class="n">rotate_structure</span><span class="p">(</span>
+    <span class="n">structure</span><span class="p">,</span>
+    <span class="n">site_indices</span><span class="o">=</span><span class="n">selected_atoms</span><span class="p">,</span>
+    <span class="n">angles</span><span class="o">=</span><span class="n">rotation_angles</span>
+<span class="p">)</span>
+<span class="n">rot_strct</span> <span class="o">=</span> <span class="n">rotate_structure</span><span class="p">(</span>
+    <span class="n">structure</span><span class="p">,</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">site_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<p>This molecule is now rotated in the framework shown down below:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[5]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">rot_struct</span><span class="o">.</span><span class="n">to_ase_atoms</span><span class="p">(),</span> <span class="n">ax</span><span class="p">,</span> <span class="n">radii</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;45x,45y,0z&#39;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[5]:
+</code></pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Axes: &gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_strct-manipulation_10_1.png" src="../_images/examples_strct-manipulation_10_1.png" />
+</div>
+</div>
+<h2 id="Example-3:-Rotating-a-Substructure-in-a-Crystal">Example 3: Rotating a Substructure in a Crystal<a class="headerlink" href="#Example-3:-Rotating-a-Substructure-in-a-Crystal" title="Link to this heading">¶</a></h2>
+<p>In this case, we demonstrate how to <strong>rotate each linker molecule</strong> in the MOF-5 structure <strong>by 90 degrees</strong>.</p>
+<p>For better visualization, we use the <strong>conventional unit cell</strong> of the MOF-5 structure, allowing us to observe the changes clearly.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[6]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">MOF5</span> <span class="o">=</span> <span class="n">Structure</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;files/strc/Zn_MOF5_H_conv.xyz&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<p>Now we can identify the linkers by setting “Zn” as the start and endpoint while excluding non-linker elements, “Zn” and “O”.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[7]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aim2dat.strct.ext_analysis</span> <span class="kn">import</span> <span class="n">determine_molecular_fragments</span>
+
+<span class="n">fragments</span> <span class="o">=</span> <span class="n">determine_molecular_fragments</span><span class="p">(</span>
+    <span class="n">MOF5</span><span class="p">,</span>
+    <span class="n">exclude_elements</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Zn&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">],</span>
+    <span class="n">end_point_elements</span> <span class="o">=</span> <span class="s2">&quot;Zn&quot;</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;atomic_radius&quot;</span><span class="p">,</span>
+    <span class="n">radius_type</span><span class="o">=</span><span class="s2">&quot;chen_manz&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<p>With this information, we identify each connection pair and determine their connecting vector.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[8]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">rotation_vectors</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Find the furthest connected atoms in each fragment</span>
+<span class="k">for</span> <span class="n">frag</span> <span class="ow">in</span> <span class="n">fragments</span><span class="p">:</span>
+    <span class="n">max_dist</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">furthest_pair</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">furthest_vec</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Iterate over all atom pairs in the fragment</span>
+    <span class="k">for</span> <span class="n">idx1</span><span class="p">,</span> <span class="n">pos1</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">frag</span><span class="p">[</span><span class="s2">&quot;site_attributes&quot;</span><span class="p">][</span><span class="s2">&quot;parent_indices&quot;</span><span class="p">],</span> <span class="n">frag</span><span class="p">[</span><span class="s2">&quot;positions&quot;</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">idx2</span><span class="p">,</span> <span class="n">pos2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">frag</span><span class="p">[</span><span class="s2">&quot;site_attributes&quot;</span><span class="p">][</span><span class="s2">&quot;parent_indices&quot;</span><span class="p">],</span> <span class="n">frag</span><span class="p">[</span><span class="s2">&quot;positions&quot;</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">idx1</span> <span class="o">&gt;=</span> <span class="n">idx2</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># Compute distance between two atoms</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos2</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;</span> <span class="n">max_dist</span><span class="p">:</span>
+                <span class="n">max_dist</span> <span class="o">=</span> <span class="n">dist</span>
+                <span class="n">furthest_pair</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx1</span><span class="p">,</span> <span class="n">idx2</span><span class="p">)</span>
+                <span class="n">furthest_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span>
+
+    <span class="c1"># Store the furthest atom pair and the rotation vector</span>
+    <span class="k">if</span> <span class="n">furthest_pair</span><span class="p">:</span>
+        <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">furthest_pair</span><span class="p">)</span>
+        <span class="n">rotation_vectors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">furthest_vec</span><span class="p">)</span>
+</code><br/></pre></div>
+</div>
+</div>
+<p>Now we can iterate through all fragments and rotate them by 90 degrees. For this, we copy the original structure, so it will not be manipulated. In this case, we do not change the label, since each iteration would change each time.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[9]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aim2dat.strct.ext_manipulation</span> <span class="kn">import</span> <span class="n">rotate_structure</span>
+
+<span class="c1"># Make a copy of the structure before applying rotations</span>
+<span class="n">rot_struct</span> <span class="o">=</span> <span class="n">MOF5</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Apply rotation to each linker fragment</span>
+<span class="k">for</span> <span class="n">pair</span><span class="p">,</span> <span class="n">frag</span><span class="p">,</span> <span class="n">rot_vec</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">fragments</span><span class="p">,</span> <span class="n">rotation_vectors</span><span class="p">):</span>
+    <span class="n">rot_struct</span> <span class="o">=</span> <span class="n">rotate_structure</span><span class="p">(</span>
+        <span class="n">rot_struct</span><span class="p">,</span>
+        <span class="n">site_indices</span><span class="o">=</span><span class="n">frag</span><span class="p">[</span><span class="s2">&quot;site_attributes&quot;</span><span class="p">][</span><span class="s2">&quot;parent_indices&quot;</span><span class="p">],</span>
+        <span class="n">angles</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>  <span class="c1"># Degrees</span>
+        <span class="n">vector</span><span class="o">=</span><span class="n">rot_vec</span><span class="p">,</span>  <span class="c1"># Normalized rotation vector</span>
+        <span class="n">origin</span><span class="o">=</span><span class="n">MOF5</span><span class="o">.</span><span class="n">get_positions</span><span class="p">()[</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>  <span class="c1"># Use one of the connected atoms as origin</span>
+        <span class="n">change_label</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">wrap</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># Ensures atoms remain in unit cell</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<p>Now we can compare before and after the rotation.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span><code>[10]:
+</code></pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">MOF5</span><span class="o">.</span><span class="n">to_ase_atoms</span><span class="p">(),</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">radii</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;45x,45y,0z&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Original MOF-5&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">rot_struct</span><span class="o">.</span><span class="n">to_ase_atoms</span><span class="p">(),</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">radii</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;45x,45y,0z&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Rotated Structure&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_strct-manipulation_20_0.png" src="../_images/examples_strct-manipulation_20_0.png" />
+</div>
+</div>
 
 
 
@@ -2845,6 +2956,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="strct-coordination_number_analysis.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Calculating the coordination numbers for different atomic sites" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Calculating the coordination numbers for different atomic sites
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="strct-odb_interfaces.html" class="md-footer__link md-footer__link--next" aria-label="Next: Querying the structure pool for the Cs-Te binary system" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Querying the structure pool for the Cs-Te binary system
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   
   
@@ -2876,14 +3023,16 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow", "toc.sticky", "content.tabs.link", "announce.dismiss"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow", "toc.sticky", "content.tabs.link", "announce.dismiss"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
       
-        <script src="../../../../_static/sphinx_immaterial_theme.f9d9eeeb247ace16c.min.js?v=8ec58cb5"></script>
-        <script src="../../../../_static/design-tabs.js?v=36754332"></script>
-        <script src="../../../../_static/contentui.js"></script>
+        <script src="../_static/sphinx_immaterial_theme.f9d9eeeb247ace16c.min.js?v=8ec58cb5"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script src="../_static/contentui.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script id="MathJax-script" src="../_static/mathjax/tex-mml-chtml.js?v=cadf963e"></script>
     
   </body>
 </html>

@@ -22,6 +22,7 @@ Classes
    aim2dat.strct.mixin.AnalysisMixin
    aim2dat.strct.mixin.ConstraintsMixin
    aim2dat.strct.mixin.ManipulationMixin
+   aim2dat.strct.mixin.classproperty
 
 
 
@@ -79,18 +80,13 @@ Functions
 
    .. rubric:: Overview
 
-   .. list-table:: Properties
-      :header-rows: 0
-      :widths: auto
-
-      * - :py:obj:`analysis_methods <aim2dat.strct.mixin.AnalysisMixin.analysis_methods>`
-        - `class` Return calculation methods.
-
 
    .. list-table:: Methods
       :header-rows: 0
       :widths: auto
 
+      * - :py:obj:`analysis_methods <aim2dat.strct.mixin.AnalysisMixin.analysis_methods>`\ ()
+        - list: Return calculation methods. This property is depreciated and will be removed soon.
       * - :py:obj:`calculate_angle <aim2dat.strct.mixin.AnalysisMixin.calculate_angle>`\ (site_index1, site_index2, site_index3, backfold_positions)
         - Calculate angle between three atoms.
       * - :py:obj:`calculate_coordination <aim2dat.strct.mixin.AnalysisMixin.calculate_coordination>`\ (r_max, method, min_dist_delta, n_nearest_neighbours, radius_type, atomic_radius_delta, econ_tolerance, econ_conv_threshold, voronoi_weight_type, voronoi_weight_threshold, okeeffe_weight_threshold)
@@ -107,37 +103,37 @@ Functions
         - Determine the point group of a molecule.
       * - :py:obj:`determine_space_group <aim2dat.strct.mixin.AnalysisMixin.determine_space_group>`\ (symprec, angle_tolerance, hall_number, return_sym_operations, return_primitive_structure, return_standardized_structure, no_idealize)
         - Determine the space group of the structure using spglib as backend.
+      * - :py:obj:`list_analysis_methods <aim2dat.strct.mixin.AnalysisMixin.list_analysis_methods>`\ ()
+        - `class` Get a list with the function names of all available analysis methods.
 
 
 
-   .. py:property:: analysis_methods
-      :type: list
-      :classmethod:
 
-      Return calculation methods.
+   .. py:method:: analysis_methods() -> list
 
-      :type: list
+      list: Return calculation methods. This property is depreciated and will be removed soon.
 
 
-   .. py:method:: calculate_angle(site_index1: int = 0, site_index2: int = 1, site_index3: int = 2, backfold_positions: bool = True) -> float
+   .. py:method:: calculate_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, backfold_positions: bool = True) -> float
 
       Calculate angle between three atoms.
 
-      :Parameters: * **site_index1** (*int*) -- Index of the site.
-                   * **site_index2** (*int*) -- Index of the site.
-                   * **site_index3** (*int*) -- Index of the site.
+      :Parameters: * **site_index1** (*int, list or None*) -- Index of the site.
+                   * **site_index2** (*int, list or None*) -- Index of the site.
+                   * **site_index3** (*int, list or None*) -- Index of the site.
                    * **backfold_positions** (*bool*) -- Whether to backfold the atomic sites and return the smallest distance.
 
-      :returns: *float* -- Angle calculated via the vectors from atom 2 to atom 1 and atom 3.
+      :returns: *float or dict* -- Angle calculated via the vectors from atom 2 to atom 1 and atom 3. If one of the
+                indices is a list, a dictionary with all index pairs as keys and angles as values is
+                returned.
 
 
-   .. py:method:: calculate_coordination(r_max: float = 10.0, method: str = 'minimum_distance', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, radius_type: str = 'chen_manz', atomic_radius_delta: float = 0.0, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5) -> dict
+   .. py:method:: calculate_coordination(r_max: float = 10.0, method: str = 'atomic_radius', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, radius_type: str = 'chen_manz', atomic_radius_delta: float = 0.0, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5) -> dict
 
       Calculate coordination environment of each atomic site.
 
       :Parameters: * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
-                   * **method** (*str (optional)*) -- Method used to calculate the coordination environment. The default value is
-                     ``'minimum_distance'``.
+                   * **method** (*str (optional)*) -- Method used to calculate the coordination environment.
                    * **min_dist_delta** (*float (optional)*) -- Tolerance parameter that defines the relative distance from the nearest neighbour atom
                      for the ``'minimum_distance'`` method.
                    * **n_nearest_neighbours** (*int (optional)*) -- Number of neighbours that are considered coordinated for the ``'n_neighbours'``
@@ -163,25 +159,26 @@ Functions
       :returns: *dict* -- Dictionary containing the coordination information of the structure.
 
 
-   .. py:method:: calculate_dihedral_angle(site_index1: int = 0, site_index2: int = 1, site_index3: int = 2, site_index4: int = 3, backfold_positions: bool = True) -> float
+   .. py:method:: calculate_dihedral_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, site_index4: Union[int, List[int]] = 3, backfold_positions: bool = True) -> float
 
       Calculate dihedral angle between four atoms.
 
-      :Parameters: * **site_index1** (*int*) -- Index of the site.
-                   * **site_index2** (*int*) -- Index of the site.
-                   * **site_index3** (*int*) -- Index of the site.
-                   * **site_index4** (*int*) -- Index of the site.
+      :Parameters: * **site_index1** (*int, list or None*) -- Index of the site.
+                   * **site_index2** (*int, list or None*) -- Index of the site.
+                   * **site_index3** (*int, list or None*) -- Index of the site.
+                   * **site_index4** (*int, list or None*) -- Index of the site.
                    * **backfold_positions** (*bool*) -- Whether to backfold the atomic sites and return the smallest distance.
 
-      :returns: *float* -- Dihedral angle.
+      :returns: *float or dict* -- Dihedral angle. If one of the indices is a list, a dictionary with all
+                index pairs as keys and angles as values is returned.
 
 
    .. py:method:: calculate_distance(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, backfold_positions: bool = True, use_supercell: bool = False, r_max: float = 7.5, return_pos: bool = False) -> Union[float, list]
 
       Calculate distance between two atoms.
 
-      :Parameters: * **site_index1** (*int*) -- Index of the site.
-                   * **site_index2** (*int*) -- Index of the site.
+      :Parameters: * **site_index1** (*int, list or None*) -- Index of the site.
+                   * **site_index2** (*int, list or None*) -- Index of the site.
                    * **backfold_positions** (*bool*) -- Whether to backfold the atomic sites and return the smallest distance.
                    * **use_supercell** (*bool*) -- User supercell to calculate all distances between the two atomic sites up to the
                      radius ``r_max``.
@@ -189,11 +186,11 @@ Functions
                    * **return_pos** (*bool*) -- Whether to return the positions. Useful if ``use_supercell`` is set to ``True`` or when
                      trying to determine the closest periodic image.
 
-      :returns: *float or None* -- Distance between the two atoms or a list of distances (if ``use_super_cell`` is
-                set to ``True``). If multiple indices are provided, a dictionary with the index pairs
-                as keys is returned. If ``return_pos`` is set to ``True``, the positions are
-                returned as well. In case ``use_super_cell`` is set to ``True`` and the distance
-                between the two sites exceeds ``r_max``, ``None`` is returned.
+      :returns: *float, dict or None* -- Distance between the two atoms or a list of distances (if ``use_super_cell`` is
+                set to ``True``). If one of the indices is a list, a dictionary with all index pairs
+                as keys and distances as values is returned. If ``return_pos`` is set to ``True``, the
+                positions are returned as well. In case ``use_super_cell`` is set to ``True`` and the
+                distance between the two sites exceeds ``r_max``, ``None`` is returned.
 
 
    .. py:method:: calculate_ffingerprint(r_max: float = 20.0, delta_bin: float = 0.005, sigma: float = 0.05, use_legacy_smearing: bool = False, distinguish_kinds: bool = False) -> Tuple[dict, dict]
@@ -248,6 +245,14 @@ Functions
                    * **no_idealize** (*bool (optional)*) -- Whether to idealize unit cell vectors and angles.
 
       :returns: *dict* -- Dictionary containing the internal space group number and labels.
+
+
+   .. py:method:: list_analysis_methods() -> list
+      :classmethod:
+
+      Get a list with the function names of all available analysis methods.
+
+      :returns: *list* -- Return a list of all available analysis methods.
 
 
 
@@ -351,13 +356,6 @@ Functions
 
    .. rubric:: Overview
 
-   .. list-table:: Properties
-      :header-rows: 0
-      :widths: auto
-
-      * - :py:obj:`manipulation_methods <aim2dat.strct.mixin.ManipulationMixin.manipulation_methods>`
-        - `class` Return manipulation methods.
-
 
    .. list-table:: Methods
       :header-rows: 0
@@ -365,22 +363,18 @@ Functions
 
       * - :py:obj:`delete_atoms <aim2dat.strct.mixin.ManipulationMixin.delete_atoms>`\ (elements, site_indices, change_label)
         - Delete atoms by element, list of elements, site index  or list of site indices.
+      * - :py:obj:`list_manipulation_methods <aim2dat.strct.mixin.ManipulationMixin.list_manipulation_methods>`\ ()
+        - `class` Get a list with the function names of all available manipulation methods.
+      * - :py:obj:`manipulation_methods <aim2dat.strct.mixin.ManipulationMixin.manipulation_methods>`\ ()
+        - list: Return manipulation methods. This property is depreciated and will be removed soon.
       * - :py:obj:`perform_manipulation <aim2dat.strct.mixin.ManipulationMixin.perform_manipulation>`\ (method, kwargs)
         - Perform structure manipulation using an external method.
-      * - :py:obj:`scale_unit_cell <aim2dat.strct.mixin.ManipulationMixin.scale_unit_cell>`\ (scaling_factor, change_label)
-        - Scale unit cell of the structure.
+      * - :py:obj:`scale_unit_cell <aim2dat.strct.mixin.ManipulationMixin.scale_unit_cell>`\ (scaling_factors, pressure, bulk_modulus, change_label)
+        - Scale the unit cell of the structure, supporting isotropic and anisotropic strain,
       * - :py:obj:`substitute_elements <aim2dat.strct.mixin.ManipulationMixin.substitute_elements>`\ (elements, radius_type, remove_kind, change_label)
         - Substitute all atoms of one or several elements.
 
 
-
-   .. py:property:: manipulation_methods
-      :type: list
-      :classmethod:
-
-      Return manipulation methods.
-
-      :type: list
 
 
    .. py:method:: delete_atoms(elements: Union[str, List[str]] = [], site_indices: Union[int, List[int]] = [], change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
@@ -391,6 +385,19 @@ Functions
                    * **site_indices** (*list or tuple*) -- Site index or tuple or list of site indices to be deleted.
 
       :returns: *aim2dat.strct.Structure* -- Structure with deleted atoms.
+
+
+   .. py:method:: list_manipulation_methods() -> list
+      :classmethod:
+
+      Get a list with the function names of all available manipulation methods.
+
+      :returns: *list* -- Return a list of all available manipulation methods.
+
+
+   .. py:method:: manipulation_methods() -> list
+
+      list: Return manipulation methods. This property is depreciated and will be removed soon.
 
 
    .. py:method:: perform_manipulation(method: collections.abc.Callable, kwargs: dict = {})
@@ -404,13 +411,37 @@ Functions
                 * *aim2dat.strct.StructureCollection* -- Manipulated structure(s).
 
 
-   .. py:method:: scale_unit_cell(scaling_factor: float = 1.0, change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
+   .. py:method:: scale_unit_cell(scaling_factors: Union[float, List[float]] = None, pressure: float = None, bulk_modulus: float = None, change_label: bool = True) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
 
-      Scale unit cell of the structure.
+      Scale the unit cell of the structure, supporting isotropic and anisotropic strain,
+      and pressure-based strain.
 
-      :Parameters: **scaling_factor** (*float*) -- Scaling factor.
+      :Parameters: * **scaling_factors** (*float, list of floats, or arry-like, optional*) -- Scaling factor(s) to scale the unit cell.
+                     - If a single float, isotropic scaling is applied.
+                     - If a list of 3 floats or a 1D array, anisotropic scaling is
+                       applied along the principal axes.
+                     - If a 3x3 nested list or a 2D array, it defines a full
+                       transformation matrix.
+                     Scaling factors are interpreted as 1 + strain. For example:
+                     - A 1% strain corresponds to a scaling factor of 1.01.
+                     - A -2% strain (compression) corresponds to a scaling factor of 0.98.
+                   * **pressure** (*float, optional*) -- Hydrostatic pressure to apply. Requires `bulk_modulus` to calculate scaling.
+                   * **bulk_modulus** (*float, optional*) -- Bulk modulus of the material. Required if `pressure` is provided. Ensure the units
+                     of `bulk_modulus` and `pressure` are consistent.
+                   * **change_label** (*bool, optional*) -- If True, appends a suffix to the structure's label to reflect
+                     the scaling applied. Defaults to True
 
-      :returns: *aim2dat.strct.Structure* -- Structure with scaled unit cell.
+      :returns: *Structure or StructureCollection* -- The scaled structure or a collection of scaled structures.
+
+      :raises ValueError: If required parameters are missing or invalid, such as when `pressure` is given
+          without `bulk_modulus`, or invalid `scaling_factors` inputs.
+
+      .. rubric:: Notes
+
+      - The `pressure` and `bulk_modulus` inputs are mutually exclusive with direct
+      `scaling_factors` input.
+      - Scaling factors directly modify the unit cell dimensions and are applied such that
+        fractional atomic positions remain unchanged.
 
 
    .. py:method:: substitute_elements(elements: Union[List[Tuple[str]], List[Tuple[int]]] = [], radius_type: Union[str, None] = 'covalent', remove_kind: bool = False, change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
@@ -423,6 +454,14 @@ Functions
                      no scaling is applied. The default value is ``covalent``.
 
       :returns: *aim2dat.strct.Structure* -- Structure with substituted elements.
+
+
+
+
+.. py:class:: classproperty(func)
+
+
+   Custom, temporary decorator to depreciate class properties.
 
 
 

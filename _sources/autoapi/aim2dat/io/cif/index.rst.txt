@@ -22,7 +22,7 @@ Functions
 
 
 
-.. py:function:: read_file(file_name, extract_structures=False, strct_check_chem_formula=True, strct_get_sym_op_from_sg=True)
+.. py:function:: read_file(file_name, extract_structures=False, strct_check_chem_formula=True, strct_get_sym_op_from_sg=True, strct_wrap=False)
 
    Read cif file.
 

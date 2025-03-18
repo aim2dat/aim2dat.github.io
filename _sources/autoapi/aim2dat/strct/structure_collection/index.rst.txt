@@ -58,7 +58,7 @@ Attributes
       :header-rows: 0
       :widths: auto
 
-      * - :py:obj:`append <aim2dat.strct.structure_collection.StructureCollection.append>`\ (label, elements, positions, pbc, cell, is_cartesian, wrap, kinds, attributes, extras)
+      * - :py:obj:`append <aim2dat.strct.structure_collection.StructureCollection.append>`\ (label, elements, positions, pbc, cell, is_cartesian, wrap, kinds, attributes, site_attributes, extras)
         - Append structure.
       * - :py:obj:`append_from_aiida_structuredata <aim2dat.strct.structure_collection.StructureCollection.append_from_aiida_structuredata>`\ (aiida_node, use_uuid, label)
         - Append structure from aiida structuredata.
@@ -111,7 +111,7 @@ Attributes
       Labels assigened to the structures.
 
 
-   .. py:method:: append(label: str, elements: list, positions: list, pbc: list, cell: list = None, is_cartesian: bool = True, wrap: bool = False, kinds: list = None, attributes: dict = None, extras: dict = None)
+   .. py:method:: append(label: str, elements: list, positions: list, pbc: list, cell: list = None, is_cartesian: bool = True, wrap: bool = False, kinds: list = None, attributes: dict = None, site_attributes: dict = None, extras: dict = None)
 
       Append structure.
 
@@ -124,8 +124,9 @@ Attributes
                    * **wrap** (*bool (optional)*) -- Wrap atomic positions back into the unit cell.
                    * **kinds** (*list*) -- List of kind names (this allows custom kinds like Ni0, Ni1, ...). If None,
                      the elements will be used as the kind names.
-                   * **attributes** (*dict*) -- Additional information about the structure.
-                   * **extras** (*dict*) -- Extras of the structure.
+                   * **attributes** (*dict*) -- Attributes stored within the structure object.
+                   * **site_attributes** (*dict*) -- Site attributes stored within the structure object.
+                   * **extras** (*dict*) -- Extras stored within the structure object.
 
 
    .. py:method:: append_from_aiida_structuredata(aiida_node: Union[int, str, aiida.orm.StructureData], use_uuid: bool = False, label: str = None)

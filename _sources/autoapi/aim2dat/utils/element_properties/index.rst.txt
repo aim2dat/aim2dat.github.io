@@ -25,6 +25,7 @@ Functions
    aim2dat.utils.element_properties.get_element_groups
    aim2dat.utils.element_properties.get_element_symbol
    aim2dat.utils.element_properties.get_group
+   aim2dat.utils.element_properties.get_val_electrons
 
 
 
@@ -34,7 +35,7 @@ Functions
 
    :Parameters: **element** (*str or int*) -- Atomic number, name or symbol of the element.
 
-   :returns: **element_number** (*int*) -- Atomic number of the element.
+   :returns: *int* -- Atomic mass of the element.
 
 
 .. py:function:: get_atomic_number(element)
@@ -72,7 +73,7 @@ Functions
    :Parameters: * **element** (*str or int*) -- Atomic number, name or symbol of the element.
                 * **scale** (*str (optional)*) -- Electronegativity scale. Supported values are ``'pauling'`` and ``'allen'``.
 
-   :returns: **electronegativity** (*float or None*) -- Electronegativity of the element.
+   :returns: *float or None* -- Electronegativity of the element.
 
 
 .. py:function:: get_element_groups(element)
@@ -100,5 +101,15 @@ Functions
    :Parameters: **group_label** (*str*) -- Group label.
 
    :returns: **elements** (*set*) -- Set of element symbols..
+
+
+.. py:function:: get_val_electrons(element)
+
+   Return number of valence electrons of the element from the atomic number, element symbol
+   or name.
+
+   :Parameters: **element** (*str or int*) -- Atomic number, name or symbol of the element.
+
+   :returns: *int* -- Number of valence electrons of the element.
 
 

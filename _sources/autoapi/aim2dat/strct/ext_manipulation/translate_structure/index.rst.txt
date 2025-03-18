@@ -1,0 +1,53 @@
+:orphan:
+
+:py:mod:`aim2dat.strct.ext_manipulation.translate_structure`
+============================================================
+
+.. py:module:: aim2dat.strct.ext_manipulation.translate_structure
+
+.. autoapi-nested-parse::
+
+   Module that implements routines to translate a structure.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   aim2dat.strct.ext_manipulation.translate_structure.translate_structure
+
+
+
+.. py:function:: translate_structure(structure: aim2dat.strct.Structure, vector: List[float], site_indices: Union[slice, List[int]] = slice(None), wrap: bool = False, dist_threshold: Union[dict, list, float, int, str, None] = None, change_label: bool = False) -> aim2dat.strct.Structure
+
+   Translate structure.
+
+   :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure to translate.
+                * **vector** (*list of float (optional)*) -- Translation vector.
+                * **site_indices** (*list of int (optional)*) -- Indices of the sites to translate. If not given, all sites of the structure are translated.
+                * **wrap** (*bool (optional)*) -- Wrap atomic positions back into the unit cell.
+                * **dist_threshold** (*dict, list, float, int, str or None (optional)*) -- Check the distances between all site pairs to ensure that none of the changed atoms
+                  collide or are too far apart. For example, ``0.8`` to ensure a minimum distance of
+                  ``0.8`` for all site pairs. A list ``[0.8, 1.5]`` adds a check for the maximum distance
+                  as well. Giving a dictionary ``{("C", "H"): 0.8, (0, 4): 0.8}`` allows distance checks
+                  for individual pairs of elements or site indices. Specifying an atomic radius type as
+                  str, e.g. ``covalent+10`` sets the minimum threshold to the sum of covalent radii plus
+                  10%.
+                * **change_label** (*bool (optional)*) -- Add suffix to the label of the new structure highlighting the performed manipulation.
+
+   :returns: *aim2dat.strct.Structure* -- Translated structure.
+
+   :raises ValueError: `dist_threshold` needs to have keys with length 2 containing site indices or element
+       symbols.
+   :raises ValueError: `dist_threshold` needs to have keys of type List[str/int] containing site indices or
+       element symbols.
+   :raises TypeError: `dist_threshold` needs to be of type int/float/list/tuple/dict or None.
+   :raises ValueError: If any distance between atoms is outside the threshold.
+
+

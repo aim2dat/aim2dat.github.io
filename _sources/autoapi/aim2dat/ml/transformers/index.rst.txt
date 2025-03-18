@@ -597,7 +597,7 @@ Classes
 
 
 
-.. py:class:: StructureCoordinationTransformer(r_max=15.0, method='minimum_distance', min_dist_delta=0.1, n_nearest_neighbours=5, econ_tolerance=0.5, econ_conv_threshold=0.001, voronoi_weight_type='rel_solid_angle', voronoi_weight_threshold=0.5, feature_types=('nrs_avg', 'nrs_stdev', 'nrs_max', 'nrs_min', 'distance_avg', 'distance_stdev', 'distance_max', 'distance_min'), n_procs=1, chunksize=50, verbose=True)
+.. py:class:: StructureCoordinationTransformer(r_max=15.0, method='minimum_distance', min_dist_delta=0.1, n_nearest_neighbours=5, radius_type='chen_manz', atomic_radius_delta=0.0, econ_tolerance=0.5, econ_conv_threshold=0.001, voronoi_weight_type='rel_solid_angle', voronoi_weight_threshold=0.5, feature_types=('nrs_avg', 'nrs_stdev', 'nrs_max', 'nrs_min', 'distance_avg', 'distance_stdev', 'distance_max', 'distance_min'), n_procs=1, chunksize=50, verbose=True)
 
 
    Bases: :py:obj:`_BaseStructureTransformer`
@@ -615,6 +615,13 @@ Classes
    :ivar n_nearest_neighbours: Number of neighbours that are considered coordinated for the ``'n_neighbours'``
                                method.
    :vartype n_nearest_neighbours: int (optional)
+   :ivar radius_type: Type of the atomic radius used for the ``'atomic_radius'`` method (``'covalent'`` is
+                      used as fallback in the radius for an element is not defined).
+   :vartype radius_type: str (optional)
+   :ivar atomic_radius_delta: Tolerance relative to the sum of the atomic radii for the ``'atomic_radius'`` method.
+                              If set to ``0.0`` the maximum threshold is defined by the sum of the atomic radii,
+                              positive (negative) values increase (decrease) the threshold.
+   :vartype atomic_radius_delta: float (optional)
    :ivar econ_tolerance: Tolerance parameter for the econ method.
    :vartype econ_tolerance: float (optional)
    :ivar econ_conv_threshold: Convergence threshold for the econ method.
