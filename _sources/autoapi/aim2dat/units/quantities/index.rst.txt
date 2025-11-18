@@ -1,0 +1,297 @@
+aim2dat.units.quantities
+========================
+
+.. py:module:: aim2dat.units.quantities
+
+.. autoapi-nested-parse::
+
+   Module containing quantity classes.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   aim2dat.units.quantities.Energy
+   aim2dat.units.quantities.Force
+   aim2dat.units.quantities.Frequency
+   aim2dat.units.quantities.Length
+   aim2dat.units.quantities.Pressure
+   aim2dat.units.quantities.Wavevector
+
+
+Module Contents
+---------------
+
+
+.. py:class:: Energy(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
+
+
+   Bases: :py:obj:`_BaseQuantity`
+
+   Energy units.
+
+
+   .. rubric:: Overview
+
+   .. list-table:: Properties
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`available_units <aim2dat.units.quantities.Energy.available_units>`
+        - List of all available units.
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.units.quantities.Energy.get_unit>`\ (unit)
+        - Return the value of the unit.
+
+
+
+   .. py:property:: available_units
+      :type: List[str]
+
+
+      List of all available units.
+
+
+   .. py:method:: get_unit(unit: str) -> float
+
+      Return the value of the unit.
+
+      :Parameters: **unit** (*str*) -- Physical unit.
+
+      :returns: *float* -- Value of the unit.
+
+
+
+
+.. py:class:: Force(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
+
+
+   Bases: :py:obj:`_BaseQuantity`
+
+   Force units.
+
+
+   .. rubric:: Overview
+
+   .. list-table:: Properties
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`available_units <aim2dat.units.quantities.Force.available_units>`
+        - List of all available units.
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.units.quantities.Force.get_unit>`\ (unit)
+        - Return the value of the unit.
+
+
+
+   .. py:property:: available_units
+      :type: List[str]
+
+
+      List of all available units.
+
+
+   .. py:method:: get_unit(unit: str) -> float
+
+      Return the value of the unit.
+
+      :Parameters: **unit** (*str*) -- Physical unit.
+
+      :returns: *float* -- Value of the unit.
+
+
+
+
+.. py:class:: Frequency(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
+
+
+   Bases: :py:obj:`_BaseQuantity`
+
+   Frequency units.
+
+
+   .. rubric:: Overview
+
+   .. list-table:: Properties
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`available_units <aim2dat.units.quantities.Frequency.available_units>`
+        - List of all available units.
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.units.quantities.Frequency.get_unit>`\ (unit)
+        - Return the value of the unit.
+
+
+
+   .. py:property:: available_units
+      :type: List[str]
+
+
+      List of all available units.
+
+
+   .. py:method:: get_unit(unit: str) -> float
+
+      Return the value of the unit.
+
+      :Parameters: **unit** (*str*) -- Physical unit.
+
+      :returns: *float* -- Value of the unit.
+
+
+
+
+.. py:class:: Length(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
+
+
+   Bases: :py:obj:`_BaseQuantity`
+
+   Length units.
+
+
+   .. rubric:: Overview
+
+   .. list-table:: Properties
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`available_units <aim2dat.units.quantities.Length.available_units>`
+        - List of all available units.
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.units.quantities.Length.get_unit>`\ (unit)
+        - Return the value of the unit.
+
+
+
+   .. py:property:: available_units
+      :type: List[str]
+
+
+      List of all available units.
+
+
+   .. py:method:: get_unit(unit: str) -> float
+
+      Return the value of the unit.
+
+      :Parameters: **unit** (*str*) -- Physical unit.
+
+      :returns: *float* -- Value of the unit.
+
+
+
+
+.. py:class:: Pressure(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
+
+
+   Bases: :py:obj:`_BaseQuantity`
+
+   Pressure units.
+
+
+   .. rubric:: Overview
+
+   .. list-table:: Properties
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`available_units <aim2dat.units.quantities.Pressure.available_units>`
+        - List of all available units.
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.units.quantities.Pressure.get_unit>`\ (unit)
+        - Return the value of the unit.
+
+
+
+   .. py:property:: available_units
+      :type: List[str]
+
+
+      List of all available units.
+
+
+   .. py:method:: get_unit(unit: str) -> float
+
+      Return the value of the unit.
+
+      :Parameters: **unit** (*str*) -- Physical unit.
+
+      :returns: *float* -- Value of the unit.
+
+
+
+
+.. py:class:: Wavevector(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
+
+
+   Bases: :py:obj:`_BaseQuantity`
+
+   Wavevector units.
+
+
+   .. rubric:: Overview
+
+   .. list-table:: Properties
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`available_units <aim2dat.units.quantities.Wavevector.available_units>`
+        - List of all available units.
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.units.quantities.Wavevector.get_unit>`\ (unit)
+        - Return the value of the unit.
+
+
+
+   .. py:property:: available_units
+      :type: List[str]
+
+
+      List of all available units.
+
+
+   .. py:method:: get_unit(unit: str) -> float
+
+      Return the value of the unit.
+
+      :Parameters: **unit** (*str*) -- Physical unit.
+
+      :returns: *float* -- Value of the unit.
+
+
+

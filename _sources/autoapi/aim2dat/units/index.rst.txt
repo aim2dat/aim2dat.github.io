@@ -1,0 +1,133 @@
+aim2dat.units
+=============
+
+.. py:module:: aim2dat.units
+
+.. autoapi-nested-parse::
+
+   Sub-package containing units and unit conversions. ``'eV'`` and ``'angstrom'`` are set to ``1.0``
+   and the unit of time is ``ansgrom/sqrt(u/eV)`` per default.
+   However, other units can be set as base:
+
+   >>> length = Length(base_unit="m")
+   >>> length.m
+   1.0
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/aim2dat/units/constants/index
+   /autoapi/aim2dat/units/quantities/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   aim2dat.units.Constants
+   aim2dat.units.UnitConverter
+
+
+Package Contents
+----------------
+
+
+.. py:class:: Constants(constants: Union[str, dict] = 'CODATA_2022')
+
+
+   Class to access fundamental constants.
+
+
+   .. rubric:: Overview
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.units.Constants.get_unit>`\ (name)
+        - Get unit of constant.
+      * - :py:obj:`get_value <aim2dat.units.Constants.get_value>`\ (name)
+        - Get value of constant.
+      * - :py:obj:`get_value_unit <aim2dat.units.Constants.get_value_unit>`\ (name)
+        - Get value and unit of constant.
+
+
+
+
+   .. py:method:: get_unit(name: str) -> str
+
+      Get unit of constant.
+
+      :Parameters: **name** (*str*) -- Name of constant.
+
+      :returns: *str* -- Unit of the constant.
+
+
+   .. py:method:: get_value(name: str) -> float
+
+      Get value of constant.
+
+      :Parameters: **name** (*str*) -- Name of the constant.
+
+      :returns: *float* -- Value of the constant.
+
+
+   .. py:method:: get_value_unit(name: str) -> Tuple[float, str]
+
+      Get value and unit of constant.
+
+      :Parameters: **name** (*str*) -- Name of constant.
+
+      :returns: *tuple* -- Tuple containing value and unit of constant.
+
+
+
+
+.. py:class:: UnitConverter
+
+
+   Bases: :py:obj:`_BaseUnitConverter`
+
+   Convert units used in spectroscopy.
+
+
+   .. rubric:: Overview
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`convert_units <aim2dat.units.UnitConverter.convert_units>`\ (value, unit_1, unit_2)
+        - `class` Convert one unit into another.
+
+
+   .. py:attribute:: available_units
+      :value: []
+
+
+   .. py:attribute:: plot_labels
+
+
+
+   .. py:method:: convert_units(value: Union[int, float], unit_1: str, unit_2: str) -> float
+      :classmethod:
+
+
+      Convert one unit into another.
+
+      :Parameters: * **value** (*float*) -- Input value.
+                   * **unit_1** (*str*) -- Physical unit of the input value.
+                   * **unit_2** (*str*) -- Physical unit to be converted into.
+
+      :returns: **processed_data** (*float*) -- Output value.
+
+
+

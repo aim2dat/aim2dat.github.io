@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.aiida_workflows.workflow_builder`
-==================================================
+aim2dat.aiida_workflows.workflow_builder
+========================================
 
 .. py:module:: aim2dat.aiida_workflows.workflow_builder
 
@@ -9,11 +9,24 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   aim2dat.aiida_workflows.workflow_builder.AiidaCode
+
+
+Exceptions
+----------
+
+.. autoapisummary::
+
+   aim2dat.aiida_workflows.workflow_builder.WorkflowProtocolError
+
 
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -21,15 +34,8 @@ Classes
    aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder
 
 
-
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   aim2dat.aiida_workflows.workflow_builder.AiidaCode
-
+Module Contents
+---------------
 
 
 .. py:exception:: WorkflowProtocolError
@@ -39,31 +45,6 @@ Attributes
 
    Error for incomplete or inconsistent workflow protocols.
 
-   
-   .. py:class:: args
-
-
-
-
-
-   .. rubric:: Overview
-
-
-   .. list-table:: Methods
-      :header-rows: 0
-      :widths: auto
-
-      * - :py:obj:`with_traceback <aim2dat.aiida_workflows.workflow_builder.WorkflowProtocolError.with_traceback>`\ ()
-        - Exception.with_traceback(tb) --
-
-
-
-
-   .. py:method:: with_traceback()
-
-      Exception.with_traceback(tb) --
-      set self.__traceback__ to tb and return self.
-
 
 
 
@@ -72,7 +53,7 @@ Attributes
 
    Bases: :py:obj:`_BaseWorkflowBuilder`
 
-   Workflow builder that can manage a worklfow for several parent nodes at once.
+   Workflow builder that can manage a workflow for several parent nodes at once.
 
 
    .. rubric:: Overview
@@ -91,8 +72,6 @@ Attributes
         - Return the task queue.
       * - :py:obj:`tasks <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.tasks>`
         - Return all tasks of the workflow.
-      * - :py:obj:`use_uuid <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.use_uuid>`
-        - Whether to use the uuid (str) to represent AiiDA nodes instead of the primary key
       * - :py:obj:`user_input <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.user_input>`
         - Input parameters set by the user.
 
@@ -109,7 +88,7 @@ Attributes
         - Import input parameters for the workflow based on another parent node.
       * - :py:obj:`execute_task_queue <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.execute_task_queue>`\ (interval, node_ids)
         - Execute a series of AiiDA processes for several tasks consecutively for all parent nodes
-      * - :py:obj:`from_file <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.from_file>`\ (file_name)
+      * - :py:obj:`from_file <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.from_file>`\ (file_path)
         - `class` \-
       * - :py:obj:`generate_inputs <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.generate_inputs>`\ (parent_node, task)
         - Generate a dictionary or builder for a certain task of the workflow for a specific parent
@@ -123,6 +102,8 @@ Attributes
         - Reset the task queue.
       * - :py:obj:`return_process_nodes <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.return_process_nodes>`\ ()
         - Return a pandas data frame containing the process nodes of all completed tasks.
+      * - :py:obj:`return_remote_runtimes <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.return_remote_runtimes>`\ ()
+        - Return a pandas data frame containing the total remote runtimes of all completed tasks.
       * - :py:obj:`return_results <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.return_results>`\ (include, exclude)
         - Return a pandas data frame containing the calculated results of all completed tasks.
       * - :py:obj:`return_runtimes <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.return_runtimes>`\ (unit)
@@ -135,9 +116,18 @@ Attributes
         - Set a user input parameter of the workflow for all parent nodes.
       * - :py:obj:`submit_task <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.submit_task>`\ (task_label, interval, node_ids)
         - Submit the AiiDA processes of the task for all parent nodes.
-      * - :py:obj:`to_file <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.to_file>`\ (file_name)
+      * - :py:obj:`to_file <aim2dat.aiida_workflows.workflow_builder.MultipleWorkflowBuilder.to_file>`\ (file_path)
         - \-
 
+
+   .. py:attribute:: use_uuid
+      :value: False
+
+
+      Whether to use the uuid (str) to represent AiiDA nodes instead of the primary key
+      (int).
+
+      :type: bool
 
 
    .. py:property:: aiida_group
@@ -161,13 +151,6 @@ Attributes
    .. py:property:: tasks
 
       Return all tasks of the workflow.
-
-   .. py:property:: use_uuid
-
-      Whether to use the uuid (str) to represent AiiDA nodes instead of the primary key
-      (int).
-
-      :type: bool
 
    .. py:property:: user_input
 
@@ -207,7 +190,7 @@ Attributes
                      ``None`` to run all workflows.
 
 
-   .. py:method:: from_file(file_name='workflow.yaml')
+   .. py:method:: from_file(file_path='workflow.yaml')
       :classmethod:
 
 
@@ -257,6 +240,13 @@ Attributes
       :returns: *pandas.DataFrame* -- Pandas data frame.
 
 
+   .. py:method:: return_remote_runtimes()
+
+      Return a pandas data frame containing the total remote runtimes of all completed tasks.
+
+      :returns: *pandas.DataFrame* -- Pandas data frame.
+
+
    .. py:method:: return_results(include='all', exclude=[])
 
       Return a pandas data frame containing the calculated results of all completed tasks.
@@ -280,11 +270,8 @@ Attributes
 
       Return a pandas data frame containing the current state of  workflow.
 
-      Paramters
-      ---------
-      unformatted : bool (optional)
-          If set to ``True`` an unformatted pandas.DataFrame object is returned otherwise a
-          pandas.Styler object is returned.
+      :Parameters: **unformatted** (*bool (optional)*) -- If set to ``True`` an unformatted pandas.DataFrame object is returned otherwise a
+                   pandas.Styler object is returned.
 
       :returns: *pandas.DataFrame or pandas.Styler* -- Pandas data frame.
 
@@ -319,8 +306,7 @@ Attributes
                      ``None`` to run all workflows.
 
 
-   .. py:method:: to_file(file_name='workflow.yaml')
-
+   .. py:method:: to_file(file_path='workflow.yaml')
 
 
 
@@ -354,8 +340,6 @@ Attributes
         - Tasks which have not yet finished.
       * - :py:obj:`tasks <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.tasks>`
         - Return all tasks of the workflow.
-      * - :py:obj:`use_uuid <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.use_uuid>`
-        - Whether to use the uuid (str) to represent AiiDA nodes instead of the primary key
       * - :py:obj:`user_input <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.user_input>`
         - Input parameters set by the user.
 
@@ -368,7 +352,7 @@ Attributes
         - Import input parameters for the workflow based on another parent node.
       * - :py:obj:`determine_workflow_state <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.determine_workflow_state>`\ ()
         - Determine which tasks of the workflow have been completed and which ones can be started
-      * - :py:obj:`from_file <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.from_file>`\ (file_name)
+      * - :py:obj:`from_file <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.from_file>`\ (file_path)
         - `class` \-
       * - :py:obj:`generate_inputs <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.generate_inputs>`\ (task)
         - Generate a builder for an AiiDA work chain or calculation job.
@@ -380,9 +364,20 @@ Attributes
         - Set user input parameters of the workflow.
       * - :py:obj:`submit_task <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.submit_task>`\ (task)
         - Submit the underlying AiiDA process of the task.
-      * - :py:obj:`to_file <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.to_file>`\ (file_name)
+      * - :py:obj:`to_file <aim2dat.aiida_workflows.workflow_builder.WorkflowBuilder.to_file>`\ (file_path)
         - \-
 
+
+   .. py:attribute:: graph_attributes
+
+   .. py:attribute:: use_uuid
+      :value: False
+
+
+      Whether to use the uuid (str) to represent AiiDA nodes instead of the primary key
+      (int).
+
+      :type: bool
 
 
    .. py:property:: aiida_group
@@ -419,13 +414,6 @@ Attributes
 
       Return all tasks of the workflow.
 
-   .. py:property:: use_uuid
-
-      Whether to use the uuid (str) to represent AiiDA nodes instead of the primary key
-      (int).
-
-      :type: bool
-
    .. py:property:: user_input
 
       Input parameters set by the user.
@@ -444,7 +432,7 @@ Attributes
       next.
 
 
-   .. py:method:: from_file(file_name='workflow.yaml')
+   .. py:method:: from_file(file_path='workflow.yaml')
       :classmethod:
 
 
@@ -493,11 +481,10 @@ Attributes
       :returns: **proc_node** (*aiida.node*) -- AiiDA process node.
 
 
-   .. py:method:: to_file(file_name='workflow.yaml')
-
+   .. py:method:: to_file(file_path='workflow.yaml')
 
 
 .. py:data:: AiidaCode
+   :value: None
 
-   
 

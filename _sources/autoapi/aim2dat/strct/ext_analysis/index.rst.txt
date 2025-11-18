@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.strct.ext_analysis`
-====================================
+aim2dat.strct.ext_analysis
+==========================
 
 .. py:module:: aim2dat.strct.ext_analysis
 
@@ -11,36 +11,36 @@
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   decorator/index.rst
+   /autoapi/aim2dat/strct/ext_analysis/decorator/index
+   /autoapi/aim2dat/strct/ext_analysis/h_bonds/index
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   aim2dat.strct.ext_analysis.calc_acsf_descriptor
+   aim2dat.strct.ext_analysis.calc_ffingerprint_order_p
+   aim2dat.strct.ext_analysis.calc_graph
+   aim2dat.strct.ext_analysis.calc_hydrogen_bonds
+   aim2dat.strct.ext_analysis.calc_interaction_matrix
+   aim2dat.strct.ext_analysis.calc_mbtr_descriptor
+   aim2dat.strct.ext_analysis.calc_molecular_fragments
+   aim2dat.strct.ext_analysis.calc_planes
+   aim2dat.strct.ext_analysis.calc_prdf
+   aim2dat.strct.ext_analysis.calc_soap_descriptor
+   aim2dat.strct.ext_analysis.calc_warren_cowley_order_p
 
 
 Package Contents
 ----------------
 
-
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   aim2dat.strct.ext_analysis.calculate_acsf_descriptor
-   aim2dat.strct.ext_analysis.calculate_ffingerprint_order_p
-   aim2dat.strct.ext_analysis.calculate_interaction_matrix
-   aim2dat.strct.ext_analysis.calculate_mbtr_descriptor
-   aim2dat.strct.ext_analysis.calculate_planes
-   aim2dat.strct.ext_analysis.calculate_prdf
-   aim2dat.strct.ext_analysis.calculate_soap_descriptor
-   aim2dat.strct.ext_analysis.calculate_warren_cowley_order_p
-   aim2dat.strct.ext_analysis.create_graph
-   aim2dat.strct.ext_analysis.determine_molecular_fragments
-
-
-
-.. py:function:: calculate_acsf_descriptor(structure: aim2dat.strct.strct.Structure, r_cut: float = 7.5, g2_params: list = None, g3_params: list = None, g4_params: list = None, g5_params: list = None, elements: list = None, periodic: bool = False, sparse: bool = False, dscribe_n_jobs: int = 1, dscribe_only_physical_cores: bool = False) -> List[float]
+.. py:function:: calc_acsf_descriptor(structure: aim2dat.strct.Structure, r_cut: float = 7.5, g2_params: list = None, g3_params: list = None, g4_params: list = None, g5_params: list = None, elements: list = None, periodic: bool = False, sparse: bool = False, dscribe_n_jobs: int = 1, dscribe_only_physical_cores: bool = False) -> List[float]
 
    Calculate ACSF descriptor as defined in :doi:`10.1063/1.3553717`. This method is
    based on the implementations of the dscribe python package.
@@ -60,7 +60,7 @@ Functions
    :returns: *list* -- ACSF descriptor.
 
 
-.. py:function:: calculate_ffingerprint_order_p(structure: aim2dat.strct.strct.Structure, r_max: float = 15.0, delta_bin: float = 0.005, sigma: float = 0.05, distinguish_kinds: bool = False) -> Tuple[float, List[float]]
+.. py:function:: calc_ffingerprint_order_p(structure: aim2dat.strct.structure.Structure, r_max: float = 15.0, delta_bin: float = 0.005, sigma: float = 0.05, distinguish_kinds: bool = False) -> Tuple[float, List[float]]
 
    Calculate order parameters for the total structure and for each individual site.
 
@@ -77,7 +77,36 @@ Functions
              * **atomic_fingerprints** (*list*) -- List of order parameters for each atomic site.
 
 
-.. py:function:: calculate_interaction_matrix(structure: aim2dat.strct.strct.Structure, matrix_type: str = 'coulomb', n_atoms_max: int = None, enforce_real: bool = False, permutation: str = 'eigenspectrum', sigma: float = None, seed: int = None, sparse: bool = False, ewald_accuracy: float = 1e-05, ewald_w: int = 1, ewald_r_cut: float = None, ewald_g_cut: float = None, ewald_a: float = None, dscribe_n_jobs: int = 1, dscribe_only_physical_cores: bool = False) -> list
+.. py:function:: calc_graph(structure: aim2dat.strct.structure.Structure, get_graphviz_graph: bool = False, graphviz_engine: str = 'circo', graphviz_edge_rank_colors: List[str] = ['blue', 'red', 'green', 'orange', 'darkblue'], **cn_kwargs)
+
+   Create graph based on the coordination.
+
+   :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure object.
+                * **get_graphviz_graph** (*bool*) -- Whether to also output a graphviz.Digraph object.
+                * **graphviz_engine** (*str*) -- Graphviz engine used to create the graph. The default value is ``'circo'``.
+                * **graphviz_edge_rank_colors** (*list*) -- List of colors of the different edge ranks.
+                * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
+
+   :returns: * **nx_graph** (*nx.MultiDiGraph*) -- networkx graph of the structure.
+             * **graphviz_graph** (*graphviz.Digraph*) -- graphviz graph of the structure (if ``get_graphviz_graph`` is set to ``True``).
+
+
+.. py:function:: calc_hydrogen_bonds(structure: aim2dat.strct.Structure, host_elements='O', bond_threshold=1.25, index_constraint=None, scheme: str = 'baker_hubbard')
+
+   Search for hydrogen bonds.
+
+   :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure object.
+                * **host_elements** (*list or str*) -- Elements considered as host atoms for hydrogen atoms and hydrogen bonds.
+                * **bond_threshold** (*float*) -- Upper threshold to consider the hydrogen atom chemically bonded to the donor.
+                * **index_constraint** (*list or None*) -- List of site indices to constrain the search.
+                * **scheme** (*str*) -- The applied scheme. Supported options are `'baker_hubbard'`
+                  (:doi:`10.1016/0079-6107(84)90007-5`).
+
+   :returns: *tuple* -- Tuple of triples: site of the hydrogen acceptor, hydrogen site, and site of the hydrogen
+             donor.
+
+
+.. py:function:: calc_interaction_matrix(structure: aim2dat.strct.Structure, matrix_type: str = 'coulomb', n_atoms_max: int = None, enforce_real: bool = False, permutation: str = 'eigenspectrum', sigma: float = None, seed: int = None, sparse: bool = False, ewald_accuracy: float = 1e-05, ewald_w: int = 1, ewald_r_cut: float = None, ewald_g_cut: float = None, ewald_a: float = None, dscribe_n_jobs: int = 1, dscribe_only_physical_cores: bool = False) -> list
 
    Calculate interaction matrices as defined in :doi:`10.1002/qua.24917`.
    This method is based on the implementations of the dscribe python package.
@@ -116,7 +145,7 @@ Functions
    :returns: *list* -- Interaction matrix descriptor.
 
 
-.. py:function:: calculate_mbtr_descriptor(structure: aim2dat.strct.strct.Structure, geometry: dict = {'function': 'inverse_distance'}, grid: dict = {'min': 0, 'max': 1, 'n': 100, 'sigma': 0.1}, weighting: dict = {'function': 'exp', 'scale': 1.0, 'threshold': 0.001}, normalize_gaussians: bool = True, normalization: str = 'l2', elements: list = None, periodic: bool = False, sparse: bool = False, dscribe_n_jobs: int = 1, dscribe_only_physical_cores: bool = False) -> List[float]
+.. py:function:: calc_mbtr_descriptor(structure: aim2dat.strct.Structure, geometry: dict = {'function': 'inverse_distance'}, grid: dict = {'min': 0, 'max': 1, 'n': 100, 'sigma': 0.1}, weighting: dict = {'function': 'exp', 'scale': 1.0, 'threshold': 0.001}, normalize_gaussians: bool = True, normalization: str = 'l2', elements: list = None, periodic: bool = False, sparse: bool = False, dscribe_n_jobs: int = 1, dscribe_only_physical_cores: bool = False) -> List[float]
 
    Calculate MBTR descriptor as defined in :doi:`10.1088/2632-2153/aca005`. This method
    is based on the implementations of the dscribe python package.
@@ -137,7 +166,22 @@ Functions
    :returns: *list* -- MBTR descriptor.
 
 
-.. py:function:: calculate_planes(structure: aim2dat.strct.strct.Structure, r_max: float = 15.0, fragment: list = None, threshold: float = 0.05, margin: float = 1.0, vector_lengths: List[float] = None, min_nr_atoms: int = 5, use_scaled_coordinates: bool = False) -> list
+.. py:function:: calc_molecular_fragments(structure: aim2dat.strct.structure.Structure, max_fragment_size: int = 100, exclude_elements: List[str] = None, exclude_sites: List[int] = None, end_point_elements: List[str] = None, **cn_kwargs) -> List[aim2dat.strct.structure.Structure]
+
+   Find molecular fragments in a larger molecule/cluster of periodic crystal.
+
+   :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure object.
+                * **max_fragment_size** (*int*) -- Maximum size of the fragments to avoid recursion overflow.
+                * **exclude_elements** (*list*) -- List of elements that are excluded from the search.
+                * **exclude_sites** (*list*) -- List of site indices that are excluded from the search.
+                * **end_point_elements** (*list*) -- List of elements that serve as an end point for a fragment.
+                * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
+                * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
+
+   :returns: *list* -- List of fragments.
+
+
+.. py:function:: calc_planes(structure: aim2dat.strct.structure.Structure, r_max: float = 15.0, fragment: list = None, threshold: float = 0.05, margin: float = 1.0, vector_lengths: List[float] = None, min_nr_atoms: int = 5, use_scaled_coordinates: bool = False) -> list
 
    Find planar arangements of atoms in the structure.
 
@@ -152,7 +196,7 @@ Functions
    :returns: *list* -- List of planes.
 
 
-.. py:function:: calculate_prdf(structure: aim2dat.strct.strct.Structure, r_max: float = 20.0, delta_bin: float = 0.005, distinguish_kinds: bool = False) -> Tuple[dict, dict]
+.. py:function:: calc_prdf(structure: aim2dat.strct.structure.Structure, r_max: float = 20.0, delta_bin: float = 0.005, distinguish_kinds: bool = False) -> Tuple[dict, dict]
 
    Calculate the partial radial distribution function. The calculation is based on:
    :doi:`10.1103/PhysRevB.89.205118`.
@@ -169,7 +213,7 @@ Functions
                atomic site.
 
 
-.. py:function:: calculate_soap_descriptor(structure: aim2dat.strct.strct.Structure, r_cut: float = 7.5, n_max: list = 8, l_max: list = 6, sigma: float = 1.0, rbf: str = 'gto', weighting: dict = None, compression: dict = {'mode': 'off', 'species_weighting': None}, average: str = 'off', elements: list = None, periodic: bool = False, sparse: bool = False, dscribe_n_jobs: int = 1, dscribe_only_physical_cores: bool = False) -> List[float]
+.. py:function:: calc_soap_descriptor(structure: aim2dat.strct.Structure, r_cut: float = 7.5, n_max: list = 8, l_max: list = 6, sigma: float = 1.0, rbf: str = 'gto', weighting: dict = None, compression: dict = {'mode': 'off', 'species_weighting': None}, average: str = 'off', elements: list = None, periodic: bool = False, sparse: bool = False, dscribe_n_jobs: int = 1, dscribe_only_physical_cores: bool = False) -> List[float]
 
    Calculate SOAP descriptor as defined in :doi:`10.1103/PhysRevB.87.184115`. This method
     is based on the implementations of the dscribe python package.
@@ -194,7 +238,7 @@ Functions
    :returns: *list* -- SOAP descriptor.
 
 
-.. py:function:: calculate_warren_cowley_order_p(structure: aim2dat.strct.strct.Structure, r_max: float = 20.0, max_shells: int = 3)
+.. py:function:: calc_warren_cowley_order_p(structure: aim2dat.strct.structure.Structure, r_max: float = 20.0, max_shells: int = 3)
 
    Calculate Warren-Cowley like order parameters as defined in :doi:`10.1103/PhysRevB.96.024104`.
 
@@ -203,34 +247,5 @@ Functions
                 * **max_shells** (*int*) -- Number of neighbour shells that are evaluated.
 
    :returns: *dict* -- Dictionary containing the order parameters.
-
-
-.. py:function:: create_graph(structure: aim2dat.strct.strct.Structure, get_graphviz_graph: bool = False, graphviz_engine: str = 'circo', graphviz_edge_rank_colors: List[str] = ['blue', 'red', 'green', 'orange', 'darkblue'], **cn_kwargs)
-
-   Create graph based on the coordination.
-
-   :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure object.
-                * **get_graphviz_graph** (*bool*) -- Whether to also output a graphviz.Digraph object.
-                * **graphviz_engine** (*str*) -- Graphviz engine used to create the graph. The default value is ``'circo'``.
-                * **graphviz_edge_rank_colors** (*list*) -- List of colors of the different edge ranks.
-                * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
-
-   :returns: * **nx_graph** (*nx.MultiDiGraph*) -- networkx graph of the structure.
-             * **graphviz_graph** (*graphviz.Digraph*) -- graphviz graph of the structure (if ``get_graphviz_graph`` is set to ``True``).
-
-
-.. py:function:: determine_molecular_fragments(structure: aim2dat.strct.strct.Structure, max_fragment_size: int = 100, exclude_elements: List[str] = None, exclude_sites: List[int] = None, end_point_elements: List[str] = None, **cn_kwargs) -> List[aim2dat.strct.strct.Structure]
-
-   Find molecular fragments in a larger molecule/cluster of periodic crystal.
-
-   :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure object.
-                * **max_fragment_size** (*int*) -- Maximum size of the fragments to avoid recursion overflow.
-                * **exclude_elements** (*list*) -- List of elements that are excluded from the search.
-                * **exclude_sites** (*list*) -- List of site indices that are excluded from the search.
-                * **end_point_elements** (*list*) -- List of elements that serve as an end point for a fragment.
-                * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
-                * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
-
-   :returns: *list* -- List of fragments.
 
 

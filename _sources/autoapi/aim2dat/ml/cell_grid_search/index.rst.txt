@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.ml.cell_grid_search`
-=====================================
+aim2dat.ml.cell_grid_search
+===========================
 
 .. py:module:: aim2dat.ml.cell_grid_search
 
@@ -9,18 +9,16 @@
 
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    aim2dat.ml.cell_grid_search.CellGridSearch
 
 
-
+Module Contents
+---------------
 
 
 .. py:class:: CellGridSearch(length_scaling_factors=[0.8, 1.0, 1.2], angle_scaling_factors=[0.9, 1.0, 1.1], symprec=0.005, angle_tolerance=-1.0, hall_number=0, ffprint_r_max=10.0, ffprint_delta_bin=0.005, ffprint_sigma=0.05, ffprint_use_weights=True, ffprint_distinguish_kinds=False, target_value=0.0)
@@ -77,6 +75,50 @@ Classes
         - Set scikit-learn model to predict the target value.
       * - :py:obj:`set_target_structure <aim2dat.ml.cell_grid_search.CellGridSearch.set_target_structure>`\ (structure)
         - Set target crystal structure.
+
+
+   .. py:attribute:: angle_scaling_factors
+      :value: [0.9, 1.0, 1.1]
+
+
+   .. py:attribute:: angle_tolerance
+      :value: -1.0
+
+
+   .. py:attribute:: ffprint_delta_bin
+      :value: 0.005
+
+
+   .. py:attribute:: ffprint_distinguish_kinds
+      :value: False
+
+
+   .. py:attribute:: ffprint_r_max
+      :value: 10.0
+
+
+   .. py:attribute:: ffprint_sigma
+      :value: 0.05
+
+
+   .. py:attribute:: ffprint_use_weights
+      :value: True
+
+
+   .. py:attribute:: hall_number
+      :value: 0
+
+
+   .. py:attribute:: length_scaling_factors
+      :value: [0.8, 1.0, 1.2]
+
+
+   .. py:attribute:: symprec
+      :value: 0.005
+
+
+   .. py:attribute:: target_value
+      :value: 0.0
 
 
 

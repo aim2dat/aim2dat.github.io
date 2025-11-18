@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.aiida_workflows.utils`
-=======================================
+aim2dat.aiida_workflows.utils
+=============================
 
 .. py:module:: aim2dat.aiida_workflows.utils
 
@@ -9,23 +9,30 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
+   aim2dat.aiida_workflows.utils.add_molecule
    aim2dat.aiida_workflows.utils.concatenate_workflow_results
    aim2dat.aiida_workflows.utils.create_aiida_node
    aim2dat.aiida_workflows.utils.create_surface_slab
+   aim2dat.aiida_workflows.utils.find_equivalent_sites
    aim2dat.aiida_workflows.utils.get_results_cp2k_legacy_wc
+   aim2dat.aiida_workflows.utils.get_workchain_runtime
    aim2dat.aiida_workflows.utils.obtain_value_from_aiida_node
+   aim2dat.aiida_workflows.utils.rotate_molecule
    aim2dat.aiida_workflows.utils.seekpath_structure_analysis
    aim2dat.aiida_workflows.utils.workflow_queue
 
+
+Module Contents
+---------------
+
+.. py:function:: add_molecule(structure, parameters)
+
+   Wrap the 'add_structure_position' function to be used as a calcfunction.
 
 
 .. py:function:: concatenate_workflow_results(workflow_results1, workflow_results2, map_result1='optimized_structure', map_result2='parent_node')
@@ -55,6 +62,11 @@ Functions
    Create surface slab from surface data.
 
 
+.. py:function:: find_equivalent_sites(structure)
+
+   Wrap the 'find_eq_sites_via_coordination' function to be used as a calcfunction.
+
+
 .. py:function:: get_results_cp2k_legacy_wc(aiida_group_labels)
 
    Get results from the depreciated ElectronicProperties work chain.
@@ -64,6 +76,13 @@ Functions
    :returns: *pandas.DataFrame* -- Data frame containing the results of the workflow.
 
 
+.. py:function:: get_workchain_runtime(workchain)
+
+   Calculate the total runtime of all CalcJobNodes linked to a WorkChainNode.
+
+   :returns: **total_runtime** (*datetime.timedelta*)
+
+
 .. py:function:: obtain_value_from_aiida_node(aiida_node)
 
    Obtain value from AiiDA data node.
@@ -71,6 +90,11 @@ Functions
    :Parameters: **aiida_node** (*aiida.node*) -- AiiDA data node.
 
    :returns: **value** (*variable*) -- Content of the node.
+
+
+.. py:function:: rotate_molecule(structure, parameters)
+
+   Wrap the 'rotate_structure' function to be used as a calcfunction.
 
 
 .. py:function:: seekpath_structure_analysis(structure, parameters)

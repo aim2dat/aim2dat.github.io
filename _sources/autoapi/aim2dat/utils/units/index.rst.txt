@@ -1,25 +1,30 @@
-:py:mod:`aim2dat.utils.units`
-=============================
+aim2dat.utils.units
+===================
 
 .. py:module:: aim2dat.utils.units
 
 .. autoapi-nested-parse::
 
-   Module containing units and unit conversions. ``'eV'`` and ``'angstrom'`` are set to ``1.0``
-   and the unit of time is ``ansgrom/sqrt(u/eV)`` per default in the ``Quantity`` classes.
-   However, other units can be set as base:
-
-   >>> length = Length(base_unit="m")
-   >>> length.m
-   1.0
+   Deprecated units module.
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   aim2dat.utils.units.constants
+   aim2dat.utils.units.energy
+   aim2dat.utils.units.force
+   aim2dat.utils.units.frequency
+   aim2dat.utils.units.length
+   aim2dat.utils.units.pressure
+   aim2dat.utils.units.wavevector
+
 
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -33,27 +38,16 @@ Classes
    aim2dat.utils.units.Wavevector
 
 
-
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   aim2dat.utils.units.constants
-   aim2dat.utils.units.energy
-   aim2dat.utils.units.force
-   aim2dat.utils.units.frequency
-   aim2dat.utils.units.length
-   aim2dat.utils.units.pressure
-   aim2dat.utils.units.wavevector
-
+Module Contents
+---------------
 
 
 .. py:class:: Constants(constants: Union[str, dict] = 'CODATA_2022')
 
 
-   Class to access fundamental constants.
+   Bases: :py:obj:`aim2dat.units.Constants`
+
+   Access fundamental constants.
 
 
    .. rubric:: Overview
@@ -105,9 +99,9 @@ Attributes
 .. py:class:: Energy(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
-   Bases: :py:obj:`_BaseQuantity`
+   Bases: :py:obj:`aim2dat.units.Energy`
 
-   Energy units.
+   Access energy quantity.
 
 
    .. rubric:: Overview
@@ -132,6 +126,7 @@ Attributes
    .. py:property:: available_units
       :type: List[str]
 
+
       List of all available units.
 
 
@@ -149,9 +144,9 @@ Attributes
 .. py:class:: Force(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
-   Bases: :py:obj:`_BaseQuantity`
+   Bases: :py:obj:`aim2dat.units.Force`
 
-   Force units.
+   Access force quantity.
 
 
    .. rubric:: Overview
@@ -176,6 +171,7 @@ Attributes
    .. py:property:: available_units
       :type: List[str]
 
+
       List of all available units.
 
 
@@ -193,9 +189,9 @@ Attributes
 .. py:class:: Frequency(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
-   Bases: :py:obj:`_BaseQuantity`
+   Bases: :py:obj:`aim2dat.units.Frequency`
 
-   Frequency units.
+   Access frequency quantity.
 
 
    .. rubric:: Overview
@@ -220,6 +216,7 @@ Attributes
    .. py:property:: available_units
       :type: List[str]
 
+
       List of all available units.
 
 
@@ -237,9 +234,9 @@ Attributes
 .. py:class:: Length(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
-   Bases: :py:obj:`_BaseQuantity`
+   Bases: :py:obj:`aim2dat.units.Length`
 
-   Length units.
+   Access length quantity.
 
 
    .. rubric:: Overview
@@ -264,6 +261,7 @@ Attributes
    .. py:property:: available_units
       :type: List[str]
 
+
       List of all available units.
 
 
@@ -281,9 +279,9 @@ Attributes
 .. py:class:: Pressure(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
-   Bases: :py:obj:`_BaseQuantity`
+   Bases: :py:obj:`aim2dat.units.Pressure`
 
-   Pressure units.
+   Access pressure quantity.
 
 
    .. rubric:: Overview
@@ -308,6 +306,7 @@ Attributes
    .. py:property:: available_units
       :type: List[str]
 
+
       List of all available units.
 
 
@@ -325,9 +324,9 @@ Attributes
 .. py:class:: UnitConverter
 
 
-   Bases: :py:obj:`_BaseUnitConverter`
+   Bases: :py:obj:`aim2dat.units.UnitConverter`
 
-   Convert units used in spectroscopy.
+   Deprecated UnitConverter class.
 
 
    .. rubric:: Overview
@@ -342,17 +341,16 @@ Attributes
 
 
    .. py:attribute:: available_units
+      :value: []
 
-      
 
    .. py:attribute:: plot_labels
-
-      
 
 
 
    .. py:method:: convert_units(value: Union[int, float], unit_1: str, unit_2: str) -> float
       :classmethod:
+
 
       Convert one unit into another.
 
@@ -368,9 +366,9 @@ Attributes
 .. py:class:: Wavevector(constants: Union[str, dict] = 'CODATA_2022', base_unit: str = None)
 
 
-   Bases: :py:obj:`_BaseQuantity`
+   Bases: :py:obj:`aim2dat.units.Wavevector`
 
-   Wavevector units.
+   Access wavevector quantity.
 
 
    .. rubric:: Overview
@@ -395,6 +393,7 @@ Attributes
    .. py:property:: available_units
       :type: List[str]
 
+
       List of all available units.
 
 
@@ -410,29 +409,15 @@ Attributes
 
 .. py:data:: constants
 
-   
-
 .. py:data:: energy
-
-   
 
 .. py:data:: force
 
-   
-
 .. py:data:: frequency
-
-   
 
 .. py:data:: length
 
-   
-
 .. py:data:: pressure
 
-   
-
 .. py:data:: wavevector
-
-   
 

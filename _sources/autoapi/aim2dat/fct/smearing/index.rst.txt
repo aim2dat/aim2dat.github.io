@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.fct.smearing`
-==============================
+aim2dat.fct.smearing
+====================
 
 .. py:module:: aim2dat.fct.smearing
 
@@ -9,26 +9,24 @@
 
 
 
-Module Contents
----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   aim2dat.fct.smearing.AVAILABLE_SMEARING_METHODS
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    aim2dat.fct.smearing.apply_smearing
 
 
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   aim2dat.fct.smearing.AVAILABLE_SMEARING_METHODS
-
+Module Contents
+---------------
 
 .. py:function:: apply_smearing(y: numpy.array, sampling_width: float = 1.0, sigma: float = 0.5, radius: int = None, method: str = 'gaussian') -> numpy.array
 
@@ -45,6 +43,4 @@ Attributes
 
 
 .. py:data:: AVAILABLE_SMEARING_METHODS
-
-   
 

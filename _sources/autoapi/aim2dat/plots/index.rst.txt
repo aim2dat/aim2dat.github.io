@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.plots`
-=======================
+aim2dat.plots
+=============
 
 .. py:module:: aim2dat.plots
 
@@ -9,11 +9,8 @@
 
 
 
-Package Contents
-----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -29,9 +26,8 @@ Classes
    aim2dat.plots.SurfacePlot
 
 
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -42,6 +38,8 @@ Functions
    aim2dat.plots.Spectrum
 
 
+Package Contents
+----------------
 
 
 .. py:class:: BandStructureDOSPlot(ratio=(12, 7), show_legend=[False, True], subplot_hspace=5, subplot_wspace=0.1, subplot_nrows=1, subplot_ncols=3, subplot_sharex=False, subplot_sharey=True, subplot_gridspec=[(0, 1, 0, 2), (0, 1, 2, 3)], pdos_plot_type='line', tdos_plot_type='fill', dos_comp_threshold=0.47, smearing_method='gaussian', smearing_delta=0.005, smearing_sigma=5.0, sum_pdos=False, per_atom=False, **kwargs)
@@ -115,12 +113,6 @@ Functions
         - Show legend. The default value is ``False``.
       * - :py:obj:`show_plot <aim2dat.plots.BandStructureDOSPlot.show_plot>`
         - Show plot. The default value is ``False``.
-      * - :py:obj:`smearing_delta <aim2dat.plots.BandStructureDOSPlot.smearing_delta>`
-        - Spacing between two values. If set to ``None`` the original function is
-      * - :py:obj:`smearing_method <aim2dat.plots.BandStructureDOSPlot.smearing_method>`
-        - Method used to smear out the functions. Supported options are ``'gaussian'`` and
-      * - :py:obj:`smearing_sigma <aim2dat.plots.BandStructureDOSPlot.smearing_sigma>`
-        - Sigma value of the smearing distribution.
       * - :py:obj:`store_path <aim2dat.plots.BandStructureDOSPlot.store_path>`
         - Path of the folder to store the plot. The default value is ``./``.
       * - :py:obj:`store_plot <aim2dat.plots.BandStructureDOSPlot.store_plot>`
@@ -220,6 +212,34 @@ Functions
       * - :py:obj:`shift_dos <aim2dat.plots.BandStructureDOSPlot.shift_dos>`\ (data_label, shift)
         - Shift density of states.
 
+
+   .. py:attribute:: dos_comp_threshold
+
+   .. py:attribute:: per_atom
+      :value: False
+
+
+   .. py:attribute:: smearing_delta
+
+      Spacing between two values. If set to ``None`` the original function is
+      used.
+
+      :type: float or None
+
+   .. py:attribute:: smearing_method
+
+      Method used to smear out the functions. Supported options are ``'gaussian'`` and
+      ``'lorentzian'``.
+
+      :type: str
+
+   .. py:attribute:: smearing_sigma
+
+      Sigma value of the smearing distribution.
+
+      :type: float
+
+   .. py:attribute:: sum_pdos
 
 
    .. py:property:: backend
@@ -370,26 +390,6 @@ Functions
       Show plot. The default value is ``False``.
 
       :type: bool
-
-   .. py:property:: smearing_delta
-
-      Spacing between two values. If set to ``None`` the original function is
-      used.
-
-      :type: float or None
-
-   .. py:property:: smearing_method
-
-      Method used to smear out the functions. Supported options are ``'gaussian'`` and
-      ``'lorentzian'``.
-
-      :type: str
-
-   .. py:property:: smearing_sigma
-
-      Sigma value of the smearing distribution.
-
-      :type: float
 
    .. py:property:: store_path
 
@@ -1521,12 +1521,6 @@ Functions
         - Show legend. The default value is ``False``.
       * - :py:obj:`show_plot <aim2dat.plots.DOSPlot.show_plot>`
         - Show plot. The default value is ``False``.
-      * - :py:obj:`smearing_delta <aim2dat.plots.DOSPlot.smearing_delta>`
-        - Spacing between two values. If set to ``None`` the original function is
-      * - :py:obj:`smearing_method <aim2dat.plots.DOSPlot.smearing_method>`
-        - Method used to smear out the functions. Supported options are ``'gaussian'`` and
-      * - :py:obj:`smearing_sigma <aim2dat.plots.DOSPlot.smearing_sigma>`
-        - Sigma value of the smearing distribution.
       * - :py:obj:`store_path <aim2dat.plots.DOSPlot.store_path>`
         - Path of the folder to store the plot. The default value is ``./``.
       * - :py:obj:`store_plot <aim2dat.plots.DOSPlot.store_plot>`
@@ -1602,6 +1596,34 @@ Functions
       * - :py:obj:`shift_dos <aim2dat.plots.DOSPlot.shift_dos>`\ (data_label, shift)
         - Shift density of states.
 
+
+   .. py:attribute:: dos_comp_threshold
+
+   .. py:attribute:: per_atom
+      :value: False
+
+
+   .. py:attribute:: smearing_delta
+
+      Spacing between two values. If set to ``None`` the original function is
+      used.
+
+      :type: float or None
+
+   .. py:attribute:: smearing_method
+
+      Method used to smear out the functions. Supported options are ``'gaussian'`` and
+      ``'lorentzian'``.
+
+      :type: str
+
+   .. py:attribute:: smearing_sigma
+
+      Sigma value of the smearing distribution.
+
+      :type: float
+
+   .. py:attribute:: sum_pdos
 
 
    .. py:property:: backend
@@ -1752,26 +1774,6 @@ Functions
       Show plot. The default value is ``False``.
 
       :type: bool
-
-   .. py:property:: smearing_delta
-
-      Spacing between two values. If set to ``None`` the original function is
-      used.
-
-      :type: float or None
-
-   .. py:property:: smearing_method
-
-      Method used to smear out the functions. Supported options are ``'gaussian'`` and
-      ``'lorentzian'``.
-
-      :type: str
-
-   .. py:property:: smearing_sigma
-
-      Sigma value of the smearing distribution.
-
-      :type: float
 
    .. py:property:: store_path
 
@@ -3145,6 +3147,26 @@ Functions
         - Return the labels of all data sets.
 
 
+   .. py:attribute:: hist_bin_size
+      :value: 0.1
+
+
+   .. py:attribute:: plot_property
+      :value: 'formation_energy'
+
+
+   .. py:attribute:: show_convex_hull
+      :value: True
+
+
+   .. py:attribute:: show_lower_hull
+      :value: False
+
+
+   .. py:attribute:: show_upper_hull
+      :value: False
+
+
 
    .. py:property:: backend
 
@@ -3662,6 +3684,38 @@ Functions
         - Return the labels of all data sets.
 
 
+   .. py:attribute:: color_map
+      :value: 'RdBu_r'
+
+
+   .. py:attribute:: contour_filled
+      :value: True
+
+
+   .. py:attribute:: contour_levels
+      :value: None
+
+
+   .. py:attribute:: linthresh
+      :value: 0.01
+
+
+   .. py:attribute:: show_x_label
+      :value: True
+
+
+   .. py:attribute:: show_y_label
+      :value: True
+
+
+   .. py:attribute:: vmax
+      :value: None
+
+
+   .. py:attribute:: vmin
+      :value: None
+
+
 
    .. py:property:: backend
 
@@ -4146,7 +4200,7 @@ Functions
         - Whether the axis labels and other axis properties are auto-generated.
       * - :py:obj:`create_default_gridspec <aim2dat.plots.SimplePlot.create_default_gridspec>`\ (nrows, ncols, nplots, heights, widths, center_last_row)
         - Create default grid for multiple plots.
-      * - :py:obj:`import_bar_data_set <aim2dat.plots.SimplePlot.import_bar_data_set>`\ (data_label, x_values, y_values, heights, plot_label, color, hatch, alpha, bottom, width, align)
+      * - :py:obj:`import_bar_data_set <aim2dat.plots.SimplePlot.import_bar_data_set>`\ (data_label, x_values, heights, plot_label, color, edge_color, line_width, hatch, alpha, bottom, width, align, y_error, capsize, ecolor)
         - Import data set for a bar plot.
       * - :py:obj:`import_scatter_data_set <aim2dat.plots.SimplePlot.import_scatter_data_set>`\ (data_label, x_values, y_values, y_values_2, plot_label, color, face_color, alpha, line_style, line_width, marker, marker_face_color, marker_edge_width, use_fill, use_fill_between, legend_group)
         - Import data set for a scatter plot.
@@ -4486,21 +4540,25 @@ Functions
                    * **center_last_row** (*bool (optional)*) -- Center the plots of the last row.
 
 
-   .. py:method:: import_bar_data_set(data_label, x_values, y_values, heights, plot_label=None, color=None, hatch=None, alpha=None, bottom=0.0, width=0.8, align='center')
+   .. py:method:: import_bar_data_set(data_label, x_values, heights, plot_label=None, color=None, edge_color=None, line_width=None, hatch=None, alpha=None, bottom=0.0, width=0.8, align='center', y_error=None, capsize=None, ecolor=None)
 
       Import data set for a bar plot.
 
       :Parameters: * **data_label** (*str*) -- Internal label of the data set.
-                   * **x_values** (*list*) -- List of x-values of the points.
-                   * **y_values** (*list*) -- List of y-values of the points.
+                   * **x_values** (*list*) -- List of x-values of the bars.
                    * **heights** (*list*) -- List of bar heights.
+                   * **y_error** (*list*) -- List of y-error-values of the bars.
                    * **plot_label** (*str (optional)*) -- Label of the data set shown in the legend.
                    * **color** (*str (optional)*) -- Color of the data set.
+                   * **edge_color** (*str (optional)*) -- Color of the bar edges.
+                   * **line_width** (*int or float*) -- Line width of the data set.
                    * **hatch** (*str (optional)*) -- Hatch of the data set.
                    * **alpha** (*float (optional)*) -- Transparency of the data set.
                    * **bottom** (*float*) -- Position of the bottom of the bars.
                    * **width** (*float*) -- Width of the bars.
                    * **align** (*str*) -- Alignment of the bar.
+                   * **capsize** (*float*) -- Length of the error bar caps in points.
+                   * **ecolor** (*str*) -- Color of the error bars.
 
 
    .. py:method:: import_scatter_data_set(data_label, x_values, y_values, y_values_2=None, plot_label=None, color=None, face_color=None, alpha=None, line_style=None, line_width=None, marker=None, marker_face_color=None, marker_edge_width=None, use_fill=False, use_fill_between=False, legend_group=None)
@@ -4730,6 +4788,18 @@ Functions
         - Return the labels of all data sets.
 
 
+   .. py:attribute:: detect_peaks
+      :value: False
+
+
+   .. py:attribute:: plot_original_spectra
+      :value: False
+
+
+   .. py:attribute:: smooth_spectra
+      :value: False
+
+
 
    .. py:property:: backend
 
@@ -4839,42 +4909,29 @@ Functions
 
    .. py:property:: peak_color
 
-
    .. py:property:: peak_distance
-
 
    .. py:property:: peak_height
 
-
    .. py:property:: peak_line_style
-
 
    .. py:property:: peak_max_factor
 
-
    .. py:property:: peak_plateau_size
-
 
    .. py:property:: peak_prominence
 
-
    .. py:property:: peak_rel_height
-
 
    .. py:property:: peak_threshold
 
-
    .. py:property:: peak_width
-
 
    .. py:property:: peak_wlen
 
-
    .. py:property:: peak_y_min
 
-
    .. py:property:: peaks
-
 
    .. py:property:: plot_grid
 
@@ -5287,6 +5344,18 @@ Functions
         - Set bulk phase.
       * - :py:obj:`set_elemental_phase <aim2dat.plots.SurfacePlot.set_elemental_phase>`\ (element, total_energy, nr_atoms, unit)
         - Set elemental phase.
+
+
+   .. py:attribute:: plot_element
+      :value: None
+
+
+   .. py:attribute:: show_x_label
+      :value: True
+
+
+   .. py:attribute:: show_y_label
+      :value: True
 
 
 

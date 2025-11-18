@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.ml.utils`
-==========================
+aim2dat.ml.utils
+================
 
 .. py:module:: aim2dat.ml.utils
 
@@ -9,18 +9,16 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    aim2dat.ml.utils.train_test_split_crystals
 
 
+Module Contents
+---------------
 
 .. py:function:: train_test_split_crystals(structure_collection, target_attribute, train_size=None, test_size=None, target_bins=None, composition_bins=None, elements=None, exclude_labels=[], return_structure_collections=False)
 

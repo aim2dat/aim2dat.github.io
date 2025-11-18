@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.utils`
-=======================
+aim2dat.utils
+=============
 
 .. py:module:: aim2dat.utils
 
@@ -11,15 +11,16 @@
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   chem_formula/index.rst
-   dict_tools/index.rst
-   element_properties/index.rst
-   maths/index.rst
-   space_groups/index.rst
-   units/index.rst
+   /autoapi/aim2dat/utils/chem_formula/index
+   /autoapi/aim2dat/utils/dict_tools/index
+   /autoapi/aim2dat/utils/element_properties/index
+   /autoapi/aim2dat/utils/maths/index
+   /autoapi/aim2dat/utils/space_groups/index
+   /autoapi/aim2dat/utils/strct/index
+   /autoapi/aim2dat/utils/units/index
 
 

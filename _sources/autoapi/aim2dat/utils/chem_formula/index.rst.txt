@@ -1,20 +1,16 @@
-:py:mod:`aim2dat.utils.chem_formula`
-====================================
+aim2dat.utils.chem_formula
+==========================
 
 .. py:module:: aim2dat.utils.chem_formula
 
 .. autoapi-nested-parse::
 
-   Module to parse representations of chemical formulas into each other.
+   Deprecated module to parse representations of chemical formulas into each other.
 
-
-
-Module Contents
----------------
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -27,6 +23,8 @@ Functions
    aim2dat.utils.chem_formula.transform_str_to_dict
 
 
+Module Contents
+---------------
 
 .. py:function:: compare_formulas(chem_formula1, chem_formula2, reduce_formulas=False)
 

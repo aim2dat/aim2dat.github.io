@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.fct.fingerprint`
-=================================
+aim2dat.fct.fingerprint
+=======================
 
 .. py:module:: aim2dat.fct.fingerprint
 
@@ -9,18 +9,16 @@
 
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    aim2dat.fct.fingerprint.FunctionDiscretizationFingerprint
 
 
-
+Module Contents
+---------------
 
 
 .. py:class:: FunctionDiscretizationFingerprint(grid, **kwargs)
@@ -43,6 +41,12 @@ Classes
         - Compare two fingerprints that are stored in the internal memory.
       * - :py:obj:`plot_fingerprint <aim2dat.fct.fingerprint.FunctionDiscretizationFingerprint.plot_fingerprint>`\ (x_values, y_values)
         - Plot the discretized function and the corresponding grid.
+
+
+   .. py:attribute:: grid
+
+   .. py:attribute:: precision
+      :value: 6
 
 
 

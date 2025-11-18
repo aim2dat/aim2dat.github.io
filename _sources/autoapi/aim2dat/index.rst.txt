@@ -1,5 +1,5 @@
-:py:mod:`aim2dat`
-=================
+aim2dat
+=======
 
 .. py:module:: aim2dat
 
@@ -9,19 +9,22 @@
 
 
 
-Subpackages
------------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 3
+Submodules
+----------
 
-   aiida_data/index.rst
-   aiida_workflows/index.rst
-   fct/index.rst
-   io/index.rst
-   ml/index.rst
-   plots/index.rst
-   strct/index.rst
-   utils/index.rst
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/aim2dat/aiida_data/index
+   /autoapi/aim2dat/aiida_workflows/index
+   /autoapi/aim2dat/chem_f/index
+   /autoapi/aim2dat/elements/index
+   /autoapi/aim2dat/fct/index
+   /autoapi/aim2dat/io/index
+   /autoapi/aim2dat/ml/index
+   /autoapi/aim2dat/plots/index
+   /autoapi/aim2dat/strct/index
+   /autoapi/aim2dat/units/index
+   /autoapi/aim2dat/utils/index
 
 

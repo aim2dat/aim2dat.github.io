@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.ml.metrics`
-============================
+aim2dat.ml.metrics
+==================
 
 .. py:module:: aim2dat.ml.metrics
 
@@ -9,18 +9,16 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    aim2dat.ml.metrics.ffprint_cosine
 
 
+Module Contents
+---------------
 
 .. py:function:: ffprint_cosine(fprint1, fprint2)
 

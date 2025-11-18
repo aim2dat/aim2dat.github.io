@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.strct.ext_manipulation`
-========================================
+aim2dat.strct.ext_manipulation
+==============================
 
 .. py:module:: aim2dat.strct.ext_manipulation
 
@@ -11,19 +11,23 @@
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   decorator/index.rst
+   /autoapi/aim2dat/strct/ext_manipulation/decorator/index
 
 
-Package Contents
-----------------
+Exceptions
+----------
+
+.. autoapisummary::
+
+   aim2dat.strct.ext_manipulation.DistanceThresholdError
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -35,6 +39,8 @@ Functions
    aim2dat.strct.ext_manipulation.translate_structure
 
 
+Package Contents
+----------------
 
 
 .. py:exception:: DistanceThresholdError
@@ -44,34 +50,9 @@ Functions
 
    Error in case distances between atom sites are too short or too long.
 
-   
-   .. py:class:: args
 
 
-
-
-
-   .. rubric:: Overview
-
-
-   .. list-table:: Methods
-      :header-rows: 0
-      :widths: auto
-
-      * - :py:obj:`with_traceback <aim2dat.strct.ext_manipulation.DistanceThresholdError.with_traceback>`\ ()
-        - Exception.with_traceback(tb) --
-
-
-
-
-   .. py:method:: with_traceback()
-
-      Exception.with_traceback(tb) --
-      set self.__traceback__ to tb and return self.
-
-
-
-.. py:function:: add_functional_group(structure: aim2dat.strct.strct.Structure, wrap: bool = False, host_index: int = 0, functional_group: str = 'CH3', bond_length: float = 1.25, r_max: float = 15.0, cn_method: str = 'minimum_distance', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5, change_label: bool = False) -> aim2dat.strct.strct.Structure
+.. py:function:: add_functional_group(structure: aim2dat.strct.structure.Structure, wrap: bool = False, host_index: int = 0, functional_group: str = 'CH3', bond_length: float = 1.25, r_max: float = 15.0, cn_method: str = 'minimum_distance', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5, change_label: bool = False) -> aim2dat.strct.structure.Structure
 
    Add a functional group or an atom to a host site.
 
@@ -102,7 +83,7 @@ Functions
    :returns: *aim2dat.strct.Structure* -- Structure with attached functional group.
 
 
-.. py:function:: add_structure_coord(structure: aim2dat.strct.Structure, wrap: bool = False, host_indices: Union[int, List[int]] = 0, guest_index: int = 0, guest_structure: Union[aim2dat.strct.Structure, str] = 'CH3', guest_dir: Union[None, List[float]] = None, bond_length: float = 1.25, dist_constraints=None, dist_threshold: Union[dict, list, float, int, str, None] = 0.8, change_label: bool = False, **cn_kwargs) -> aim2dat.strct.Structure
+.. py:function:: add_structure_coord(structure: aim2dat.strct.structure.Structure, wrap: bool = False, host_indices: Union[int, List[int]] = 0, guest_indices: Union[int, List[int]] = 0, guest_structure: Union[aim2dat.strct.structure.Structure, str] = 'CH3', rotate_guest: bool = False, bond_length: float = 1.25, constrain_steps: int = 90, dist_threshold: Union[dict, list, float, int, str, None] = 0.8, change_label: bool = False, **cn_kwargs) -> aim2dat.strct.structure.Structure
 
    Add a functional group or an atom to a host site.
 
@@ -110,17 +91,18 @@ Functions
                 * **wrap** (*bool (optional)*) -- Wrap atomic positions back into the unit cell.
                 * **host_indices** (*int or list (optional)*) -- Index or indices of the host site(s). In case several indices are given the center of the
                   sites is defined as host site as reference point for the bond length.
-                * **guest_index** (*int (optional)*) -- Index of the guest site.
+                * **guest_indices** (*int or list (optional)*) -- Index or indices of the guest site. In case several indices are given the center of the
+                  sites will face the host structure. The rest of the guest will point away.
                 * **guest_structure** (*str or aim2dat.strct.Structure (optional)*) -- A representation of the guest structure given as a string of a functional group or molecule
                   (viable options are ``'CH3'``, ``'COOH'``, ``'H2O'``, ``'NH2'``, ``'NO2'`` or ``'OH'``), a
                   ``Structure`` object or the element symbol to add one single atom.
-                * **guest_dir** (*list of floats (optional)*) -- Defines the orientation of the guest molecule. If not defined, a vector of nearest
-                  neighbors is constructed based on the guest index.
                 * **bond_length** (*float*) -- Bond length between the host atom and the base atom of the functional group.
-                * **dist_constraints** (*list (optional)*) -- List of three-fold tuples containing the index of the site of the host structure, the index
-                  of the site of the guest structure and the target distance. The position of the guest
-                  structure is varied based on a grid search until the sum of the absolute errors in
-                  minimized.
+                * **rotate_guest** (*bool (optional)*) -- The rotation of the guest structure is varied based on a grid search until the sum of the
+                  absolute errors is minimized.
+                * **constrain_steps** (*int (optional)*) -- Rotation steps in degree to consider for the grid search in ``rot_guest``.
+                  Additionally, if the first position guess of the molecule does not match the
+                  ```dist_threshold```, a grid search around the host atom is utilized until the sum of the
+                  absolute errors is minimized.
                 * **dist_threshold** (*dict, list, float, int, str or None (optional)*) -- Check the distances between all site pairs of the host and guest structure to ensure that
                   none of the added atoms collide or are too far apart. For example, ``0.8`` to ensure a
                   minimum distance of ``0.8`` for all site pairs. A list ``[0.8, 1.5]`` adds a check for
@@ -129,19 +111,19 @@ Functions
                   atomic radius type as str, e.g. ``covalent+10`` sets the minimum threshold to the sum
                   of covalent radii plus 10%.
                 * **change_label** (*bool (optional)*) -- Add suffix to the label of the new structure highlighting the performed manipulation.
-                * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
+                * **cn_kwargs** -- Optional keyword arguments passed on to the ``calc_coordination`` function.
 
    :returns: *aim2dat.strct.Structure* -- Structure with attached functional group.
 
-   :raises ValueError: `dist_threshold` needs to have keys with length 2 containing site indices or element
+   :raises ValueError: ``dist_threshold`` needs to have keys with length 2 containing site indices or element
        symbols.
-   :raises ValueError: `dist_threshold` needs to have keys of type List[str/int] containing site indices or
+   :raises ValueError: ``dist_threshold`` needs to have keys of type List[str/int] containing site indices or
        element symbols.
-   :raises TypeError: `dist_threshold` needs to be of type int/float/list/tuple/dict or None.
+   :raises TypeError: ``dist_threshold`` needs to be of type int/float/list/tuple/dict or None.
    :raises ValueError: If any distance between atoms is outside the threshold.
 
 
-.. py:function:: add_structure_position(structure: aim2dat.strct.Structure, position: List[float], guest_structure: Union[aim2dat.strct.Structure, str] = 'CH3', wrap: bool = False, dist_threshold: Union[dict, list, float, int, str, None] = None, change_label: bool = False) -> aim2dat.strct.Structure
+.. py:function:: add_structure_position(structure: aim2dat.strct.structure.Structure, position: List[float], guest_structure: Union[aim2dat.strct.structure.Structure, str] = 'CH3', wrap: bool = False, dist_threshold: Union[dict, list, float, int, str, None] = None, change_label: bool = False) -> aim2dat.strct.structure.Structure
 
    Add structure at a defined position.
 
@@ -161,17 +143,17 @@ Functions
                   of covalent radii plus 10%.
                 * **change_label** (*bool (optional)*) -- Add suffix to the label of the new structure highlighting the performed manipulation.
 
-   :returns: *aim2dat.strct.Structure* -- Structure with added sub structure at defined postion.
+   :returns: *aim2dat.strct.Structure* -- Structure with added sub structure at defined position.
 
-   :raises ValueError: `dist_threshold` needs to have keys with length 2 containing site indices or element
+   :raises ValueError: ``dist_threshold`` needs to have keys with length 2 containing site indices or element
        symbols.
-   :raises ValueError: `dist_threshold` needs to have keys of type List[str/int] containing site indices or
+   :raises ValueError: ``dist_threshold`` needs to have keys of type List[str/int] containing site indices or
        element symbols.
-   :raises TypeError: `dist_threshold` needs to be of type int/float/list/tuple/dict or None.
+   :raises TypeError: ``dist_threshold`` needs to be of type int/float/list/tuple/dict or None.
    :raises ValueError: If any distance between atoms is outside the threshold.
 
 
-.. py:function:: add_structure_random(structure: aim2dat.strct.Structure, guest_structure: Union[aim2dat.strct.Structure, str] = 'CH3', max_tries: int = 1000, random_seed: Union[float, None] = None, random_nrs: Union[list, None] = None, dist_threshold: Union[dict, list, float, int, str, None] = 0.8, wrap: bool = False, change_label: bool = False) -> aim2dat.strct.Structure
+.. py:function:: add_structure_random(structure: aim2dat.strct.structure.Structure, guest_structure: Union[aim2dat.strct.structure.Structure, str] = 'CH3', max_tries: int = 1000, random_seed: Union[float, None] = None, random_nrs: Union[list, None] = None, dist_threshold: Union[dict, list, float, int, str, None] = 0.8, wrap: bool = False, change_label: bool = False) -> aim2dat.strct.structure.Structure
 
    Add structure at random position and orientation.
 
@@ -179,9 +161,9 @@ Functions
                 * **guest_structure** (*str or aim2dat.strct.Structure (optional)*) -- A representation of the guest structure given as a string of a functional group or molecule
                   (viable options are ``'CH3'``, ``'COOH'``, ``'H2O'``, ``'NH2'``, ``'NO2'`` or ``'OH'``), a
                   ``Structure`` object or the element symbol to add one single atom.
-                * **max_tries** (*int*) -- Number of tries to add the guest structure. A trie is rejected via the criteria given by
+                * **max_tries** (*int*) -- Number of tries to add the guest structure. A try is rejected via the criteria given by
                   the ``dist_treshold`` parameter.
-                * **random_seed** (*int or None (optional)*) -- Specify the initial random state to ensure reproducible results.
+                * **random_seed** (*int or None (optional)*) -- Specify the random seed to ensure reproducible results.
                 * **random_nrs** (*list or None (optional)*) -- List of random numbers used to derive the position and rotation of the guest molecule. It
                   should contain ``max_tries * 7`` entries to cover the maximum amout of tries.
                 * **dist_threshold** (*dict, list, float, int, str or None (optional)*) -- Check the distances between all site pairs of the host and guest structure to ensure that
@@ -194,15 +176,15 @@ Functions
                 * **wrap** (*bool (optional)*) -- Wrap atomic positions back into the unit cell.
                 * **change_label** (*bool (optional)*) -- Add suffix to the label of the new structure highlighting the performed manipulation.
 
-   :raises ValueError: `dist_threshold` needs to have keys with length 2 containing site indices or element
+   :raises ValueError: ``dist_threshold`` needs to have keys with length 2 containing site indices or element
        symbols.
-   :raises ValueError: `dist_threshold` needs to have keys of type List[str/int] containing site indices or
+   :raises ValueError: ``dist_threshold`` needs to have keys of type List[str/int] containing site indices or
        element symbols.
-   :raises TypeError: `dist_threshold` needs to be of type int/float/list/tuple/dict or None.
+   :raises TypeError: ``dist_threshold`` needs to be of type int/float/list/tuple/dict or None.
    :raises ValueError: Could not add guest structure, host structure seems to be too aggregated.
 
 
-.. py:function:: rotate_structure(structure: aim2dat.strct.Structure, angles: Union[float, List[float]], vector: Union[None, List[float]] = None, origin: Union[None, List[float]] = None, site_indices: Union[slice, List[int]] = slice(None), wrap: bool = False, dist_threshold: Union[dict, list, float, int, str, None] = None, change_label: bool = False)
+.. py:function:: rotate_structure(structure: aim2dat.strct.structure.Structure, angles: Union[float, List[float]], vector: Union[None, List[float]] = None, origin: Union[None, List[float]] = None, site_indices: Union[slice, List[int]] = slice(None), wrap: bool = False, dist_threshold: Union[dict, list, float, int, str, None] = None, change_label: bool = False)
 
    Rotate structure. The rotation is either defined by a list of 3 angles or a rotation
    vector and one angle.
@@ -210,7 +192,7 @@ Functions
    :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure to rotate.
                 * **angles** (*float or list of float*) -- Angles for the rotation in degree. Type ``list`` for 3 individual rotations around
                   the x, y, and z directions, respectively. Type ``float`` for a rotation around a
-                  roation vector given by ``vector``..
+                  rotation vector given by ``vector``..
                 * **vector** (*list of float (optional)*) -- Rotation vector in cartesian coordinates, needs to be given if ``angles`` is single
                   number.
                 * **origin** (*list of float (optional)*) -- Rotation center for the rotation in cartesian coordinates. If not given, the mean position
@@ -236,7 +218,7 @@ Functions
    :raises ValueError: If any distance between atoms is outside the threshold.
 
 
-.. py:function:: translate_structure(structure: aim2dat.strct.Structure, vector: List[float], site_indices: Union[slice, List[int]] = slice(None), wrap: bool = False, dist_threshold: Union[dict, list, float, int, str, None] = None, change_label: bool = False) -> aim2dat.strct.Structure
+.. py:function:: translate_structure(structure: aim2dat.strct.structure.Structure, vector: List[float], site_indices: Union[slice, List[int]] = slice(None), wrap: bool = False, dist_threshold: Union[dict, list, float, int, str, None] = None, change_label: bool = False) -> aim2dat.strct.structure.Structure
 
    Translate structure.
 

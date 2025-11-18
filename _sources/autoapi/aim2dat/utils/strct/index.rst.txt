@@ -1,0 +1,11 @@
+aim2dat.utils.strct
+===================
+
+.. py:module:: aim2dat.utils.strct
+
+.. autoapi-nested-parse::
+
+   Utility functions used for atomic structures.
+
+
+

@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.strct.ext_analysis.decorator`
-==============================================
+aim2dat.strct.ext_analysis.decorator
+====================================
 
 .. py:module:: aim2dat.strct.ext_analysis.decorator
 
@@ -9,20 +9,18 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    aim2dat.strct.ext_analysis.decorator.external_analysis_method
 
 
+Module Contents
+---------------
 
-.. py:function:: external_analysis_method(func)
+.. py:function:: external_analysis_method(attr_mapping)
 
    Decorate external analysis methods.
 

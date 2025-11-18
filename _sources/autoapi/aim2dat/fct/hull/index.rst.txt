@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.fct.hull`
-==========================
+aim2dat.fct.hull
+================
 
 .. py:module:: aim2dat.fct.hull
 
@@ -9,12 +9,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -22,6 +18,8 @@ Functions
    aim2dat.fct.hull.get_minimum_maximum_points
 
 
+Module Contents
+---------------
 
 .. py:function:: get_convex_hull(points, lower_hull=True, upper_hull=True, tolerance=0.001)
 

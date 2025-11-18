@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.ml.transformers`
-=================================
+aim2dat.ml.transformers
+=======================
 
 .. py:module:: aim2dat.ml.transformers
 
@@ -9,11 +9,8 @@
 
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -29,7 +26,8 @@ Classes
    aim2dat.ml.transformers.StructureSOAPTransformer
 
 
-
+Module Contents
+---------------
 
 
 .. py:class:: StructureACSFTransformer(r_cut=7.5, g2_params=None, g3_params=None, g4_params=None, g5_params=None, elements=None, periodic=False, sparse=False, dscribe_n_jobs=1, dscribe_only_physical_cores=False, n_procs=1, chunksize=50, verbose=True)
@@ -99,6 +97,8 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureACSFTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureACSFTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureACSFTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureACSFTransformer.set_params>`\ (\*\*params)
@@ -106,6 +106,52 @@ Classes
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureACSFTransformer.transform>`\ (X)
         - Transform structures to features.
 
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: dscribe_n_jobs
+      :value: 1
+
+
+   .. py:attribute:: dscribe_only_physical_cores
+      :value: False
+
+
+   .. py:attribute:: elements
+      :value: None
+
+
+   .. py:attribute:: g2_params
+      :value: None
+
+
+   .. py:attribute:: g3_params
+      :value: None
+
+
+   .. py:attribute:: g4_params
+      :value: None
+
+
+   .. py:attribute:: g5_params
+      :value: None
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: periodic
+      :value: False
+
+
+   .. py:attribute:: r_cut
+      :value: 7.5
+
+
+   .. py:attribute:: sparse
+      :value: False
+
+
+   .. py:attribute:: verbose
 
 
    .. py:property:: precomputed_properties
@@ -187,6 +233,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -194,7 +242,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -283,6 +331,8 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureChemOrderTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureChemOrderTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureChemOrderTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureChemOrderTransformer.set_params>`\ (\*\*params)
@@ -290,6 +340,20 @@ Classes
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureChemOrderTransformer.transform>`\ (X)
         - Transform structures to features.
 
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: max_shells
+      :value: 3
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: r_max
+      :value: 15.0
+
+
+   .. py:attribute:: verbose
 
 
    .. py:property:: precomputed_properties
@@ -371,6 +435,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -378,7 +444,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -464,6 +530,8 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureCompositionTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureCompositionTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureCompositionTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureCompositionTransformer.set_params>`\ (\*\*params)
@@ -471,6 +539,16 @@ Classes
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureCompositionTransformer.transform>`\ (X)
         - Transform structures to features.
 
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: distinguish_kinds
+      :value: False
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: verbose
 
 
    .. py:property:: precomputed_properties
@@ -552,6 +630,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -559,7 +639,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -674,12 +754,60 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureCoordinationTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureCoordinationTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureCoordinationTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureCoordinationTransformer.set_params>`\ (\*\*params)
         - Set the parameters of this estimator.
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureCoordinationTransformer.transform>`\ (X)
         - Transform structures to features.
+
+
+   .. py:attribute:: atomic_radius_delta
+      :value: 0.0
+
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: econ_conv_threshold
+      :value: 0.001
+
+
+   .. py:attribute:: econ_tolerance
+      :value: 0.5
+
+
+   .. py:attribute:: method
+      :value: 'minimum_distance'
+
+
+   .. py:attribute:: min_dist_delta
+      :value: 0.1
+
+
+   .. py:attribute:: n_nearest_neighbours
+      :value: 5
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: r_max
+      :value: 15.0
+
+
+   .. py:attribute:: radius_type
+      :value: 'chen_manz'
+
+
+   .. py:attribute:: verbose
+
+   .. py:attribute:: voronoi_weight_threshold
+      :value: 0.5
+
+
+   .. py:attribute:: voronoi_weight_type
+      :value: 'rel_solid_angle'
 
 
 
@@ -768,6 +896,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -775,7 +905,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -861,6 +991,8 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureDensityTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureDensityTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureDensityTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureDensityTransformer.set_params>`\ (\*\*params)
@@ -868,6 +1000,16 @@ Classes
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureDensityTransformer.transform>`\ (X)
         - Transform structures to features.
 
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: distinguish_kinds
+      :value: False
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: verbose
 
 
    .. py:property:: precomputed_properties
@@ -949,6 +1091,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -956,7 +1100,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -1052,6 +1196,8 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureFFPrintTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureFFPrintTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureFFPrintTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureFFPrintTransformer.set_params>`\ (\*\*params)
@@ -1059,6 +1205,36 @@ Classes
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureFFPrintTransformer.transform>`\ (X)
         - Transform structures to features.
 
+
+   .. py:attribute:: add_header
+      :value: False
+
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: delta_bin
+      :value: 0.005
+
+
+   .. py:attribute:: distinguish_kinds
+      :value: False
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: r_max
+      :value: 15.0
+
+
+   .. py:attribute:: sigma
+      :value: 10.0
+
+
+   .. py:attribute:: use_weights
+      :value: False
+
+
+   .. py:attribute:: verbose
 
 
    .. py:property:: precomputed_properties
@@ -1140,6 +1316,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -1147,7 +1325,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -1253,6 +1431,8 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureMBTRTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureMBTRTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureMBTRTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureMBTRTransformer.set_params>`\ (\*\*params)
@@ -1260,6 +1440,46 @@ Classes
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureMBTRTransformer.transform>`\ (X)
         - Transform structures to features.
 
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: dscribe_n_jobs
+      :value: 1
+
+
+   .. py:attribute:: dscribe_only_physical_cores
+      :value: False
+
+
+   .. py:attribute:: elements
+      :value: None
+
+
+   .. py:attribute:: geometry
+
+   .. py:attribute:: grid
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: normalization
+      :value: 'l2'
+
+
+   .. py:attribute:: normalize_gaussians
+      :value: True
+
+
+   .. py:attribute:: periodic
+      :value: False
+
+
+   .. py:attribute:: sparse
+      :value: False
+
+
+   .. py:attribute:: verbose
+
+   .. py:attribute:: weighting
 
 
    .. py:property:: precomputed_properties
@@ -1341,6 +1561,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -1348,7 +1570,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -1460,6 +1682,8 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureMatrixTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureMatrixTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureMatrixTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureMatrixTransformer.set_params>`\ (\*\*params)
@@ -1467,6 +1691,68 @@ Classes
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureMatrixTransformer.transform>`\ (X)
         - Transform structures to features.
 
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: dscribe_n_jobs
+      :value: 1
+
+
+   .. py:attribute:: dscribe_only_physical_cores
+      :value: False
+
+
+   .. py:attribute:: enforce_real
+      :value: False
+
+
+   .. py:attribute:: ewald_a
+      :value: None
+
+
+   .. py:attribute:: ewald_accuracy
+      :value: 1e-05
+
+
+   .. py:attribute:: ewald_g_cut
+      :value: None
+
+
+   .. py:attribute:: ewald_r_cut
+      :value: None
+
+
+   .. py:attribute:: ewald_w
+      :value: 1
+
+
+   .. py:attribute:: matrix_type
+      :value: 'coulomb'
+
+
+   .. py:attribute:: n_atoms_max
+      :value: None
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: permutation
+      :value: 'eigenspectrum'
+
+
+   .. py:attribute:: seed
+      :value: None
+
+
+   .. py:attribute:: sigma
+      :value: None
+
+
+   .. py:attribute:: sparse
+      :value: False
+
+
+   .. py:attribute:: verbose
 
 
    .. py:property:: precomputed_properties
@@ -1548,6 +1834,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -1555,7 +1843,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -1647,6 +1935,8 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructurePRDFTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructurePRDFTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructurePRDFTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructurePRDFTransformer.set_params>`\ (\*\*params)
@@ -1654,6 +1944,24 @@ Classes
       * - :py:obj:`transform <aim2dat.ml.transformers.StructurePRDFTransformer.transform>`\ (X)
         - Transform structures to features.
 
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: delta_bin
+      :value: 0.005
+
+
+   .. py:attribute:: distinguish_kinds
+      :value: False
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: r_max
+      :value: 15.0
+
+
+   .. py:attribute:: verbose
 
 
    .. py:property:: precomputed_properties
@@ -1735,6 +2043,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -1742,7 +2052,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output
@@ -1854,12 +2164,70 @@ Classes
         - Get parameters for this estimator.
       * - :py:obj:`precompute_parameter_space <aim2dat.ml.transformers.StructureSOAPTransformer.precompute_parameter_space>`\ (param_grid, X)
         - Precompute and store structural properties to be reused later e.g. for a grid search.
+      * - :py:obj:`set_fit_request <aim2dat.ml.transformers.StructureSOAPTransformer.set_fit_request>`\ (\*\*kwargs)
+        - \-
       * - :py:obj:`set_output <aim2dat.ml.transformers.StructureSOAPTransformer.set_output>`\ (\*None, transform)
         - Set output container.
       * - :py:obj:`set_params <aim2dat.ml.transformers.StructureSOAPTransformer.set_params>`\ (\*\*params)
         - Set the parameters of this estimator.
       * - :py:obj:`transform <aim2dat.ml.transformers.StructureSOAPTransformer.transform>`\ (X)
         - Transform structures to features.
+
+
+   .. py:attribute:: average
+      :value: 'off'
+
+
+   .. py:attribute:: chunksize
+
+   .. py:attribute:: compression
+
+   .. py:attribute:: dscribe_n_jobs
+      :value: 1
+
+
+   .. py:attribute:: dscribe_only_physical_cores
+      :value: False
+
+
+   .. py:attribute:: elements
+      :value: None
+
+
+   .. py:attribute:: l_max
+      :value: 6
+
+
+   .. py:attribute:: n_max
+      :value: 8
+
+
+   .. py:attribute:: n_procs
+
+   .. py:attribute:: periodic
+      :value: False
+
+
+   .. py:attribute:: r_cut
+      :value: 7.5
+
+
+   .. py:attribute:: rbf
+      :value: 'gto'
+
+
+   .. py:attribute:: sigma
+      :value: 1.0
+
+
+   .. py:attribute:: sparse
+      :value: False
+
+
+   .. py:attribute:: verbose
+
+   .. py:attribute:: weighting
+      :value: None
 
 
 
@@ -1942,6 +2310,8 @@ Classes
                    * **X** (*list or aim2dat.strct.StructureCollection*) -- List of structures or StructureCollection.
 
 
+   .. py:method:: set_fit_request(**kwargs)
+
    .. py:method:: set_output(*, transform=None)
 
       Set output container.
@@ -1949,7 +2319,7 @@ Classes
       See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`
       for an example on how to use the API.
 
-      :Parameters: **transform** (*{"default", "pandas"}, default=None*) -- Configure output of `transform` and `fit_transform`.
+      :Parameters: **transform** (*{"default", "pandas", "polars"}, default=None*) -- Configure output of `transform` and `fit_transform`.
 
                    - `"default"`: Default output format of a transformer
                    - `"pandas"`: DataFrame output

@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.fct`
-=====================
+aim2dat.fct
+===========
 
 .. py:module:: aim2dat.fct
 
@@ -11,22 +11,19 @@
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   discretization/index.rst
-   fingerprint/index.rst
-   function_comparison/index.rst
-   hull/index.rst
-   smearing/index.rst
+   /autoapi/aim2dat/fct/discretization/index
+   /autoapi/aim2dat/fct/fingerprint/index
+   /autoapi/aim2dat/fct/function_comparison/index
+   /autoapi/aim2dat/fct/hull/index
+   /autoapi/aim2dat/fct/smearing/index
 
-
-Package Contents
-----------------
 
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -36,7 +33,8 @@ Classes
    aim2dat.fct.FunctionDiscretizationFingerprint
 
 
-
+Package Contents
+----------------
 
 
 .. py:class:: DiscretizedAxis(axis_type, **kwargs)
@@ -76,9 +74,38 @@ Classes
         - Change the `axis_type`: `x --> y` or `y --> x`.
 
 
+   .. py:attribute:: max
+      :value: None
+
+
+   .. py:attribute:: max_num_steps
+      :value: 5
+
+
+   .. py:attribute:: min
+      :value: None
+
+
+   .. py:attribute:: min_step
+      :value: None
+
+
+   .. py:attribute:: mu
+      :value: None
+
+
+   .. py:attribute:: precision
+      :value: 6
+
+
+   .. py:attribute:: sigma
+      :value: None
+
+
 
    .. py:property:: T
       :type: DiscretizedAxis
+
 
       `x --> y` or `y --> x`.
 
@@ -89,12 +116,14 @@ Classes
    .. py:property:: axis
       :type: numpy.array
 
+
       Axis array. Contains the discrete values.
 
       :returns: *np.array* -- The discretized range.
 
    .. py:property:: axis_type
       :type: str
+
 
       Specify whether this axis should be used as `x` or `y` axis in a grid.
 
@@ -106,6 +135,7 @@ Classes
    .. py:property:: discretization_method
       :type: Callable
 
+
       Discretize the specified range.
       Can be chosen via a string, accepting the methods specified in
       `_available_discretization_methods` or by passing a callable
@@ -116,12 +146,14 @@ Classes
    .. py:property:: is_empty
       :type: bool
 
+
       Check whether the axis is empty.
 
       :returns: *bool* -- Whether the axis is empty.
 
    .. py:property:: shape
       :type: tuple
+
 
       Tuple specifying the dimensions of the axis (like numpy).
 
@@ -174,9 +206,22 @@ Classes
         - Plot the grid.
 
 
+   .. py:attribute:: discretized_x
+      :value: None
+
+
+   .. py:attribute:: discretized_y
+      :value: None
+
+
+   .. py:attribute:: y_weights
+      :value: None
+
+
 
    .. py:property:: grid
       :type: list
+
 
       Return the internal grid as a list of lists.
 
@@ -184,6 +229,7 @@ Classes
 
    .. py:property:: is_empty
       :type: bool
+
 
       Check whether the axis is empty.
 
@@ -243,6 +289,7 @@ Classes
 
    .. py:property:: allowed_distance_methods
       :type: list
+
 
       Return allowed distance methods.
 
@@ -331,6 +378,12 @@ Classes
         - Compare two fingerprints that are stored in the internal memory.
       * - :py:obj:`plot_fingerprint <aim2dat.fct.FunctionDiscretizationFingerprint.plot_fingerprint>`\ (x_values, y_values)
         - Plot the discretized function and the corresponding grid.
+
+
+   .. py:attribute:: grid
+
+   .. py:attribute:: precision
+      :value: 6
 
 
 

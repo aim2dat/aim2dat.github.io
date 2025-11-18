@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.utils.space_groups`
-====================================
+aim2dat.utils.space_groups
+==========================
 
 .. py:module:: aim2dat.utils.space_groups
 
@@ -9,12 +9,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -25,6 +21,8 @@ Functions
    aim2dat.utils.space_groups.transform_to_str
 
 
+Module Contents
+---------------
 
 .. py:function:: get_crystal_system(space_group)
 

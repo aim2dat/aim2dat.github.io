@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.io`
-====================
+aim2dat.io
+==========
 
 .. py:module:: aim2dat.io
 
@@ -9,29 +9,346 @@
 
 
 
-Subpackages
------------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 3
+Functions
+---------
 
-   cp2k/index.rst
+.. autoapisummary::
+
+   aim2dat.io.read_cif_file
+   aim2dat.io.read_cp2k_band_structure
+   aim2dat.io.read_cp2k_proj_dos
+   aim2dat.io.read_cp2k_restart_structure
+   aim2dat.io.read_cp2k_stdout
+   aim2dat.io.read_critic2_plane
+   aim2dat.io.read_critic2_stdout
+   aim2dat.io.read_fhiaims_band_structure
+   aim2dat.io.read_fhiaims_proj_dos
+   aim2dat.io.read_fhiaims_total_dos
+   aim2dat.io.read_hdf5_structure
+   aim2dat.io.read_phonopy_band_structure
+   aim2dat.io.read_phonopy_proj_dos
+   aim2dat.io.read_phonopy_qha_properties
+   aim2dat.io.read_phonopy_thermal_properties
+   aim2dat.io.read_phonopy_total_dos
+   aim2dat.io.read_qe_band_structure
+   aim2dat.io.read_qe_input_structure
+   aim2dat.io.read_qe_proj_dos
+   aim2dat.io.read_qe_total_dos
+   aim2dat.io.read_qe_xml
+   aim2dat.io.read_xmgrace_band_structure
+   aim2dat.io.read_xmgrace_file
+   aim2dat.io.read_yaml_file
+   aim2dat.io.write_hdf5_structure
+   aim2dat.io.write_yaml_file
+   aim2dat.io.write_zeo_file
 
 
-Submodules
-----------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
+Package Contents
+----------------
 
-   cif/index.rst
-   critic2/index.rst
-   fhi_aims/index.rst
-   phonopy/index.rst
-   qe/index.rst
-   utils/index.rst
-   xmgrace/index.rst
-   yaml/index.rst
-   zeo/index.rst
+.. py:function:: read_cif_file(file_path: str, extract_structures: bool = False, strct_check_chem_formula: bool = True, strct_get_sym_op_from_sg: bool = True, strct_wrap: bool = False) -> dict
+
+   Read cif file.
+
+   :Parameters: * **file_path** (*str*) -- Path to the cif file.
+                * **extract_structures** (*bool (optional)*) -- Whether to extract alls crystal structures and add them to the output dictionary with the
+                  key ``'structures'``.
+                * **strct_check_chem_formula** (*bool (optional)*) -- Check the chemical formula given by field matches with the structure.
+                * **strct_get_sym_op_from_sg** (*bool (optional)*) -- Add symmetry operations based on the space group to add symmetry equivalent sites to the
+                  structures.
+
+   :returns: *dict* -- Output dictionary.
+
+
+.. py:function:: read_cp2k_band_structure(file_path: str) -> dict
+
+   Read band structure file from CP2K.
+
+   :Parameters: **file_path** (*str*) -- Path of the output-file of CP2K containing the band structure.
+
+   :returns: **band_structure** (*dict*) -- Dictionary containing the k-path and the eigenvalues as well as the occupations.
+
+
+.. py:function:: read_cp2k_proj_dos(folder_path: str) -> dict
+
+   Read the atom projected density of states from CP2K.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder of the pdos files.
+
+   :returns: **pdos** (*dict*) -- Dictionary containing the projected density of states for each kind.
+
+
+.. py:function:: read_cp2k_restart_structure(folder_path: str) -> Union[dict, List[dict]]
+
+   Read structures from 'restart'-files.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder containing the CP2K output-files.
+
+   :returns: *dict or list* -- Dictionary or list of dictionaries containing the structural information. In case of a
+             farming job or several calculations have been run in the same folder, a list of
+             dictionaries is returned.
+
+
+.. py:function:: read_cp2k_stdout(file_path: str, parser_type: str = 'standard', raise_error: bool = True) -> dict
+
+   Read standard output file of CP2K.
+
+   :Parameters: * **file_path** (*str*) -- Path to the output file.
+                * **parser_type** (*str*) -- Defines the quantities that are being parsed. Supported options are ``'standard'``,
+                  ``'partial_charges'`` and ``'trajectory'``.
+                * **raise_error** (*bool*) -- Whether to raise an error if a flaw is detected in the output file.
+
+   :returns: *dict* -- Dictionary containing the parsed values.
+
+
+.. py:function:: read_critic2_plane(file_path: str) -> dict
+
+   Read output plane file.
+
+   :Parameters: **file_path** (*str*) -- Path to the file.
+
+   :returns: *dict* -- plane details.
+
+
+.. py:function:: read_critic2_stdout(file_path: str, raise_error: bool = True) -> dict
+
+   Read standard output file.
+
+   :Parameters: * **file_path** (*str*) -- Path to the file.
+                * **raise_error** (*bool*) -- Whether to raise an error if a flaw is detected in the output file.
+
+   :returns: *dict* -- Results.
+
+
+.. py:function:: read_fhiaims_band_structure(folder_path: str, soc: bool = False) -> dict
+
+   Read band structure files from FHI-aims.
+   Spin-polarized calculations are not yet supported.
+
+   :Parameters: * **folder_path** (*str*) -- Path to the folder of the band structure files.
+                * **soc** (*bool (optional)*) -- Whether spin-orbit coupling is activated. The default value is ``False``.
+
+   :returns: **band_structure** (*dict*) -- Dictionary containing the k-path and th eigenvalues as well as the occupations.
+
+
+.. py:function:: read_fhiaims_proj_dos(folder_path: str, soc: bool = False, load_raw: bool = False) -> dict
+
+   Read the atom projected density of states from FHI-aims.
+
+   :Parameters: * **folder_path** (*str*) -- Path to the folder of the pdos files or list of pdos files or path to a pdos file.
+                * **soc** (*bool (optional)*) -- Whether spin-orbit coupling is activated. The default value is ``False``.
+                * **load_raw** (*bool (optional)*) -- Load files with appendix 'raw'. The default value is ``False``.
+
+   :returns: **pdos** (*dict*) -- Dictionary containing the projected density of states for each atom.
+
+
+.. py:function:: read_fhiaims_total_dos(file_path: str) -> dict
+
+   Read the total density of states from FHI-aims.
+
+   :Parameters: **file_path** (*str*) -- Path of the output-file of FHI-aims containing the total density of states.
+
+   :returns: **pdos** (*dict*) -- Dictionary containing the projected density of states for each atom.
+
+
+.. py:function:: read_hdf5_structure(file_path: str) -> List[dict]
+
+   Read hdf5 structure file.
+
+   :Parameters: **file_path** (*str*) -- Path to hdf5 file.
+
+   :returns: *list* -- List of dictionaries, each representing a molecular/crystalline structure.
+
+
+.. py:function:: read_phonopy_band_structure(file_path: str, kpath: list, npoints: int, force_sets_file_path: str = None, force_constants_file_path: str = None, path_labels: list = None, phonopy_kwargs: dict = None) -> Tuple[dict, list]
+
+   Read band structure using phonopy.
+
+   :Parameters: * **file_path** (*str*) -- Phonopy yaml-file containing all settings and parameters.
+                * **kpath** (*list*) -- Nested list of high-symmetry points.
+                * **npoints** (*int*) -- Nr of points on the k-path.
+                * **force_sets_file_path** (*str or None*) -- Force sets file. If set to ``None``, ``force_constants_file_path`` needs to be set.
+                * **force_constants_file_path** (*str or None*) -- Force constants file. If set to ``None``, ``force_sets_file_path`` needs to be set.
+                * **path_labels** (*list or None*) -- List of labels for the high-symmetry points specified in ``kpath``.
+                * **phonopy_kwargs** (*dict*) -- Additional keywords for ``phonopy.load``.
+
+   :returns: * **output_bands** (*dict*) -- Dictionary containing the k-path and the eigenvalues.
+             * **reference_cell** (*list*) -- Reference cell.
+
+
+.. py:function:: read_phonopy_proj_dos(file_path: str, mesh: Union[int, list] = 100, force_sets_file_path: str = None, force_constants_file_path: str = None, phonopy_kwargs: dict = None) -> dict
+
+   Read the atom projected density of phonon states from phonopy.
+
+   :Parameters: * **file_path** (*str*) -- Phonopy yaml-file containing all settings and parameters.
+                * **mesh** (*list*) -- Number of points in each dimension.
+                * **force_sets_file_path** (*str or None*) -- Force sets file. If set to ``None``, ``force_constants_file_path`` needs to be set.
+                * **force_constants_file_path** (*str or None*) -- Force constants file. If set to ``None``, ``force_sets_file_path`` needs to be set.
+                * **phonopy_kwargs** (*dict*) -- Additional keywords for ``phonopy.load``.
+
+   :returns: *dict* -- Dictionary containing the projected density of states for each kind.
+
+
+.. py:function:: read_phonopy_qha_properties(calculation_folder_paths: list = None, thermal_properties_file_paths: list = None, ev_file_path: str = None, stdout_file_path: str = None, mesh: Union[int, list] = 100, t_min: int = 0, t_max: int = 1000, t_step: int = 10, phonopy_kwargs: dict = None)
+
+   Read the outputs from a quasi-harmonic approximation calculation.
+
+   :Parameters: * **calculation_folder_paths** (*list or None*) -- Folders containing the calculations of different volumes. If ``None``
+                  ``thermal_properties_file_paths`` needs to be set instead.
+                * **thermal_properties_file_paths** (*list or None*) -- List of thermal properties yaml files generated by phonopy.
+                * **thermal_properties_file_paths** (*str or None*) -- File containing volumes and energies.
+                * **ev_file_path** (*str or None*) -- Path to the e-V file.
+                * **stdout_file_path** (*str or None*) -- File name of the standard output file.
+                * **mesh** (*list or int*) -- Number of points in each dimension.
+                * **t_min** (*int*) -- Minimum temperature
+                * **t_max** (*int*) -- Maximum temperature
+                * **phonopy_kwargs** (*dict*) -- Additional keywords for ``phonopy.load``.
+
+   :returns: *dict* -- Dictionary containing the qha properties.
+
+
+.. py:function:: read_phonopy_thermal_properties(file_path: str, mesh: Union[int, list] = 100, t_min: int = 0, t_max: int = 1000, t_step: int = 10, force_sets_file_path: str = None, force_constants_file_path: str = None, phonopy_kwargs: dict = None)
+
+   Read the thermal properties from phonopy.
+
+   :Parameters: * **file_path** (*str*) -- Phonopy yaml-file containing all settings and parameters.
+                * **mesh** (*list*) -- Number of points in each dimension.
+                * **t_min** (*int*) -- Minimum temperature
+                * **t_max** (*int*) -- Maximum temperature
+                * **force_sets_file_path** (*str or None*) -- Force sets file. If set to ``None``, ``force_constants_file_path`` needs to be set.
+                * **force_constants_file_path** (*str or None*) -- Force constants file. If set to ``None``, ``force_sets_file_path`` needs to be set.
+                * **phonopy_kwargs** (*dict*) -- Additional keywords for ``phonopy.load``.
+
+   :returns: *dict* -- Dictionary containing the thermal properties.
+
+
+.. py:function:: read_phonopy_total_dos(file_path: str, mesh: Union[int, list] = 100, force_sets_file_path: str = None, force_constants_file_path: str = None, phonopy_kwargs: dict = None) -> dict
+
+   Read the total density of phonon states from phonopy.
+
+   :Parameters: * **file_path** (*str*) -- Phonopy yaml-file containing all settings and parameters.
+                * **mesh** (*list*) -- Number of points in each dimension.
+                * **force_sets_file_path** (*str or None*) -- Force sets file. If set to ``None``, ``force_constants_file_path`` needs to be set.
+                * **force_constants_file_path** (*str or None*) -- Force constants file. If set to ``None``, ``force_sets_file_path`` needs to be set.
+                * **phonopy_kwargs** (*dict*) -- Additional keywords for ``phonopy.load``.
+
+   :returns: *dict* -- Dictionary containing the total density of states.
+
+
+.. py:function:: read_qe_band_structure(file_path: str) -> dict
+
+   Read band structure file from Quantum ESPRESSO.
+   Spin-polarized calculations are not yet supported.
+
+   :Parameters: **file_path** (*str*) -- Path of the output-file of Quantum ESPRESSO containing the band structure.
+
+   :returns: **band_structure** (*dict*) -- Dictionary containing the k-path and th eigenvalues as well as the occupations.
+
+
+.. py:function:: read_qe_input_structure(file_path: str) -> dict
+
+   Read structure from the Quantum ESPRESSO input file.
+   ibrav parameters are not yet fully supported.
+
+   :Parameters: **file_path** (*str*) -- Path of the input-file of Quantum ESPRESSO containing structural data.
+
+   :returns: *dict* -- Dictionary containing the structural information.
+
+
+.. py:function:: read_qe_proj_dos(folder_path)
+
+   Read the projected density of states from Quantum ESPRESSO.
+
+   :Parameters: **folder_path** (*str*) -- Path to the folder containing the pdos ouput-files.
+
+   :returns: **pdos** (*dict*) -- Dictionary containing the projected density of states for each atom.
+
+
+.. py:function:: read_qe_total_dos(file_path: str) -> dict
+
+   Read the total density of states from Quantum ESPRESSO.
+
+   :Parameters: **file_path** (*str*) -- Path of the output-file of Quantum ESPRESSO containing the total density of states.
+
+   :returns: **pdos** (*dict*) -- Dictionary containing the projected density of states for each atom.
+
+
+.. py:function:: read_qe_xml(file_path: str, extract_structures: bool = False, strct_type: str = None, strct_include: list = None, raise_error: bool = True) -> dict
+
+   Read xml output file.
+
+   :Parameters: * **file_path** (*str*) -- Path of the xml-file of Quantum ESPRESSO.
+                * **extract_structures** (*bool*) -- Whether to extract alls crystal structures and add them to the output dictionary with the
+                  key ``'structures'``.
+                * **strct_type** (*str*) -- Type of extracted structure(s). Supported options are ``'input'``, ``'output'`` or
+                  ``'steps'``.
+                * **strct_include** (*list*) -- List of dictionary keys that are included in the structure attributes.
+                * **raise_error** (*bool*) -- Whether to raise an error if a flaw is detected in the output file.
+
+   :returns: *dict* -- Output dictionary.
+
+
+.. py:function:: read_xmgrace_band_structure(file_path: str, kpoints: list) -> list
+
+   Read xmgrace band structure file.
+
+   :Parameters: * **file_path** (*str*) -- Path to the xmgrace file.
+                * **kpoints** (*list*) -- List of tuples containing the label and the k-point.
+
+   :returns: **band_structures** (*list*) -- List of band structures.
+
+
+.. py:function:: read_xmgrace_file(file_path: str) -> Union[list, tuple]
+
+   Read xmgrace plot filies.
+
+   Up to now the functionality is very limited. xy-data is read and grouped by the line-color.
+
+   .. rubric:: Notes
+
+   TODO: Increase functionality and generality.
+
+   :Parameters: **file_path** (*str*) -- Path to the xmgrace file.
+
+   :returns: * **x_values** (*list*) -- Nested list of the x-values.
+             * **y_values** (*list*) -- Nested list of the y-values.
+             * **tick_labels** (*tuple*) -- Tuple of dictionaries containing the position on the x-axis ("pos") and the label
+               ("label").
+
+
+.. py:function:: read_yaml_file(file_path: str, typ: str = 'safe')
+
+   Load a yaml-file and returns the content.
+
+   :Parameters: * **file_path** (*str*) -- Path to the yaml-file.
+                * **typ** (*str (optional)*) -- Typ used to load the yaml-file.
+
+   :returns: *data* -- Content of the file.
+
+
+.. py:function:: write_hdf5_structure(file_path: str, structures: List[aim2dat.strct.structure.Structure])
+
+   Write a list of structures to file.
+
+   :Parameters: * **file_path** (*str*) -- Path to hdf5 file.
+                * **structures** (*list*) -- List of structures.
+
+
+.. py:function:: write_yaml_file(file_path: str, content)
+
+   Write content to a yaml-file.
+
+   :Parameters: * **file_path** (*str*) -- Path to the yaml-file.
+                * **content** -- Content of the file.
+
+
+.. py:function:: write_zeo_file(file_path: str, struct_dict: dict)
+
+   Write structure dictonaryto an input file for zeo++.
+
+   :Parameters: * **file_path** (*str*) -- Path to the zeo-file. Possible endings are ``'.cssr'``, ``'.v1'``, or ``'.cuc'``.
+                * **struct_dict** (*dict*) -- Structure which is written to the file.
+
+   :raises ValueError: Invalid file format. Allowed formats are: ``'.cssr'``, ``'.v1'``, or ``'.cuc'``.
 
 

@@ -1,20 +1,16 @@
-:py:mod:`aim2dat.utils.element_properties`
-==========================================
+aim2dat.utils.element_properties
+================================
 
 .. py:module:: aim2dat.utils.element_properties
 
 .. autoapi-nested-parse::
 
-   Module to retrieve physical and chemical properties of elements.
+   Deprecated module to retrieve physical and chemical properties of elements.
 
-
-
-Module Contents
----------------
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -28,6 +24,8 @@ Functions
    aim2dat.utils.element_properties.get_val_electrons
 
 
+Module Contents
+---------------
 
 .. py:function:: get_atomic_mass(element)
 
@@ -52,8 +50,8 @@ Functions
    Return the covalent or van der Waals radius of the element. The following sources are
    used for different radius types:
 
-   * ``'covalent'`` are from :doi:`10.1039/B801115J` obtained via ase.
-   * ``'vdw'`` are obtained via ase.
+   * ``'covalent'`` are from :doi:`10.1039/B801115J`.
+   * ``'vdw'`` are from :doi:`10.1039/C3DT50599E`.
    * ``'chen_manz'`` are from :doi:`10.1039/C9RA07327B`.
    * ``'vdw_charry_tkatchenko'`` are from :doi:`10.26434/chemrxiv-2024-m3rtp-v2`.
 

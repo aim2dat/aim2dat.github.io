@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.fct.function_comparison`
-=========================================
+aim2dat.fct.function_comparison
+===============================
 
 .. py:module:: aim2dat.fct.function_comparison
 
@@ -9,18 +9,16 @@
 
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    aim2dat.fct.function_comparison.FunctionAnalysis
 
 
-
+Module Contents
+---------------
 
 
 .. py:class:: FunctionAnalysis(**kwargs)
@@ -60,6 +58,7 @@ Classes
 
    .. py:property:: allowed_distance_methods
       :type: list
+
 
       Return allowed distance methods.
 

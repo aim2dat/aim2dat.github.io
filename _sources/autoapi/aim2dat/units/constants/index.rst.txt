@@ -1,0 +1,84 @@
+aim2dat.units.constants
+=======================
+
+.. py:module:: aim2dat.units.constants
+
+.. autoapi-nested-parse::
+
+   Module to containing fundamental constants.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   aim2dat.units.constants.constants_data
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   aim2dat.units.constants.Constants
+
+
+Module Contents
+---------------
+
+
+.. py:class:: Constants(constants: Union[str, dict] = 'CODATA_2022')
+
+
+   Class to access fundamental constants.
+
+
+   .. rubric:: Overview
+
+
+   .. list-table:: Methods
+      :header-rows: 0
+      :widths: auto
+
+      * - :py:obj:`get_unit <aim2dat.units.constants.Constants.get_unit>`\ (name)
+        - Get unit of constant.
+      * - :py:obj:`get_value <aim2dat.units.constants.Constants.get_value>`\ (name)
+        - Get value of constant.
+      * - :py:obj:`get_value_unit <aim2dat.units.constants.Constants.get_value_unit>`\ (name)
+        - Get value and unit of constant.
+
+
+
+
+   .. py:method:: get_unit(name: str) -> str
+
+      Get unit of constant.
+
+      :Parameters: **name** (*str*) -- Name of constant.
+
+      :returns: *str* -- Unit of the constant.
+
+
+   .. py:method:: get_value(name: str) -> float
+
+      Get value of constant.
+
+      :Parameters: **name** (*str*) -- Name of the constant.
+
+      :returns: *float* -- Value of the constant.
+
+
+   .. py:method:: get_value_unit(name: str) -> Tuple[float, str]
+
+      Get value and unit of constant.
+
+      :Parameters: **name** (*str*) -- Name of constant.
+
+      :returns: *tuple* -- Tuple containing value and unit of constant.
+
+
+
+.. py:data:: constants_data
+

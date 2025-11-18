@@ -1,0 +1,37 @@
+aim2dat.strct.ext_analysis.h_bonds
+==================================
+
+.. py:module:: aim2dat.strct.ext_analysis.h_bonds
+
+.. autoapi-nested-parse::
+
+   Module implementing hydrogen analysis functions.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   aim2dat.strct.ext_analysis.h_bonds.calc_hydrogen_bonds
+
+
+Module Contents
+---------------
+
+.. py:function:: calc_hydrogen_bonds(structure: aim2dat.strct.Structure, host_elements='O', bond_threshold=1.25, index_constraint=None, scheme: str = 'baker_hubbard')
+
+   Search for hydrogen bonds.
+
+   :Parameters: * **structure** (*aim2dat.strct.Structure*) -- Structure object.
+                * **host_elements** (*list or str*) -- Elements considered as host atoms for hydrogen atoms and hydrogen bonds.
+                * **bond_threshold** (*float*) -- Upper threshold to consider the hydrogen atom chemically bonded to the donor.
+                * **index_constraint** (*list or None*) -- List of site indices to constrain the search.
+                * **scheme** (*str*) -- The applied scheme. Supported options are `'baker_hubbard'`
+                  (:doi:`10.1016/0079-6107(84)90007-5`).
+
+   :returns: *tuple* -- Tuple of triples: site of the hydrogen acceptor, hydrogen site, and site of the hydrogen
+             donor.
+
+

@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.ml.kernels`
-============================
+aim2dat.ml.kernels
+==================
 
 .. py:module:: aim2dat.ml.kernels
 
@@ -9,12 +9,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -22,6 +18,8 @@ Functions
    aim2dat.ml.kernels.krr_ffprint_laplace
 
 
+Module Contents
+---------------
 
 .. py:function:: krr_ffprint_cosine(X, Y)
 

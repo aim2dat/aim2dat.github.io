@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.strct.ext_manipulation.decorator`
-==================================================
+aim2dat.strct.ext_manipulation.decorator
+========================================
 
 .. py:module:: aim2dat.strct.ext_manipulation.decorator
 
@@ -9,18 +9,16 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    aim2dat.strct.ext_manipulation.decorator.external_manipulation_method
 
 
+Module Contents
+---------------
 
 .. py:function:: external_manipulation_method(func)
 

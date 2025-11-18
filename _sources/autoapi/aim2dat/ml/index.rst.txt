@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.ml`
-====================
+aim2dat.ml
+==========
 
 .. py:module:: aim2dat.ml
 
@@ -11,14 +11,14 @@
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   cell_grid_search/index.rst
-   kernels/index.rst
-   metrics/index.rst
-   transformers/index.rst
-   utils/index.rst
+   /autoapi/aim2dat/ml/cell_grid_search/index
+   /autoapi/aim2dat/ml/kernels/index
+   /autoapi/aim2dat/ml/metrics/index
+   /autoapi/aim2dat/ml/transformers/index
+   /autoapi/aim2dat/ml/utils/index
 
 

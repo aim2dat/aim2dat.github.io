@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.aiida_data.gaussian_cube_data`
-===============================================
+aim2dat.aiida_data.gaussian_cube_data
+=====================================
 
 .. py:module:: aim2dat.aiida_data.gaussian_cube_data
 
@@ -9,18 +9,16 @@
 
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData
 
 
-
+Module Contents
+---------------
 
 
 .. py:class:: GaussianCubeData(**kwargs)
@@ -47,6 +45,8 @@ Classes
         - Get the backend for this entity
       * - :py:obj:`backend_entity <aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData.backend_entity>`
         - Get the implementing class for this object
+      * - :py:obj:`base <aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData.base>`
+        - Return the node base namespace.
       * - :py:obj:`cell <aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData.cell>`
         - Return the cell.
       * - :py:obj:`comment <aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData.comment>`
@@ -99,8 +99,6 @@ Classes
 
       * - :py:obj:`Collection <aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData.Collection>`\ ()
         - Return the collection type for this class.
-      * - :py:obj:`base <aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData.base>`\ ()
-        - Return the node base namespace.
       * - :py:obj:`class_node_type <aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData.class_node_type>`\ ()
         - Returns the node type of this node (sub) class.
       * - :py:obj:`clone <aim2dat.aiida_data.gaussian_cube_data.GaussianCubeData.clone>`\ ()
@@ -147,6 +145,9 @@ Classes
         - Store the node, together with all input links.
 
 
+   .. py:attribute:: fields
+      :type:  aiida.orm.fields.QbFields
+
 
    .. py:property:: atomic_charges
 
@@ -169,12 +170,20 @@ Classes
    .. py:property:: backend
       :type: aiida.orm.implementation.StorageBackend
 
+
       Get the backend for this entity
 
    .. py:property:: backend_entity
       :type: BackendEntityType
 
+
       Get the implementing class for this object
+
+   .. py:property:: base
+      :type: NodeBase
+
+
+      Return the node base namespace.
 
    .. py:property:: cell
 
@@ -191,6 +200,7 @@ Classes
    .. py:property:: computer
       :type: Optional[aiida.orm.computers.Computer]
 
+
       Return the computer of this node.
 
    .. py:property:: creator
@@ -202,12 +212,14 @@ Classes
    .. py:property:: ctime
       :type: datetime.datetime
 
+
       Return the node ctime.
 
       :return: the ctime
 
    .. py:property:: description
       :type: str
+
 
       Return the node description.
 
@@ -222,6 +234,7 @@ Classes
    .. py:property:: id
       :type: int | None
 
+
       Return the id for this entity.
 
       This identifier is guaranteed to be unique amongst entities of the same type for a single backend instance.
@@ -233,10 +246,12 @@ Classes
    .. py:property:: is_stored
       :type: bool
 
+
       Return whether the entity is stored.
 
    .. py:property:: is_valid_cache
       :type: bool
+
 
       Hook to exclude certain ``Node`` classes from being considered a valid cache.
 
@@ -247,12 +262,14 @@ Classes
    .. py:property:: label
       :type: str
 
+
       Return the node label.
 
       :return: the label
 
    .. py:property:: logger
       :type: Optional[logging.Logger]
+
 
       Return the logger configured for this Node.
 
@@ -261,12 +278,14 @@ Classes
    .. py:property:: mtime
       :type: datetime.datetime
 
+
       Return the node mtime.
 
       :return: the mtime
 
    .. py:property:: node_type
       :type: str
+
 
       Return the node type.
 
@@ -281,6 +300,7 @@ Classes
    .. py:property:: pk
       :type: int | None
 
+
       Return the primary key for this entity.
 
       This identifier is guaranteed to be unique amongst entities of the same type for a single backend instance.
@@ -289,6 +309,7 @@ Classes
 
    .. py:property:: process_type
       :type: Optional[str]
+
 
       Return the node process type.
 
@@ -301,6 +322,8 @@ Classes
       :type: list
 
    .. py:property:: source
+      :type: Optional[dict]
+
 
       Gets the dictionary describing the source of Data object. Possible fields:
 
@@ -327,10 +350,12 @@ Classes
    .. py:property:: user
       :type: aiida.orm.users.User
 
+
       Return the user of this node.
 
    .. py:property:: uuid
       :type: str
+
 
       Return the node UUID.
 
@@ -343,11 +368,6 @@ Classes
 
       This used to be a class argument with the value ``NodeCollection``. The argument is deprecated and this property
       is here for backwards compatibility to print the deprecation warning.
-
-
-   .. py:method:: base() -> NodeBase
-
-      Return the node base namespace.
 
 
    .. py:method:: class_node_type() -> str
@@ -399,6 +419,7 @@ Classes
    .. py:method:: get(**kwargs)
       :classmethod:
 
+
       Get an entity of the collection matching the given filters.
 
       .. deprecated: Will be removed in v3, use `Entity.collection.get` instead.
@@ -407,6 +428,7 @@ Classes
 
    .. py:method:: get_collection(backend: aiida.orm.implementation.StorageBackend)
       :classmethod:
+
 
       Get a collection for objects of this type for a given backend.
 
@@ -440,6 +462,7 @@ Classes
 
    .. py:method:: get_export_formats()
       :classmethod:
+
 
       Get the list of valid export format strings
 
@@ -497,6 +520,7 @@ Classes
 
    .. py:method:: set_from_file(file_obj)
       :classmethod:
+
 
       Set information from existing cube file.
 

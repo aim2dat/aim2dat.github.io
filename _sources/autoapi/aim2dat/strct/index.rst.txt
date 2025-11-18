@@ -1,38 +1,34 @@
-:py:mod:`aim2dat.strct`
-=======================
+aim2dat.strct
+=============
 
 .. py:module:: aim2dat.strct
 
 .. autoapi-nested-parse::
 
-   Modules to analyze the chemical environment and the coordination of atoms.
+   Classes and methods to analyse and manipulate molecular or crystalline structures.
 
-
-
-Subpackages
------------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 3
-
-   ext_analysis/index.rst
-   ext_manipulation/index.rst
 
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   strct_io/index.rst
+   /autoapi/aim2dat/strct/ext_analysis/index
+   /autoapi/aim2dat/strct/ext_manipulation/index
 
 
-Package Contents
-----------------
+Exceptions
+----------
+
+.. autoapisummary::
+
+   aim2dat.strct.SamePositionsError
+
 
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -43,7 +39,8 @@ Classes
    aim2dat.strct.SurfaceGeneration
 
 
-
+Package Contents
+----------------
 
 
 .. py:exception:: SamePositionsError
@@ -53,38 +50,13 @@ Classes
 
    Error raised when two or more atom sites share the same position.
 
-   
-   .. py:class:: args
-
-
-
-
-
-   .. rubric:: Overview
-
-
-   .. list-table:: Methods
-      :header-rows: 0
-      :widths: auto
-
-      * - :py:obj:`with_traceback <aim2dat.strct.SamePositionsError.with_traceback>`\ ()
-        - Exception.with_traceback(tb) --
-
-
-
-
-   .. py:method:: with_traceback()
-
-      Exception.with_traceback(tb) --
-      set self.__traceback__ to tb and return self.
-
 
 
 
 .. py:class:: Structure(elements: List[str], positions: List[List[float]], pbc: List[bool], is_cartesian: bool = True, wrap: bool = False, cell: List[List[float]] = None, kinds: List[str] = None, label: str = None, site_attributes: dict = None, store_calculated_properties: bool = True, attributes: dict = None, extras: dict = None, function_args: dict = None)
 
 
-   Bases: :py:obj:`aim2dat.strct.mixin.AnalysisMixin`, :py:obj:`aim2dat.strct.mixin.ManipulationMixin`
+   Bases: :py:obj:`aim2dat.strct.analysis_mixin.AnalysisMixin`, :py:obj:`aim2dat.strct.manipulation_mixin.ManipulationMixin`, :py:obj:`aim2dat.strct.import_export_mixin.ImportExportMixin`
 
    Represents a structure and contains methods to calculate properties of a structure
    (molecule or crystal) or to manipulate a structure.
@@ -138,46 +110,54 @@ Classes
 
       * - :py:obj:`analysis_methods <aim2dat.strct.Structure.analysis_methods>`\ ()
         - list: Return calculation methods. This property is depreciated and will be removed soon.
-      * - :py:obj:`calculate_angle <aim2dat.strct.Structure.calculate_angle>`\ (site_index1, site_index2, site_index3, backfold_positions)
+      * - :py:obj:`calc_angle <aim2dat.strct.Structure.calc_angle>`\ (site_index1, site_index2, site_index3, backfold_positions)
         - Calculate angle between three atoms.
-      * - :py:obj:`calculate_coordination <aim2dat.strct.Structure.calculate_coordination>`\ (r_max, method, min_dist_delta, n_nearest_neighbours, radius_type, atomic_radius_delta, econ_tolerance, econ_conv_threshold, voronoi_weight_type, voronoi_weight_threshold, okeeffe_weight_threshold)
+      * - :py:obj:`calc_coordination <aim2dat.strct.Structure.calc_coordination>`\ (indices, r_max, method, min_dist_delta, n_nearest_neighbours, radius_type, atomic_radius_delta, econ_tolerance, econ_conv_threshold, voronoi_weight_type, voronoi_weight_threshold, okeeffe_weight_threshold, get_statistics)
         - Calculate coordination environment of each atomic site.
-      * - :py:obj:`calculate_dihedral_angle <aim2dat.strct.Structure.calculate_dihedral_angle>`\ (site_index1, site_index2, site_index3, site_index4, backfold_positions)
+      * - :py:obj:`calc_dihedral_angle <aim2dat.strct.Structure.calc_dihedral_angle>`\ (site_index1, site_index2, site_index3, site_index4, backfold_positions)
         - Calculate dihedral angle between four atoms.
-      * - :py:obj:`calculate_distance <aim2dat.strct.Structure.calculate_distance>`\ (site_index1, site_index2, backfold_positions, use_supercell, r_max, return_pos)
+      * - :py:obj:`calc_distance <aim2dat.strct.Structure.calc_distance>`\ (site_index1, site_index2, backfold_positions, use_supercell, r_max, return_pos)
         - Calculate distance between two atoms.
-      * - :py:obj:`calculate_ffingerprint <aim2dat.strct.Structure.calculate_ffingerprint>`\ (r_max, delta_bin, sigma, use_legacy_smearing, distinguish_kinds)
+      * - :py:obj:`calc_ffingerprint <aim2dat.strct.Structure.calc_ffingerprint>`\ (r_max, delta_bin, sigma, use_legacy_smearing, distinguish_kinds)
         - Calculate f-fingerprint function for each element-pair and atomic site.
-      * - :py:obj:`calculate_voronoi_tessellation <aim2dat.strct.Structure.calculate_voronoi_tessellation>`\ (r_max)
+      * - :py:obj:`calc_point_group <aim2dat.strct.Structure.calc_point_group>`\ (threshold_distance, threshold_angle, threshold_inertia)
+        - Determine the point group of a molecule.
+      * - :py:obj:`calc_space_group <aim2dat.strct.Structure.calc_space_group>`\ (symprec, angle_tolerance, hall_number, return_sym_operations, return_primitive_structure, return_standardized_structure, no_idealize)
+        - Determine the space group of the structure using spglib as backend.
+      * - :py:obj:`calc_voronoi_tessellation <aim2dat.strct.Structure.calc_voronoi_tessellation>`\ (r_max)
         - Calculate voronoi polyhedron for each atomic site.
       * - :py:obj:`copy <aim2dat.strct.Structure.copy>`\ ()
         - Return copy of `Structure` object.
+      * - :py:obj:`create_supercell <aim2dat.strct.Structure.create_supercell>`\ (size, wrap, change_label)
+        - Create supercell.
       * - :py:obj:`delete_atoms <aim2dat.strct.Structure.delete_atoms>`\ (elements, site_indices, change_label)
         - Delete atoms by element, list of elements, site index  or list of site indices.
-      * - :py:obj:`determine_point_group <aim2dat.strct.Structure.determine_point_group>`\ (threshold_distance, threshold_angle, threshold_inertia)
-        - Determine the point group of a molecule.
-      * - :py:obj:`determine_space_group <aim2dat.strct.Structure.determine_space_group>`\ (symprec, angle_tolerance, hall_number, return_sym_operations, return_primitive_structure, return_standardized_structure, no_idealize)
-        - Determine the space group of the structure using spglib as backend.
       * - :py:obj:`export_methods <aim2dat.strct.Structure.export_methods>`\ ()
         - list: Return export methods. This property is depreciated and will be removed soon.
       * - :py:obj:`from_aiida_structuredata <aim2dat.strct.Structure.from_aiida_structuredata>`\ (structure_node, use_uuid, label)
-        - `class` Append structure from AiiDA structure node.
+        - `class` Get structure from AiiDA structure node.
       * - :py:obj:`from_ase_atoms <aim2dat.strct.Structure.from_ase_atoms>`\ (ase_atoms, attributes, site_attributes, extras, label)
         - `class` Get structure from ase atoms object. Attributes and site attributes
-      * - :py:obj:`from_file <aim2dat.strct.Structure.from_file>`\ (file_path, attributes, site_attributes, extras, label, backend, file_format, backend_kwargs)
+      * - :py:obj:`from_file <aim2dat.strct.Structure.from_file>`\ (file_path, attributes, site_attributes, extras, label, index, backend, file_format, backend_kwargs)
         - `class` Get structure from file using the ase read-function.
+      * - :py:obj:`from_openmm_simulation <aim2dat.strct.Structure.from_openmm_simulation>`\ (simulation, attributes, site_attributes, extras, label)
+        - `class` Get structure from openmm simulation using the latest context state.
       * - :py:obj:`from_pymatgen_structure <aim2dat.strct.Structure.from_pymatgen_structure>`\ (pymatgen_structure, attributes, site_attributes, extras, label)
         - `class` Get structure from pymatgen structure or molecule object.
+      * - :py:obj:`from_str <aim2dat.strct.Structure.from_str>`\ (name, attributes, site_attributes, extras, label)
+        - `class` Generate a pre-defined structure by name.
       * - :py:obj:`get <aim2dat.strct.Structure.get>`\ (key, value)
         - Get attribute by key and return default if not present.
+      * - :py:obj:`get_position <aim2dat.strct.Structure.get_position>`\ (index, cartesian, wrap)
+        - Return position of one site.
       * - :py:obj:`get_positions <aim2dat.strct.Structure.get_positions>`\ (cartesian, wrap)
-        - Return positions of atoms.
+        - Return positions of all sites.
       * - :py:obj:`import_methods <aim2dat.strct.Structure.import_methods>`\ ()
         - list: Return import methods. This property is depreciated and will be removed soon.
       * - :py:obj:`iter_sites <aim2dat.strct.Structure.iter_sites>`\ (get_kind, get_cart_pos, get_scaled_pos, wrap, site_attributes)
         - Iterate through the sites of the structure.
       * - :py:obj:`keys <aim2dat.strct.Structure.keys>`\ ()
-        - Return property names to create the structure.
+        - Return attribute keys to create the structure.
       * - :py:obj:`list_analysis_methods <aim2dat.strct.Structure.list_analysis_methods>`\ ()
         - `class` Get a list with the function names of all available analysis methods.
       * - :py:obj:`list_export_methods <aim2dat.strct.Structure.list_export_methods>`\ ()
@@ -186,18 +166,22 @@ Classes
         - `class` Get a list with the function names of all available import methods.
       * - :py:obj:`list_manipulation_methods <aim2dat.strct.Structure.list_manipulation_methods>`\ ()
         - `class` Get a list with the function names of all available manipulation methods.
+      * - :py:obj:`list_named_structures <aim2dat.strct.Structure.list_named_structures>`\ ()
+        - `class` List of all named structures which can be generated via the ``from_str`` classmethod.
       * - :py:obj:`manipulation_methods <aim2dat.strct.Structure.manipulation_methods>`\ ()
         - list: Return manipulation methods. This property is depreciated and will be removed soon.
       * - :py:obj:`perform_analysis <aim2dat.strct.Structure.perform_analysis>`\ (method, kwargs)
         - Perform structure analaysis using an external method.
       * - :py:obj:`perform_manipulation <aim2dat.strct.Structure.perform_manipulation>`\ (method, kwargs)
         - Perform structure manipulation using an external method.
-      * - :py:obj:`scale_unit_cell <aim2dat.strct.Structure.scale_unit_cell>`\ (scaling_factors, pressure, bulk_modulus, change_label)
+      * - :py:obj:`reset_calculated_properties <aim2dat.strct.Structure.reset_calculated_properties>`\ ()
+        - Reset all previously calculated properties that are stored within the
+      * - :py:obj:`scale_unit_cell <aim2dat.strct.Structure.scale_unit_cell>`\ (scaling_factors, pressure, bulk_modulus, random_factors, random_seed, change_label)
         - Scale the unit cell of the structure, supporting isotropic and anisotropic strain,
       * - :py:obj:`set_attribute <aim2dat.strct.Structure.set_attribute>`\ (key, value)
         - Set attribute.
       * - :py:obj:`set_positions <aim2dat.strct.Structure.set_positions>`\ (positions, is_cartesian, wrap)
-        - Set postions of atoms.
+        - Set postions of all sites.
       * - :py:obj:`set_site_attribute <aim2dat.strct.Structure.set_site_attribute>`\ (key, values)
         - Set site attribute.
       * - :py:obj:`substitute_elements <aim2dat.strct.Structure.substitute_elements>`\ (elements, radius_type, remove_kind, change_label)
@@ -210,6 +194,8 @@ Classes
         - Export structure to python dictionary.
       * - :py:obj:`to_file <aim2dat.strct.Structure.to_file>`\ (file_path)
         - Export structure to file using the ase interface or certain file formats for Zeo++.
+      * - :py:obj:`to_openmm_simulation <aim2dat.strct.Structure.to_openmm_simulation>`\ (potential, integrator, potential_kwargs, bonds, device)
+        - Create openmm simulation object.
       * - :py:obj:`to_pymatgen_structure <aim2dat.strct.Structure.to_pymatgen_structure>`\ ()
         - Create pymatgen Structure (if cell is not `None`) or Molecule (if cell is `None`) object.
 
@@ -218,15 +204,18 @@ Classes
    .. py:property:: attributes
       :type: dict
 
+
       Return attributes.
 
    .. py:property:: cell
       :type: Union[tuple, None]
 
+
       Return the cell of the structure.
 
    .. py:property:: cell_angles
       :type: Union[tuple, None]
+
 
       Cell angles.
 
@@ -235,12 +224,14 @@ Classes
    .. py:property:: cell_lengths
       :type: Union[tuple, None]
 
+
       cell lengths.
 
       :type: tuple
 
    .. py:property:: cell_volume
       :type: Union[float, None]
+
 
       cell volume.
 
@@ -249,25 +240,30 @@ Classes
    .. py:property:: chem_formula
       :type: dict
 
+
       Return chemical formula.
 
    .. py:property:: elements
       :type: tuple
+
 
       Return the elements of the structure.
 
    .. py:property:: extras
       :type: dict
 
+
       Return extras.
 
    .. py:property:: function_args
       :type: dict
 
+
       Return function arguments for stored extras.
 
    .. py:property:: kinds
       :type: Union[tuple, None]
+
 
       Kinds of the structure.
 
@@ -276,20 +272,24 @@ Classes
    .. py:property:: label
       :type: Union[str, None]
 
+
       Return label of the structure (especially relevant in StructureCollection).
 
    .. py:property:: numbers
       :type: tuple
+
 
       Return the atomic numbers of the structure.
 
    .. py:property:: pbc
       :type: tuple
 
+
       Return the pbc of the structure.
 
    .. py:property:: positions
       :type: tuple
+
 
       Return the cartesian positions of the structure.
 
@@ -298,6 +298,7 @@ Classes
    .. py:property:: scaled_positions
       :type: Union[tuple, None]
 
+
       Return the scaled positions of the structure.
 
       :type: tuple or None
@@ -305,13 +306,16 @@ Classes
    .. py:property:: site_attributes
       :type: Union[dict, None]
 
+
       dict:
-      Dictionary containing the label of a site attribute as key and a tuple/list of values
-      having the same length as the ``Structure`` object itself (number of sites) containing
-      site specific properties or attributes (e.g. charges, magnetic moments, forces, ...).
+      Copy of ``site_attributes``: Dictionary containing the label of a site attribute as key
+      and a tuple/list of values having the same length as the ``Structure`` object itself
+      (number of sites) containing site specific properties or attributes (e.g. charges,
+      magnetic moments, forces, ...).
 
    .. py:property:: store_calculated_properties
       :type: bool
+
 
       Store calculated properties to reuse them later.
 
@@ -321,7 +325,7 @@ Classes
       list: Return calculation methods. This property is depreciated and will be removed soon.
 
 
-   .. py:method:: calculate_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, backfold_positions: bool = True) -> float
+   .. py:method:: calc_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, backfold_positions: bool = True) -> float
 
       Calculate angle between three atoms.
 
@@ -335,11 +339,12 @@ Classes
                 returned.
 
 
-   .. py:method:: calculate_coordination(r_max: float = 10.0, method: str = 'atomic_radius', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, radius_type: str = 'chen_manz', atomic_radius_delta: float = 0.0, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5) -> dict
+   .. py:method:: calc_coordination(indices: Union[int, list, tuple] = None, r_max: float = 10.0, method: str = 'atomic_radius', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, radius_type: str = 'chen_manz', atomic_radius_delta: float = 0.0, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5, get_statistics: bool = True) -> Union[dict, list]
 
       Calculate coordination environment of each atomic site.
 
-      :Parameters: * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
+      :Parameters: * **indices** (*list (optional)*) -- Site indices to include in the analysis.
+                   * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
                    * **method** (*str (optional)*) -- Method used to calculate the coordination environment.
                    * **min_dist_delta** (*float (optional)*) -- Tolerance parameter that defines the relative distance from the nearest neighbour atom
                      for the ``'minimum_distance'`` method.
@@ -362,11 +367,13 @@ Classes
                      This parameter is depreciated and will be removed in a future version.
                      The original results can be obtained by using the ``voronoi_weight_threshold``
                      parameter and setting ``voronoi_weight_type`` to ``'rel_solid_angle'``.
+                   * **get_statistics** (*bool (optional)*) -- If set to ``False`` only the ``'sites'`` list is returned without average/min/max
+                     values for the distances and coordination numbers.
 
       :returns: *dict* -- Dictionary containing the coordination information of the structure.
 
 
-   .. py:method:: calculate_dihedral_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, site_index4: Union[int, List[int]] = 3, backfold_positions: bool = True) -> float
+   .. py:method:: calc_dihedral_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, site_index4: Union[int, List[int]] = 3, backfold_positions: bool = True) -> float
 
       Calculate dihedral angle between four atoms.
 
@@ -380,7 +387,7 @@ Classes
                 index pairs as keys and angles as values is returned.
 
 
-   .. py:method:: calculate_distance(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, backfold_positions: bool = True, use_supercell: bool = False, r_max: float = 7.5, return_pos: bool = False) -> Union[float, list]
+   .. py:method:: calc_distance(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, backfold_positions: bool = True, use_supercell: bool = False, r_max: float = 7.5, return_pos: bool = False) -> Union[float, list]
 
       Calculate distance between two atoms.
 
@@ -400,7 +407,7 @@ Classes
                 distance between the two sites exceeds ``r_max``, ``None`` is returned.
 
 
-   .. py:method:: calculate_ffingerprint(r_max: float = 20.0, delta_bin: float = 0.005, sigma: float = 0.05, use_legacy_smearing: bool = False, distinguish_kinds: bool = False) -> Tuple[dict, dict]
+   .. py:method:: calc_ffingerprint(r_max: float = 20.0, delta_bin: float = 0.005, sigma: float = 0.05, use_legacy_smearing: bool = False, distinguish_kinds: bool = False) -> Tuple[dict, dict]
 
       Calculate f-fingerprint function for each element-pair and atomic site.
 
@@ -418,31 +425,7 @@ Classes
                 * **atomic_fingerprints** (*dict*) -- Dictionary containing all individual fingerprint functions for each atomic site.
 
 
-   .. py:method:: calculate_voronoi_tessellation(r_max: float = 10.0) -> List[List[dict]]
-
-      Calculate voronoi polyhedron for each atomic site.
-
-      :Parameters: **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
-
-      :returns: *list* -- List of voronoi details for each atomic site.
-
-
-   .. py:method:: copy() -> Structure
-
-      Return copy of `Structure` object.
-
-
-   .. py:method:: delete_atoms(elements: Union[str, List[str]] = [], site_indices: Union[int, List[int]] = [], change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
-
-      Delete atoms by element, list of elements, site index  or list of site indices.
-
-      :Parameters: * **elements** (*str, list or tuple*) -- Element or tuple or list of  the elements to be deleted.
-                   * **site_indices** (*list or tuple*) -- Site index or tuple or list of site indices to be deleted.
-
-      :returns: *aim2dat.strct.Structure* -- Structure with deleted atoms.
-
-
-   .. py:method:: determine_point_group(threshold_distance: float = 0.1, threshold_angle: float = 1.0, threshold_inertia: float = 0.1) -> dict
+   .. py:method:: calc_point_group(threshold_distance: float = 0.1, threshold_angle: float = 1.0, threshold_inertia: float = 0.1) -> dict
 
       Determine the point group of a molecule.
 
@@ -453,7 +436,7 @@ Classes
       :returns: *dict* -- Dictionary containing the point group and symmetry elements of the structure.
 
 
-   .. py:method:: determine_space_group(symprec: float = 0.005, angle_tolerance: float = -1.0, hall_number: int = 0, return_sym_operations: bool = False, return_primitive_structure: bool = False, return_standardized_structure: bool = False, no_idealize: bool = False) -> dict
+   .. py:method:: calc_space_group(symprec: float = 0.005, angle_tolerance: float = -1.0, hall_number: int = 0, return_sym_operations: bool = False, return_primitive_structure: bool = False, return_standardized_structure: bool = False, no_idealize: bool = False) -> dict
 
       Determine the space group of the structure using spglib as backend.
 
@@ -469,6 +452,47 @@ Classes
       :returns: *dict* -- Dictionary containing the internal space group number and labels.
 
 
+   .. py:method:: calc_voronoi_tessellation(r_max: float = 10.0) -> List[List[dict]]
+
+      Calculate voronoi polyhedron for each atomic site.
+
+      :Parameters: **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
+
+      :returns: *list* -- List of voronoi details for each atomic site.
+
+
+   .. py:method:: copy() -> Structure
+
+      Return copy of `Structure` object.
+
+
+   .. py:method:: create_supercell(size: Union[int, list, tuple] = 2, wrap: bool = True, change_label: bool = False)
+
+      Create supercell.
+
+      :Parameters: * **size** (*int, list, tuple*) -- Super cell size, given as a list/tuple of three positive integer values or one integer
+                     value, applied to all directions.
+                   * **wrap** (*bool*) -- Wrap atomic positions back into the unit cell.
+                   * **change_label** (*bool*)
+
+      :returns: *Structure or StructureCollection* -- Structure or a collection of structures.
+
+      :raises TypeError: If ``size`` has the wrong type.
+      :raises ValueError: If ``size`` is not a positive integer number or a tuple/list of three positive integer
+          numbers.
+      :raises Warning: If ``size`` is gives a multiple of 1 for a non-periodic direction.
+
+
+   .. py:method:: delete_atoms(elements: Union[str, List[str]] = [], site_indices: Union[int, List[int]] = [], change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
+
+      Delete atoms by element, list of elements, site index  or list of site indices.
+
+      :Parameters: * **elements** (*str, list or tuple*) -- Element or tuple or list of  the elements to be deleted.
+                   * **site_indices** (*list or tuple*) -- Site index or tuple or list of site indices to be deleted.
+
+      :returns: *aim2dat.strct.Structure* -- Structure with deleted atoms.
+
+
    .. py:method:: export_methods() -> list
 
       list: Return export methods. This property is depreciated and will be removed soon.
@@ -477,7 +501,8 @@ Classes
    .. py:method:: from_aiida_structuredata(structure_node: Union[int, str, aiida.orm.StructureData], use_uuid: bool = False, label: str = None) -> Structure
       :classmethod:
 
-      Append structure from AiiDA structure node.
+
+      Get structure from AiiDA structure node.
 
       :Parameters: * **label** (*str*) -- Label used internally to store the structure in the object.
                    * **structure_node** (*int, str or aiida.orm.nodes.data.structure.StructureData*) -- Primary key, UUID or AiiDA structure node.
@@ -489,6 +514,7 @@ Classes
 
    .. py:method:: from_ase_atoms(ase_atoms: ase.Atoms, attributes: dict = None, site_attributes: dict = None, extras: dict = None, label: str = None) -> Structure
       :classmethod:
+
 
       Get structure from ase atoms object. Attributes and site attributes
       are obtained from the ``info`` and ``arrays`` properties, respectively.
@@ -502,8 +528,9 @@ Classes
       :returns: *aim2dat.strct.Structure* -- Structure.
 
 
-   .. py:method:: from_file(file_path: str, attributes: dict = None, site_attributes: dict = None, extras: dict = None, label: str = None, backend: str = 'ase', file_format: str = None, backend_kwargs: dict = None) -> Structure
+   .. py:method:: from_file(file_path: str, attributes: dict = None, site_attributes: dict = None, extras: dict = None, label: str = None, index: int = 0, backend: str = 'ase', file_format: str = None, backend_kwargs: dict = None) -> Structure
       :classmethod:
+
 
       Get structure from file using the ase read-function.
 
@@ -512,6 +539,7 @@ Classes
                    * **site_attributes** (*dict*) -- Site attributes stored within the structure object(s).
                    * **extras** (*dict*) -- Extras stored within the structure object(s).
                    * **label** (*str*) -- Label used internally to store the structure in the object.
+                   * **index** (*int*) -- Index of the structure in case the file contains several structures.
                    * **backend** (*str (optional)*) -- Backend to be used to parse the structure file. Supported options are ``'ase'``
                      and ``'internal'``.
                    * **file_format** (*str or None (optional)*) -- File format of the backend. For ``'ase'``, please refer to the documentation of the
@@ -524,8 +552,24 @@ Classes
       :returns: *aim2dat.strct.Structure* -- Structure.
 
 
+   .. py:method:: from_openmm_simulation(simulation, attributes: dict = None, site_attributes: dict = None, extras: dict = None, label: str = None)
+      :classmethod:
+
+
+      Get structure from openmm simulation using the latest context state.
+
+      :Parameters: * **simulation** (*openmm.app.Simulation*) -- openmm simulation.
+                   * **attributes** (*dict*) -- Attributes stored within the structure object.
+                   * **site_attributes** (*dict*) -- Site attributes stored within the structure object.
+                   * **extras** (*dict*) -- Extras stored within the structure object.
+                   * **label** (*str*) -- Label used internally to store the structure in the object.
+
+      :returns: *aim2dat.strct.Structure* -- Structure.
+
+
    .. py:method:: from_pymatgen_structure(pymatgen_structure: Union[pymatgen.core.Molecule, pymatgen.core.Structure], attributes: dict = None, site_attributes: dict = None, extras: dict = None, label: str = None) -> Structure
       :classmethod:
+
 
       Get structure from pymatgen structure or molecule object.
 
@@ -538,16 +582,38 @@ Classes
       :returns: *aim2dat.strct.Structure* -- Structure.
 
 
+   .. py:method:: from_str(name: str, attributes: dict = None, site_attributes: dict = None, extras: dict = None, label: str = None) -> Structure
+      :classmethod:
+
+
+      Generate a pre-defined structure by name.
+
+      :Parameters: * **name** (*str*) -- Name of the structure.
+                   * **attributes** (*dict*) -- Attributes stored within the structure object(s).
+                   * **site_attributes** (*dict*) -- Site attributes stored within the structure object(s).
+                   * **extras** (*dict*) -- Extras stored within the structure object(s).
+                   * **label** (*str*) -- Label used internally to store the structure in the object.
+
+
    .. py:method:: get(key, value=None)
 
       Get attribute by key and return default if not present.
 
 
+   .. py:method:: get_position(index: int, cartesian: bool = True, wrap: bool = False)
+
+      Return position of one site.
+
+      :Parameters: * **index** (*int*) -- Site index.
+                   * **cartesian** (*bool (optional)*) -- Get cartesian position. If set to ``False``, the scaled position is returned.
+                   * **wrap** (*bool (optional)*) -- Wrap atomic position into the unit cell.
+
+
    .. py:method:: get_positions(cartesian: bool = True, wrap: bool = False)
 
-      Return positions of atoms.
+      Return positions of all sites.
 
-      :Parameters: * **cartesian** (*bool (optional)*) -- Get cartesian positions. If set to ``False`` scaled positions are returned.
+      :Parameters: * **cartesian** (*bool (optional)*) -- Get cartesian positions. If set to ``False``, scaled positions are returned.
                    * **wrap** (*bool (optional)*) -- Wrap atomic positions into the unit cell.
 
 
@@ -556,7 +622,7 @@ Classes
       list: Return import methods. This property is depreciated and will be removed soon.
 
 
-   .. py:method:: iter_sites(get_kind: bool = False, get_cart_pos: bool = False, get_scaled_pos: bool = False, wrap: bool = False, site_attributes: Union[str, list] = [])
+   .. py:method:: iter_sites(get_kind: bool = False, get_cart_pos: bool = False, get_scaled_pos: bool = False, wrap: bool = False, site_attributes: Union[str, list] = None)
 
       Iterate through the sites of the structure.
 
@@ -572,11 +638,12 @@ Classes
 
    .. py:method:: keys() -> list
 
-      Return property names to create the structure.
+      Return attribute keys to create the structure.
 
 
    .. py:method:: list_analysis_methods() -> list
       :classmethod:
+
 
       Get a list with the function names of all available analysis methods.
 
@@ -586,6 +653,7 @@ Classes
    .. py:method:: list_export_methods() -> list
       :classmethod:
 
+
       Get a list with the function names of all available export methods.
 
       :returns: *list* -- Return a list of all available export methods.
@@ -593,6 +661,7 @@ Classes
 
    .. py:method:: list_import_methods() -> list
       :classmethod:
+
 
       Get a list with the function names of all available import methods.
 
@@ -602,9 +671,17 @@ Classes
    .. py:method:: list_manipulation_methods() -> list
       :classmethod:
 
+
       Get a list with the function names of all available manipulation methods.
 
       :returns: *list* -- Return a list of all available manipulation methods.
+
+
+   .. py:method:: list_named_structures() -> list
+      :classmethod:
+
+
+      List of all named structures which can be generated via the ``from_str`` classmethod.
 
 
    .. py:method:: manipulation_methods() -> list
@@ -612,7 +689,7 @@ Classes
       list: Return manipulation methods. This property is depreciated and will be removed soon.
 
 
-   .. py:method:: perform_analysis(method: collections.abc.Callable, kwargs: dict = {})
+   .. py:method:: perform_analysis(method: collections.abc.Callable, kwargs: dict = None)
 
       Perform structure analaysis using an external method.
 
@@ -622,7 +699,7 @@ Classes
       :returns: *output* -- Output of the analysis.
 
 
-   .. py:method:: perform_manipulation(method: collections.abc.Callable, kwargs: dict = {})
+   .. py:method:: perform_manipulation(method: collections.abc.Callable, kwargs: dict = None)
 
       Perform structure manipulation using an external method.
 
@@ -633,7 +710,13 @@ Classes
                 * *aim2dat.strct.StructureCollection* -- Manipulated structure(s).
 
 
-   .. py:method:: scale_unit_cell(scaling_factors: Union[float, List[float]] = None, pressure: float = None, bulk_modulus: float = None, change_label: bool = True) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
+   .. py:method:: reset_calculated_properties()
+
+      Reset all previously calculated properties that are stored within the
+      ``Structure`` object.
+
+
+   .. py:method:: scale_unit_cell(scaling_factors: Union[float, List[float]] = None, pressure: float = None, bulk_modulus: float = None, random_factors: float = None, random_seed: int = None, change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
 
       Scale the unit cell of the structure, supporting isotropic and anisotropic strain,
       and pressure-based strain.
@@ -650,6 +733,8 @@ Classes
                    * **pressure** (*float, optional*) -- Hydrostatic pressure to apply. Requires `bulk_modulus` to calculate scaling.
                    * **bulk_modulus** (*float, optional*) -- Bulk modulus of the material. Required if `pressure` is provided. Ensure the units
                      of `bulk_modulus` and `pressure` are consistent.
+                   * **random_factors** (*float, optional*) -- Extend to which the unitcell will be randomly scaled/distorted.
+                   * **random_seed** (*int, optional*) -- Specify the random seed to ensure reproducible results.
                    * **change_label** (*bool, optional*) -- If True, appends a suffix to the structure's label to reflect
                      the scaling applied. Defaults to True
 
@@ -676,7 +761,7 @@ Classes
 
    .. py:method:: set_positions(positions: Union[list, tuple], is_cartesian: bool = True, wrap: bool = False)
 
-      Set postions of atoms.
+      Set postions of all sites.
 
       :Parameters: * **positions** (*list or tuple*) -- Nested list or tuple of the coordinates (n atoms x 3).
                    * **is_cartesian** (*bool (optional)*) -- Whether the coordinates are cartesian or scaled.
@@ -735,6 +820,20 @@ Classes
       Export structure to file using the ase interface or certain file formats for Zeo++.
 
 
+   .. py:method:: to_openmm_simulation(potential: openmm.app.Simulation.ForceField, integrator: openmm.Integrator, potential_kwargs=None, bonds=None, device='cpu') -> openmm.app.Simulation
+
+      Create openmm simulation object.
+
+      :Parameters: * **potential** -- openmm potential or force field.
+                   * **integrator** -- openmm integrator.
+                   * **potential_kwargs** (*dict*) -- Additional keyword argurments for the ``create_system`` function of the
+                     potential/force field.
+                   * **bonds** (*list*) -- List of tuples of two site indices that share a chemical bond.
+                   * **device** (*str*) -- Device/platform used for the simulation.
+
+      :returns: *openmm.app.Simulation* -- openmm simulation object.
+
+
    .. py:method:: to_pymatgen_structure() -> Union[pymatgen.core.Molecule, pymatgen.core.Structure]
 
       Create pymatgen Structure (if cell is not `None`) or Molecule (if cell is `None`) object.
@@ -744,8 +843,10 @@ Classes
 
 
 
-.. py:class:: StructureCollection(structures: Union[List[Union[aim2dat.strct.strct.Structure, dict]], None] = None)
+.. py:class:: StructureCollection(structures: Union[List[Union[aim2dat.strct.structure.Structure, dict]], None] = None)
 
+
+   Bases: :py:obj:`aim2dat.strct.import_export_mixin.ImportExportMixin`
 
    The StructureCollection class is a container for one or multiple atomic structures. It
    implements several ``import_*`` and ``append_*`` functions to add new data to the object.
@@ -785,6 +886,14 @@ Classes
         - Create a pandas data frame of the object.
       * - :py:obj:`duplicate_structure <aim2dat.strct.StructureCollection.duplicate_structure>`\ (key, new_label)
         - Duplicate structure.
+      * - :py:obj:`export_methods <aim2dat.strct.StructureCollection.export_methods>`\ ()
+        - list: Return export methods. This property is depreciated and will be removed soon.
+      * - :py:obj:`from_aiida_db <aim2dat.strct.StructureCollection.from_aiida_db>`\ (indices, group_label, use_uuid, raise_error)
+        - `class` Import from the AiiDA database.
+      * - :py:obj:`from_file <aim2dat.strct.StructureCollection.from_file>`\ (file_path, labels, indices, raise_error, backend, file_format, backend_kwargs)
+        - `class` Import from hdf5-file. Calculated extras are not yet supported.
+      * - :py:obj:`from_pandas_df <aim2dat.strct.StructureCollection.from_pandas_df>`\ (data_frame, indices, structure_column, exclude_columns, use_uuid, raise_error)
+        - `class` Import from pandas data frame.
       * - :py:obj:`get_all_attribute_keys <aim2dat.strct.StructureCollection.get_all_attribute_keys>`\ ()
         - Get all attribute keys.
       * - :py:obj:`get_all_elements <aim2dat.strct.StructureCollection.get_all_elements>`\ ()
@@ -801,21 +910,34 @@ Classes
         - Import from hdf5-file. Calculated extras are not yet supported.
       * - :py:obj:`import_from_pandas_df <aim2dat.strct.StructureCollection.import_from_pandas_df>`\ (data_frame, structure_column, exclude_columns, use_uuid, raise_error)
         - Import from pandas data frame.
+      * - :py:obj:`import_methods <aim2dat.strct.StructureCollection.import_methods>`\ ()
+        - list: Return import methods. This property is depreciated and will be removed soon.
       * - :py:obj:`index <aim2dat.strct.StructureCollection.index>`\ (label)
         - Return index of label. If the label is not present, ``None`` is returned.
       * - :py:obj:`items <aim2dat.strct.StructureCollection.items>`\ ()
         - Return a list of label, value tuples.
+      * - :py:obj:`list_export_methods <aim2dat.strct.StructureCollection.list_export_methods>`\ ()
+        - `class` Get a list with the function names of all available export methods.
+      * - :py:obj:`list_import_methods <aim2dat.strct.StructureCollection.list_import_methods>`\ ()
+        - `class` Get a list with the function names of all available import methods.
       * - :py:obj:`pop <aim2dat.strct.StructureCollection.pop>`\ (key)
         - Pop structure.
       * - :py:obj:`store_in_aiida_db <aim2dat.strct.StructureCollection.store_in_aiida_db>`\ (group_label, group_description)
         - Store structures into the AiiDA-database.
       * - :py:obj:`store_in_hdf5_file <aim2dat.strct.StructureCollection.store_in_hdf5_file>`\ (file_path)
         - Store structures in hdf5-file. Calculated extras are not yet supported.
+      * - :py:obj:`to_aiida_db <aim2dat.strct.StructureCollection.to_aiida_db>`\ (keys, group_label, group_description)
+        - Store structures into the AiiDA-database.
+      * - :py:obj:`to_file <aim2dat.strct.StructureCollection.to_file>`\ (file_path, keys)
+        - Store structures in file. If the file suffix is ``'*.h(df)?5'``, the internal hdf5 format
+      * - :py:obj:`to_pandas_df <aim2dat.strct.StructureCollection.to_pandas_df>`\ (keys, exclude_columns)
+        - Create a pandas data frame of the object.
 
 
 
    .. py:property:: labels
       :type: List[str]
+
 
       Labels assigened to the structures.
 
@@ -875,7 +997,7 @@ Classes
                    * **attributes** (*dict*) -- Additional information about the structure.
 
 
-   .. py:method:: append_structure(structure: aim2dat.strct.strct.Structure, label: str = None)
+   .. py:method:: append_structure(structure: aim2dat.strct.structure.Structure, label: str = None)
 
       Append ``Structure`` object to collection. The label of the structure needs to be
       either given via the structures's property or as keyword argument.
@@ -889,7 +1011,7 @@ Classes
       Return copy of ``StructureCollection`` object.
 
 
-   .. py:method:: create_pandas_df(exclude_columns: list = []) -> pandas.DataFrame
+   .. py:method:: create_pandas_df(exclude_columns: list = None) -> pandas.DataFrame
 
       Create a pandas data frame of the object.
 
@@ -904,6 +1026,65 @@ Classes
 
       :Parameters: * **key** (*str or int*) -- Key of the structure.
                    * **new_label** (*str*) -- Label of the copied structure.
+
+
+   .. py:method:: export_methods() -> list
+
+      list: Return export methods. This property is depreciated and will be removed soon.
+
+
+   .. py:method:: from_aiida_db(indices: Union[int, list, tuple, slice] = slice(None), group_label: str = None, use_uuid: bool = False, raise_error: bool = True)
+      :classmethod:
+
+
+      Import from the AiiDA database.
+
+      :Parameters: * **indices** (*int, list, tuple, slice*) -- Indices of a subset of the structures contained in the file.
+                   * **group_label** (*str or list (optional)*) -- Constrains query to structures that are member of the group(s).
+                   * **use_uuid** (*bool (optional)*) -- Whether to use the uuid (str) to represent AiiDA nodes instead of the primary key
+                     (int).
+                   * **raise_error** (*bool (optional)*) -- Whether to raise an error if one of the constraints is not met.
+
+
+   .. py:method:: from_file(file_path: str, labels: list = None, indices: Union[int, list, tuple, slice] = slice(None), raise_error: bool = True, backend: str = 'internal', file_format: str = None, backend_kwargs: dict = None)
+      :classmethod:
+
+
+      Import from hdf5-file. Calculated extras are not yet supported.
+
+      :Parameters: * **file_path** (*str*) -- File path.
+                   * **labels** (*list (optional)*) -- List of labels with the same length as loaded structures, overwriting the structure
+                     labels contained in the file.
+                   * **indices** (*int, list, tuple, slice*) -- Indices of a subset of the structures contained in the file.
+                   * **raise_error** (*bool (optional)*) -- Whether to raise an error if one of the constraints is not met.
+                   * **backend** (*str (optional)*) -- Backend to be used to parse the structure file. Supported options are ``'ase'``
+                     and ``'internal'``.
+                   * **file_format** (*str or None (optional)*) -- File format of the backend. For ``'ase'``, please refer to the documentation of the
+                     package for a complete list. For ``'internal'``, the format translates from
+                     ``io.{module}.read_structure`` to ``'{module}'`` or from
+                     ``{module}.read_{specification}_structure`` to ``'module-specification'``. If set to
+                     ``None`` the corresponding function is searched based on the file name and suffix.
+                   * **backend_kwargs** (*dict (optional)*) -- Arguments passed to the backend function.
+
+      :returns: *aim2dat.strct.StructureCollection* -- Structure collection.
+
+
+   .. py:method:: from_pandas_df(data_frame: pandas.DataFrame, indices: Union[int, list, tuple, slice] = slice(None), structure_column: str = 'structure', exclude_columns: list = None, use_uuid: bool = False, raise_error: bool = True)
+      :classmethod:
+
+
+      Import from pandas data frame.
+
+      :Parameters: * **data_frame** (*pd.DataFrame*) -- Pandas data frame containing at least one column with the AiiDA structure nodes.
+                   * **indices** (*int, list, tuple, slice*) -- Indices of a subset of the structures contained in the file.
+                   * **structure_column** (*str (optional)*) -- Column containing AiiDA structure nodes used to determine structural and compositional
+                     properties. The default value is ``'optimized_structure'``.
+                   * **exclude_columns** (*list (optional)*) -- Columns of the data frame that are excluded. The default value is ``[]``.
+                   * **use_uuid** (*bool (optional)*) -- Whether to use the uuid (str) to represent AiiDA nodes instead of the primary key
+                     (int).
+                   * **raise_error** (*bool (optional)*) -- Whether to raise an error if one of the constraints is not met.
+
+      :returns: *aim2dat.strct.StructureCollection* -- Structure collection.
 
 
    .. py:method:: get_all_attribute_keys() -> list
@@ -927,14 +1108,14 @@ Classes
       :returns: *list* -- List of all kinds.
 
 
-   .. py:method:: get_all_structures() -> List[aim2dat.strct.strct.Structure]
+   .. py:method:: get_all_structures() -> List[aim2dat.strct.structure.Structure]
 
       Return a list of all structures.
 
       :returns: *list* -- List of all structures stored in the object.
 
 
-   .. py:method:: get_structure(key: Union[str, int], return_index_label: bool = False) -> aim2dat.strct.strct.Structure
+   .. py:method:: get_structure(key: Union[str, int], return_index_label: bool = False) -> aim2dat.strct.structure.Structure
 
       Get structure by key.
 
@@ -974,6 +1155,11 @@ Classes
                    * **raise_error** (*bool (optional)*) -- Whether to raise an error if one of the constraints is not met.
 
 
+   .. py:method:: import_methods() -> list
+
+      list: Return import methods. This property is depreciated and will be removed soon.
+
+
    .. py:method:: index(label: str)
 
       Return index of label. If the label is not present, ``None`` is returned.
@@ -981,12 +1167,30 @@ Classes
       :Parameters: **str** -- Label of the structure.
 
 
-   .. py:method:: items() -> List[Tuple[str, aim2dat.strct.strct.Structure]]
+   .. py:method:: items() -> List[Tuple[str, aim2dat.strct.structure.Structure]]
 
       Return a list of label, value tuples.
 
 
-   .. py:method:: pop(key: Union[str, int]) -> aim2dat.strct.strct.Structure
+   .. py:method:: list_export_methods() -> list
+      :classmethod:
+
+
+      Get a list with the function names of all available export methods.
+
+      :returns: *list* -- Return a list of all available export methods.
+
+
+   .. py:method:: list_import_methods() -> list
+      :classmethod:
+
+
+      Get a list with the function names of all available import methods.
+
+      :returns: *list* -- Return a list of all available import methods.
+
+
+   .. py:method:: pop(key: Union[str, int]) -> aim2dat.strct.structure.Structure
 
       Pop structure.
 
@@ -1010,12 +1214,42 @@ Classes
       :Parameters: **file_path** (*str*) -- File path.
 
 
+   .. py:method:: to_aiida_db(keys: Union[int, str, list, tuple, slice] = slice(None), group_label: str = None, group_description: str = None)
+
+      Store structures into the AiiDA-database.
+
+      :Parameters: * **keys** (*int, str, list, tuple, slice*) -- Keys for a subset of structures.
+                   * **group_label** (*str (optional)*) -- Label of the AiiDA group.
+                   * **group_description** (*str (optional)*) -- Description of the AiiDA group.
+
+      :returns: *list* -- List containing dictionary of all structure nodes.
 
 
-.. py:class:: StructureImporter(structures: aim2dat.strct.StructureCollection = None, neglect_elemental_structures: bool = False)
+   .. py:method:: to_file(file_path: str, keys=slice(None))
+
+      Store structures in file. If the file suffix is ``'*.h(df)?5'``, the internal hdf5 format
+      is used, otherwise the ase Python package is used as backend.
+
+      :Parameters: * **file_path** (*str*) -- File path.
+                   * **keys** (*int, str, list, tuple, slice*) -- Keys for a subset of structures.
 
 
-   Bases: :py:obj:`aim2dat.strct.mixin.ConstraintsMixin`
+   .. py:method:: to_pandas_df(keys: Union[int, str, list, tuple, slice] = slice(None), exclude_columns: list = None) -> pandas.DataFrame
+
+      Create a pandas data frame of the object.
+
+      :Parameters: * **keys** (*int, str, list, tuple, slice*) -- Keys for a subset of structures.
+                   * **exclude_columns** (*list (optional)*) -- Columns that are not shown in the pandas data frame.
+
+      :returns: *pandas.DataFrame* -- Pandas data frame.
+
+
+
+
+.. py:class:: StructureImporter(structures: aim2dat.strct.structure_collection.StructureCollection = None, neglect_elemental_structures: bool = False)
+
+
+   Bases: :py:obj:`aim2dat.strct.constraints_mixin.ConstraintsMixin`
 
    Imports structures from online databases.
 
@@ -1032,8 +1266,6 @@ Classes
         - Constraints on the chemical formula.
       * - :py:obj:`concentration_constraints <aim2dat.strct.StructureImporter.concentration_constraints>`
         - Elemental concentration constraints.
-      * - :py:obj:`neglect_elemental_structures <aim2dat.strct.StructureImporter.neglect_elemental_structures>`
-        - Whether to neglect elemental phases.
       * - :py:obj:`structures <aim2dat.strct.StructureImporter.structures>`
         - Return the internal ``StructureCollection`` object.
 
@@ -1050,7 +1282,7 @@ Classes
         - Generate random crystals using the PyXtaL library.
       * - :py:obj:`import_from_mofxdb <aim2dat.strct.StructureImporter.import_from_mofxdb>`\ (name, mofid, mofkey, vf_range, lcd_range, pld_range, sa_m2g_range, sa_m2cm3_range, adsorbates, database, store_uptake, query_limit)
         - Import structures from the MOFX database using the fetch function.
-      * - :py:obj:`import_from_mp <aim2dat.strct.StructureImporter.import_from_mp>`\ (formulas, api_key, compatible_only, conv_unit_cell, property_data, structure_type, use_openapi)
+      * - :py:obj:`import_from_mp <aim2dat.strct.StructureImporter.import_from_mp>`\ (formulas, api_key, compatible_only, conv_unit_cell, property_data, structure_type)
         - Import structures from the crystal database Materials Project using the pymatgen interface.
       * - :py:obj:`import_from_optimade <aim2dat.strct.StructureImporter.import_from_optimade>`\ (formulas, database_id, api_version, optimade_url, timeout)
         - Import crystal structures using the optimade-API.
@@ -1066,6 +1298,12 @@ Classes
         - Set a constraint on the concentration of an element in the structure.
 
 
+   .. py:attribute:: neglect_elemental_structures
+      :value: False
+
+
+      Whether to neglect elemental phases.
+
 
    .. py:property:: attribute_constraints
 
@@ -1079,12 +1317,9 @@ Classes
 
       Elemental concentration constraints.
 
-   .. py:property:: neglect_elemental_structures
-
-      Whether to neglect elemental phases.
-
    .. py:property:: structures
-      :type: aim2dat.strct.StructureCollection
+      :type: aim2dat.strct.structure_collection.StructureCollection
+
 
       Return the internal ``StructureCollection`` object.
 
@@ -1099,7 +1334,7 @@ Classes
                    * **reduced_formula** (*bool (optional)*) -- If set to ``True`` the reduced formulas are compared. The default value is ``True``.
 
 
-   .. py:method:: append_from_mp_by_id(entry_id: str, api_key: str, property_data: list = None, structure_type: str = 'initial') -> aim2dat.strct.Structure
+   .. py:method:: append_from_mp_by_id(entry_id: str, api_key: str, property_data: list = None, structure_type: str = 'initial') -> aim2dat.strct.structure.Structure
 
       Append structure via the database-id.
 
@@ -1114,7 +1349,7 @@ Classes
                      to ``initial`` or ``final``, respectively.
 
 
-   .. py:method:: generate_random_crystals(formulas: Union[str, List[str]], excl_space_groups: list = [], tol_tuples: list = None, molecular: bool = False, dimensions: int = 3, bin_size: float = 0.1, max_atoms: int = 30, max_structures: int = 10, max_structures_per_cs: int = 10, max_structures_per_sg: int = 5, volume_factor: float = 1.0) -> aim2dat.strct.StructureCollection
+   .. py:method:: generate_random_crystals(formulas: Union[str, List[str]], excl_space_groups: list = [], tol_tuples: list = None, molecular: bool = False, dimensions: int = 3, bin_size: float = 0.1, max_atoms: int = 30, max_structures: int = 10, max_structures_per_cs: int = 10, max_structures_per_sg: int = 5, volume_factor: float = 1.0) -> aim2dat.strct.structure_collection.StructureCollection
 
       Generate random crystals using the PyXtaL library.
 
@@ -1137,7 +1372,7 @@ Classes
                    * **volume_factor** (*float (optional)*) -- Volume factor used to generate the crystal. The default value is ``1.0``.
 
 
-   .. py:method:: import_from_mofxdb(name: str = None, mofid: str = None, mofkey: str = None, vf_range: tuple = (None, None), lcd_range: tuple = (None, None), pld_range: tuple = (None, None), sa_m2g_range: tuple = (None, None), sa_m2cm3_range: tuple = (None, None), adsorbates: Union[str, List[str]] = None, database: str = None, store_uptake: bool = False, query_limit: int = 1000) -> aim2dat.strct.StructureCollection
+   .. py:method:: import_from_mofxdb(name: str = None, mofid: str = None, mofkey: str = None, vf_range: tuple = (None, None), lcd_range: tuple = (None, None), pld_range: tuple = (None, None), sa_m2g_range: tuple = (None, None), sa_m2cm3_range: tuple = (None, None), adsorbates: Union[str, List[str]] = None, database: str = None, store_uptake: bool = False, query_limit: int = 1000) -> aim2dat.strct.structure_collection.StructureCollection
 
       Import structures from the MOFX database using the fetch function.
       If no parameters are set, the whole dabatabse will be imported.
@@ -1157,7 +1392,7 @@ Classes
                    * **query_limit** (*int (optional)*) -- The maximum number of results to retrieve for the query.
 
 
-   .. py:method:: import_from_mp(formulas: Union[str, List[str]], api_key: str, compatible_only: bool = True, conv_unit_cell: bool = False, property_data: list = [], structure_type: str = 'initial', use_openapi: bool = False) -> aim2dat.strct.StructureCollection
+   .. py:method:: import_from_mp(formulas: Union[str, List[str]], api_key: str, compatible_only: bool = True, conv_unit_cell: bool = False, property_data: list = [], structure_type: str = 'initial') -> aim2dat.strct.structure_collection.StructureCollection
 
       Import structures from the crystal database Materials Project using the pymatgen interface.
 
@@ -1176,11 +1411,9 @@ Classes
                    * **structure_type** (*str (optional)*) -- Materials project includes the initial and final (relaxed) structure in the database.
                      The initial or final structure can be queried by setting this attribute
                      to ``initial`` or ``final``, respectively. The default setting is ``initial``.
-                   * **use_openapi** (*bool (optional)*) -- Whether to use the openapi interface of Materials Project. If set to ``False`` the
-                     legacy interface is used. The default value is ``False``.
 
 
-   .. py:method:: import_from_optimade(formulas: Union[str, List[str]], database_id: str, api_version: int = 1, optimade_url: str = 'https://providers.optimade.org/providers.json', timeout: float = 60.0) -> aim2dat.strct.StructureCollection
+   .. py:method:: import_from_optimade(formulas: Union[str, List[str]], database_id: str, api_version: int = 1, optimade_url: str = 'https://providers.optimade.org/providers.json', timeout: float = 60.0) -> aim2dat.strct.structure_collection.StructureCollection
 
       Import crystal structures using the optimade-API.
 
@@ -1198,7 +1431,7 @@ Classes
                    * **timeout** (*float (optional)*) -- Specifies the time to wait for response from the server. The default value is ``60.0``.
 
 
-   .. py:method:: import_from_oqmd(formulas: Union[str, List[str]], query_limit=1000) -> aim2dat.strct.StructureCollection
+   .. py:method:: import_from_oqmd(formulas: Union[str, List[str]], query_limit=1000) -> aim2dat.strct.structure_collection.StructureCollection
 
       Import from the open quantum materials database.
 
@@ -1248,10 +1481,10 @@ Classes
 
 
 
-.. py:class:: StructureOperations(structures: Union[List[Union[aim2dat.strct.Structure, dict]], aim2dat.strct.StructureCollection], output_format: str = 'dict', n_procs: int = 1, chunksize: int = 50, verbose: bool = True)
+.. py:class:: StructureOperations(structures: Union[List[Union[aim2dat.strct.structure.Structure, dict]], aim2dat.strct.structure_collection.StructureCollection], output_format: str = 'dict', n_procs: int = 1, chunksize: int = 50, verbose: bool = True)
 
 
-   Bases: :py:obj:`aim2dat.strct.mixin.AnalysisMixin`, :py:obj:`aim2dat.strct.mixin.ManipulationMixin`
+   Bases: :py:obj:`aim2dat.strct.analysis_mixin.AnalysisMixin`, :py:obj:`aim2dat.strct.manipulation_mixin.ManipulationMixin`
 
    Serves as a wrapper to make the methods defined on a single
    Structure object accessible for a StructureCollection.
@@ -1274,6 +1507,8 @@ Classes
         - Number of parallel processes.
       * - :py:obj:`output_format <aim2dat.strct.StructureOperations.output_format>`
         - Specify the output format of calculation methods. Supported options are ``'dict'``
+      * - :py:obj:`pipeline <aim2dat.strct.StructureOperations.pipeline>`
+        - Set pipeline list containing strings or tuples of the name of the manipulation
       * - :py:obj:`structures <aim2dat.strct.StructureOperations.structures>`
         - Return the internal ``StructureCollection`` object.
       * - :py:obj:`supported_output_formats <aim2dat.strct.StructureOperations.supported_output_formats>`
@@ -1288,19 +1523,23 @@ Classes
 
       * - :py:obj:`analysis_methods <aim2dat.strct.StructureOperations.analysis_methods>`\ ()
         - list: Return calculation methods. This property is depreciated and will be removed soon.
-      * - :py:obj:`calculate_angle <aim2dat.strct.StructureOperations.calculate_angle>`\ (site_index1, site_index2, site_index3, backfold_positions)
+      * - :py:obj:`calc_angle <aim2dat.strct.StructureOperations.calc_angle>`\ (site_index1, site_index2, site_index3, backfold_positions)
         - Calculate angle between three atoms.
-      * - :py:obj:`calculate_coordination <aim2dat.strct.StructureOperations.calculate_coordination>`\ (r_max, method, min_dist_delta, n_nearest_neighbours, radius_type, atomic_radius_delta, econ_tolerance, econ_conv_threshold, voronoi_weight_type, voronoi_weight_threshold, okeeffe_weight_threshold)
+      * - :py:obj:`calc_coordination <aim2dat.strct.StructureOperations.calc_coordination>`\ (indices, r_max, method, min_dist_delta, n_nearest_neighbours, radius_type, atomic_radius_delta, econ_tolerance, econ_conv_threshold, voronoi_weight_type, voronoi_weight_threshold, okeeffe_weight_threshold, get_statistics)
         - Calculate coordination environment of each atomic site.
-      * - :py:obj:`calculate_dihedral_angle <aim2dat.strct.StructureOperations.calculate_dihedral_angle>`\ (site_index1, site_index2, site_index3, site_index4, backfold_positions)
+      * - :py:obj:`calc_dihedral_angle <aim2dat.strct.StructureOperations.calc_dihedral_angle>`\ (site_index1, site_index2, site_index3, site_index4, backfold_positions)
         - Calculate dihedral angle between four atoms.
-      * - :py:obj:`calculate_distance <aim2dat.strct.StructureOperations.calculate_distance>`\ (site_index1, site_index2, backfold_positions, use_supercell, r_max, return_pos)
+      * - :py:obj:`calc_distance <aim2dat.strct.StructureOperations.calc_distance>`\ (site_index1, site_index2, backfold_positions, use_supercell, r_max, return_pos)
         - Calculate distance between two atoms.
-      * - :py:obj:`calculate_ffingerprint <aim2dat.strct.StructureOperations.calculate_ffingerprint>`\ (r_max, delta_bin, sigma, use_legacy_smearing, distinguish_kinds)
+      * - :py:obj:`calc_ffingerprint <aim2dat.strct.StructureOperations.calc_ffingerprint>`\ (r_max, delta_bin, sigma, use_legacy_smearing, distinguish_kinds)
         - Calculate f-fingerprint function for each element-pair and atomic site.
-      * - :py:obj:`calculate_stabilities <aim2dat.strct.StructureOperations.calculate_stabilities>`\ (unit, exclude_keys)
+      * - :py:obj:`calc_point_group <aim2dat.strct.StructureOperations.calc_point_group>`\ (threshold_distance, threshold_angle, threshold_inertia)
+        - Determine the point group of a molecule.
+      * - :py:obj:`calc_space_group <aim2dat.strct.StructureOperations.calc_space_group>`\ (symprec, angle_tolerance, hall_number, return_sym_operations, return_primitive_structure, return_standardized_structure, no_idealize)
+        - Determine the space group of the structure using spglib as backend.
+      * - :py:obj:`calc_stabilities <aim2dat.strct.StructureOperations.calc_stabilities>`\ (unit, exclude_keys)
         - Calculate the formation energies and stabilities of all structures.
-      * - :py:obj:`calculate_voronoi_tessellation <aim2dat.strct.StructureOperations.calculate_voronoi_tessellation>`\ (r_max)
+      * - :py:obj:`calc_voronoi_tessellation <aim2dat.strct.StructureOperations.calc_voronoi_tessellation>`\ (r_max)
         - Calculate voronoi polyhedron for each atomic site.
       * - :py:obj:`compare_sites_via_coordination <aim2dat.strct.StructureOperations.compare_sites_via_coordination>`\ (key1, key2, site_index1, site_index2, distinguish_kinds, threshold, \*\*cn_kwargs)
         - Compare two atomic sites based on their coordination and the distances to their neighbour
@@ -1313,13 +1552,11 @@ Classes
       * - :py:obj:`compare_structures_via_ffingerprint <aim2dat.strct.StructureOperations.compare_structures_via_ffingerprint>`\ (key1, key2, r_max, delta_bin, sigma, use_weights, use_legacy_smearing, distinguish_kinds)
         - Calculate similarity of two structures.
       * - :py:obj:`copy <aim2dat.strct.StructureOperations.copy>`\ ()
-        - Return copy of ``StructureCollection`` object.
+        - Return copy of ``StructureOperations`` object.
+      * - :py:obj:`create_supercell <aim2dat.strct.StructureOperations.create_supercell>`\ (size, wrap, change_label)
+        - Create supercell.
       * - :py:obj:`delete_atoms <aim2dat.strct.StructureOperations.delete_atoms>`\ (elements, site_indices, change_label)
         - Delete atoms by element, list of elements, site index  or list of site indices.
-      * - :py:obj:`determine_point_group <aim2dat.strct.StructureOperations.determine_point_group>`\ (threshold_distance, threshold_angle, threshold_inertia)
-        - Determine the point group of a molecule.
-      * - :py:obj:`determine_space_group <aim2dat.strct.StructureOperations.determine_space_group>`\ (symprec, angle_tolerance, hall_number, return_sym_operations, return_primitive_structure, return_standardized_structure, no_idealize)
-        - Determine the space group of the structure using spglib as backend.
       * - :py:obj:`find_duplicates_via_comp_sym <aim2dat.strct.StructureOperations.find_duplicates_via_comp_sym>`\ (confined, remove_structures, symprec, angle_tolerance, hall_number)
         - Find duplicate structures coimparing the composition and space group.
       * - :py:obj:`find_duplicates_via_direct_comp <aim2dat.strct.StructureOperations.find_duplicates_via_direct_comp>`\ (confined, remove_structures, symprec, angle_tolerance, hall_number, no_idealize, length_threshold, angle_threshold, position_threshold, distinguish_kinds)
@@ -1340,7 +1577,9 @@ Classes
         - Perform structure analaysis using an external method.
       * - :py:obj:`perform_manipulation <aim2dat.strct.StructureOperations.perform_manipulation>`\ (method, kwargs)
         - Perform structure manipulation using an external method.
-      * - :py:obj:`scale_unit_cell <aim2dat.strct.StructureOperations.scale_unit_cell>`\ (scaling_factors, pressure, bulk_modulus, change_label)
+      * - :py:obj:`run_pipeline <aim2dat.strct.StructureOperations.run_pipeline>`\ ()
+        - Run pipeline.
+      * - :py:obj:`scale_unit_cell <aim2dat.strct.StructureOperations.scale_unit_cell>`\ (scaling_factors, pressure, bulk_modulus, random_factors, random_seed, change_label)
         - Scale the unit cell of the structure, supporting isotropic and anisotropic strain,
       * - :py:obj:`substitute_elements <aim2dat.strct.StructureOperations.substitute_elements>`\ (elements, radius_type, remove_kind, change_label)
         - Substitute all atoms of one or several elements.
@@ -1350,12 +1589,14 @@ Classes
    .. py:property:: chunksize
       :type: int
 
+
       Number of tasks handed to each process at once.
 
       :type: int
 
    .. py:property:: n_procs
       :type: int
+
 
       Number of parallel processes.
 
@@ -1364,23 +1605,37 @@ Classes
    .. py:property:: output_format
       :type: str
 
+
       Specify the output format of calculation methods. Supported options are ``'dict'``
       and ``'DataFrame'``.
 
       :type: str
 
+   .. py:property:: pipeline
+      :type: list
+
+
+      Set pipeline list containing strings or tuples of the name of the manipulation
+      method, the input parameters and an integer number or list of integer numbers denoting how
+      many times the function is applied. A nested list for multiple operation is also valid.
+
+      :type: list
+
    .. py:property:: structures
-      :type: aim2dat.strct.StructureCollection
+      :type: aim2dat.strct.structure_collection.StructureCollection
+
 
       Return the internal ``StructureCollection`` object.
 
    .. py:property:: supported_output_formats
       :type: List[str]
 
+
       Return the supported output formats.
 
    .. py:property:: verbose
       :type: bool
+
 
       Print progress bar.
 
@@ -1392,7 +1647,7 @@ Classes
       list: Return calculation methods. This property is depreciated and will be removed soon.
 
 
-   .. py:method:: calculate_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, backfold_positions: bool = True) -> float
+   .. py:method:: calc_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, backfold_positions: bool = True) -> float
 
       Calculate angle between three atoms.
 
@@ -1406,11 +1661,12 @@ Classes
                 returned.
 
 
-   .. py:method:: calculate_coordination(r_max: float = 10.0, method: str = 'atomic_radius', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, radius_type: str = 'chen_manz', atomic_radius_delta: float = 0.0, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5) -> dict
+   .. py:method:: calc_coordination(indices: Union[int, list, tuple] = None, r_max: float = 10.0, method: str = 'atomic_radius', min_dist_delta: float = 0.1, n_nearest_neighbours: int = 5, radius_type: str = 'chen_manz', atomic_radius_delta: float = 0.0, econ_tolerance: float = 0.5, econ_conv_threshold: float = 0.001, voronoi_weight_type: float = 'rel_solid_angle', voronoi_weight_threshold: float = 0.5, okeeffe_weight_threshold: float = 0.5, get_statistics: bool = True) -> Union[dict, list]
 
       Calculate coordination environment of each atomic site.
 
-      :Parameters: * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
+      :Parameters: * **indices** (*list (optional)*) -- Site indices to include in the analysis.
+                   * **r_max** (*float (optional)*) -- Cut-off value for the maximum distance between two atoms in angstrom.
                    * **method** (*str (optional)*) -- Method used to calculate the coordination environment.
                    * **min_dist_delta** (*float (optional)*) -- Tolerance parameter that defines the relative distance from the nearest neighbour atom
                      for the ``'minimum_distance'`` method.
@@ -1433,11 +1689,13 @@ Classes
                      This parameter is depreciated and will be removed in a future version.
                      The original results can be obtained by using the ``voronoi_weight_threshold``
                      parameter and setting ``voronoi_weight_type`` to ``'rel_solid_angle'``.
+                   * **get_statistics** (*bool (optional)*) -- If set to ``False`` only the ``'sites'`` list is returned without average/min/max
+                     values for the distances and coordination numbers.
 
       :returns: *dict* -- Dictionary containing the coordination information of the structure.
 
 
-   .. py:method:: calculate_dihedral_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, site_index4: Union[int, List[int]] = 3, backfold_positions: bool = True) -> float
+   .. py:method:: calc_dihedral_angle(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, site_index3: Union[int, List[int]] = 2, site_index4: Union[int, List[int]] = 3, backfold_positions: bool = True) -> float
 
       Calculate dihedral angle between four atoms.
 
@@ -1451,7 +1709,7 @@ Classes
                 index pairs as keys and angles as values is returned.
 
 
-   .. py:method:: calculate_distance(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, backfold_positions: bool = True, use_supercell: bool = False, r_max: float = 7.5, return_pos: bool = False) -> Union[float, list]
+   .. py:method:: calc_distance(site_index1: Union[int, List[int]] = 0, site_index2: Union[int, List[int]] = 1, backfold_positions: bool = True, use_supercell: bool = False, r_max: float = 7.5, return_pos: bool = False) -> Union[float, list]
 
       Calculate distance between two atoms.
 
@@ -1471,7 +1729,7 @@ Classes
                 distance between the two sites exceeds ``r_max``, ``None`` is returned.
 
 
-   .. py:method:: calculate_ffingerprint(r_max: float = 20.0, delta_bin: float = 0.005, sigma: float = 0.05, use_legacy_smearing: bool = False, distinguish_kinds: bool = False) -> Tuple[dict, dict]
+   .. py:method:: calc_ffingerprint(r_max: float = 20.0, delta_bin: float = 0.005, sigma: float = 0.05, use_legacy_smearing: bool = False, distinguish_kinds: bool = False) -> Tuple[dict, dict]
 
       Calculate f-fingerprint function for each element-pair and atomic site.
 
@@ -1489,7 +1747,34 @@ Classes
                 * **atomic_fingerprints** (*dict*) -- Dictionary containing all individual fingerprint functions for each atomic site.
 
 
-   .. py:method:: calculate_stabilities(unit: str = 'eV', exclude_keys: list = []) -> Tuple[list, list]
+   .. py:method:: calc_point_group(threshold_distance: float = 0.1, threshold_angle: float = 1.0, threshold_inertia: float = 0.1) -> dict
+
+      Determine the point group of a molecule.
+
+      :Parameters: * **threshold_distance** (*float (optional)*) -- Tolerance parameter for distances.
+                   * **threshold_angle** (*float (optional)*) -- Tolerance parameter for angles.
+                   * **threshold_inertia** (*float (optional)*) -- Tolerance parameter for inertia.
+
+      :returns: *dict* -- Dictionary containing the point group and symmetry elements of the structure.
+
+
+   .. py:method:: calc_space_group(symprec: float = 0.005, angle_tolerance: float = -1.0, hall_number: int = 0, return_sym_operations: bool = False, return_primitive_structure: bool = False, return_standardized_structure: bool = False, no_idealize: bool = False) -> dict
+
+      Determine the space group of the structure using spglib as backend.
+
+      :Parameters: * **symprec** (*float (optional)*) -- Tolerance parameter for spglib
+                   * **angle_tolerance** (*float (optional)*) -- Tolerance parameter for spglib.
+                   * **hall_number** (*int (optional)*) -- The argument to constrain the space-group-type search only for the Hall symbol
+                     corresponding to it.
+                   * **return_sym_operations** (*bool (optional)*) -- Additionally, return all symmetry elements.
+                   * **return_primitive_structure** (*bool (optional)*) -- Whether to return the primitive standardized structure.
+                   * **return_standardized_structure** (*bool (optional)*) -- Whether to the non-primitive standardized structure.
+                   * **no_idealize** (*bool (optional)*) -- Whether to idealize unit cell vectors and angles.
+
+      :returns: *dict* -- Dictionary containing the internal space group number and labels.
+
+
+   .. py:method:: calc_stabilities(unit: str = 'eV', exclude_keys: list = []) -> Tuple[list, list]
 
       Calculate the formation energies and stabilities of all structures.
 
@@ -1503,7 +1788,7 @@ Classes
                 * **stabilities** (*list*) -- List of the stabilities of all structures.
 
 
-   .. py:method:: calculate_voronoi_tessellation(r_max: float = 10.0) -> List[List[dict]]
+   .. py:method:: calc_voronoi_tessellation(r_max: float = 10.0) -> List[List[dict]]
 
       Calculate voronoi polyhedron for each atomic site.
 
@@ -1524,7 +1809,7 @@ Classes
                    * **distinguish_kinds** (*bool (optional)*) -- Whether different kinds should be distinguished e.g. Ni0 and Ni1 would be considered as
                      different elements if ``True``.
                    * **threshold** (*float (optional)*) -- Threshold to consider two sites equivalent.
-                   * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
+                   * **cn_kwargs** -- Optional keyword arguments passed on to the ``calc_coordination`` function.
 
       :returns: *bool* -- Whether the two sites are equivalent or not.
 
@@ -1598,7 +1883,24 @@ Classes
 
    .. py:method:: copy() -> StructureOperations
 
-      Return copy of ``StructureCollection`` object.
+      Return copy of ``StructureOperations`` object.
+
+
+   .. py:method:: create_supercell(size: Union[int, list, tuple] = 2, wrap: bool = True, change_label: bool = False)
+
+      Create supercell.
+
+      :Parameters: * **size** (*int, list, tuple*) -- Super cell size, given as a list/tuple of three positive integer values or one integer
+                     value, applied to all directions.
+                   * **wrap** (*bool*) -- Wrap atomic positions back into the unit cell.
+                   * **change_label** (*bool*)
+
+      :returns: *Structure or StructureCollection* -- Structure or a collection of structures.
+
+      :raises TypeError: If ``size`` has the wrong type.
+      :raises ValueError: If ``size`` is not a positive integer number or a tuple/list of three positive integer
+          numbers.
+      :raises Warning: If ``size`` is gives a multiple of 1 for a non-periodic direction.
 
 
    .. py:method:: delete_atoms(elements: Union[str, List[str]] = [], site_indices: Union[int, List[int]] = [], change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
@@ -1609,33 +1911,6 @@ Classes
                    * **site_indices** (*list or tuple*) -- Site index or tuple or list of site indices to be deleted.
 
       :returns: *aim2dat.strct.Structure* -- Structure with deleted atoms.
-
-
-   .. py:method:: determine_point_group(threshold_distance: float = 0.1, threshold_angle: float = 1.0, threshold_inertia: float = 0.1) -> dict
-
-      Determine the point group of a molecule.
-
-      :Parameters: * **threshold_distance** (*float (optional)*) -- Tolerance parameter for distances.
-                   * **threshold_angle** (*float (optional)*) -- Tolerance parameter for angles.
-                   * **threshold_inertia** (*float (optional)*) -- Tolerance parameter for inertia.
-
-      :returns: *dict* -- Dictionary containing the point group and symmetry elements of the structure.
-
-
-   .. py:method:: determine_space_group(symprec: float = 0.005, angle_tolerance: float = -1.0, hall_number: int = 0, return_sym_operations: bool = False, return_primitive_structure: bool = False, return_standardized_structure: bool = False, no_idealize: bool = False) -> dict
-
-      Determine the space group of the structure using spglib as backend.
-
-      :Parameters: * **symprec** (*float (optional)*) -- Tolerance parameter for spglib
-                   * **angle_tolerance** (*float (optional)*) -- Tolerance parameter for spglib.
-                   * **hall_number** (*int (optional)*) -- The argument to constrain the space-group-type search only for the Hall symbol
-                     corresponding to it.
-                   * **return_sym_operations** (*bool (optional)*) -- Additionally, return all symmetry elements.
-                   * **return_primitive_structure** (*bool (optional)*) -- Whether to return the primitive standardized structure.
-                   * **return_standardized_structure** (*bool (optional)*) -- Whether to the non-primitive standardized structure.
-                   * **no_idealize** (*bool (optional)*) -- Whether to idealize unit cell vectors and angles.
-
-      :returns: *dict* -- Dictionary containing the internal space group number and labels.
 
 
    .. py:method:: find_duplicates_via_comp_sym(confined: list = None, remove_structures: bool = False, symprec: float = 0.005, angle_tolerance: float = -1.0, hall_number: int = 0) -> List[Tuple[str]]
@@ -1697,7 +1972,7 @@ Classes
                    * **distinguish_kinds** (*bool (optional)*) -- Whether different kinds should be distinguished e.g. Ni0 and Ni1 would be considered as
                      different elements if ``True``.
                    * **threshold** (*float (optional)*) -- Threshold to consider two sites equivalent.
-                   * **cn_kwargs** -- Optional keyword arguments passed on to the ``calculate_coordination`` function.
+                   * **cn_kwargs** -- Optional keyword arguments passed on to the ``calc_coordination`` function.
 
       :returns: *dict* -- Dictionary grouping equivalent sites.
 
@@ -1722,6 +1997,7 @@ Classes
    .. py:method:: list_analysis_methods() -> list
       :classmethod:
 
+
       Get a list with the function names of all available analysis methods.
 
       :returns: *list* -- Return a list of all available analysis methods.
@@ -1729,6 +2005,7 @@ Classes
 
    .. py:method:: list_manipulation_methods() -> list
       :classmethod:
+
 
       Get a list with the function names of all available manipulation methods.
 
@@ -1740,7 +2017,7 @@ Classes
       list: Return manipulation methods. This property is depreciated and will be removed soon.
 
 
-   .. py:method:: perform_analysis(method: collections.abc.Callable, kwargs: dict = {})
+   .. py:method:: perform_analysis(method: collections.abc.Callable, kwargs: dict = None)
 
       Perform structure analaysis using an external method.
 
@@ -1750,7 +2027,7 @@ Classes
       :returns: *output* -- Output of the analysis.
 
 
-   .. py:method:: perform_manipulation(method: collections.abc.Callable, kwargs: dict = {})
+   .. py:method:: perform_manipulation(method: collections.abc.Callable, kwargs: dict = None)
 
       Perform structure manipulation using an external method.
 
@@ -1761,7 +2038,12 @@ Classes
                 * *aim2dat.strct.StructureCollection* -- Manipulated structure(s).
 
 
-   .. py:method:: scale_unit_cell(scaling_factors: Union[float, List[float]] = None, pressure: float = None, bulk_modulus: float = None, change_label: bool = True) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
+   .. py:method:: run_pipeline()
+
+      Run pipeline.
+
+
+   .. py:method:: scale_unit_cell(scaling_factors: Union[float, List[float]] = None, pressure: float = None, bulk_modulus: float = None, random_factors: float = None, random_seed: int = None, change_label: bool = False) -> Union[aim2dat.strct.Structure, aim2dat.strct.StructureCollection]
 
       Scale the unit cell of the structure, supporting isotropic and anisotropic strain,
       and pressure-based strain.
@@ -1778,6 +2060,8 @@ Classes
                    * **pressure** (*float, optional*) -- Hydrostatic pressure to apply. Requires `bulk_modulus` to calculate scaling.
                    * **bulk_modulus** (*float, optional*) -- Bulk modulus of the material. Required if `pressure` is provided. Ensure the units
                      of `bulk_modulus` and `pressure` are consistent.
+                   * **random_factors** (*float, optional*) -- Extend to which the unitcell will be randomly scaled/distorted.
+                   * **random_seed** (*int, optional*) -- Specify the random seed to ensure reproducible results.
                    * **change_label** (*bool, optional*) -- If True, appends a suffix to the structure's label to reflect
                      the scaling applied. Defaults to True
 
@@ -1808,7 +2092,7 @@ Classes
 
 
 
-.. py:class:: SurfaceGeneration(structure: aim2dat.strct.strct.Structure)
+.. py:class:: SurfaceGeneration(structure: aim2dat.strct.structure.Structure)
 
 
    Generates a surfaces and surface slabs based on a bulk crystal structure.
@@ -1830,6 +2114,8 @@ Classes
       * - :py:obj:`to_aiida_surfacedata <aim2dat.strct.SurfaceGeneration.to_aiida_surfacedata>`\ (miller_indices, termination, tolerance, symprec, angle_tolerance, hall_number)
         - Create surface from a bulk crystal structure.
 
+
+   .. py:attribute:: structure
 
 
 

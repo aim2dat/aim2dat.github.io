@@ -1,5 +1,5 @@
-:py:mod:`aim2dat.utils.maths`
-=============================
+aim2dat.utils.maths
+===================
 
 .. py:module:: aim2dat.utils.maths
 
@@ -9,12 +9,8 @@
 
 
 
-Module Contents
----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -28,6 +24,8 @@ Functions
    aim2dat.utils.maths.gaussian_function
 
 
+Module Contents
+---------------
 
 .. py:function:: calc_angle(vector1, vector2)
 
